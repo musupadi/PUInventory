@@ -35,7 +35,7 @@
             <li><a href="<?php echo base_url('Ruang')?>"><i class="fa fa-list"></i>Type</a></li>
           </ul>
         </li>
-        <li class="treeview">
+        <li class="treeview active">
           <a href="#">
             <i class="fa fa-briefcase"></i> <span>Vendor</span>
             <span class="pull-right-container">
@@ -43,12 +43,12 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url('Kelas')?>"><i class="fa fa-briefcase"></i>Vendor</a></li>
-            <li><a href="<?php echo base_url('Berita')?>"><i class="fa fa-list"></i>Origin</a></li>
-            <li><a href="<?php echo base_url('Ruang')?>"><i class="fa fa-list"></i>Brand</a></li>
+            <li class="active"><a href="<?php echo base_url('Vendor/List')?>"><i class="fa fa-briefcase"></i>Vendor</a></li>
+            <li><a href="<?php echo base_url('Vendor/Origin')?>"><i class="fa fa-list"></i>Origin</a></li>
+            <li><a href="<?php echo base_url('Vendor/Brand')?>"><i class="fa fa-list"></i>Brand</a></li>
           </ul>
         </li>
-        <li class="treeview active">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-users"></i> <span>User Management</span>
             <span class="pull-right-container">
@@ -56,7 +56,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo base_url('User/Role')?>"><i class="fa fa-unlock-alt"></i>Role</a></li>
+            <li><a href="<?php echo base_url('User/Role')?>"><i class="fa fa-unlock-alt"></i>Role</a></li>
             <li><a href="<?php echo base_url('User')?>"><i class="fa fa-user"></i>User</a></li>
           </ul>
         </li>

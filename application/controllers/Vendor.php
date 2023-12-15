@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User extends CI_Controller {
+class Vendor extends CI_Controller {
 
     public function __construct(){
         parent::__construct();
@@ -11,10 +11,9 @@ class User extends CI_Controller {
         $this->load->model("Models");
         $this->load->library('form_validation');
     }
-    private function rulesRoles(){
+    private function rulesOrigin(){
         return [
-            ['field' => 'label','label' => 'Label','rules' => 'required'],
-            ['field' => 'level','label' => 'Level','rules' => 'required']
+            ['field' => 'label','label' => 'Label','rules' => 'required']
         ];
     }
     private function rulesUser(){
@@ -135,57 +134,116 @@ class User extends CI_Controller {
     }
 
 
-    // Role
-    public function Role(){
+    // Origin
+    public function Origin(){
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
-        $data['role'] = $this->Models->getAll('m_role');
+        $data['origin'] = $this->Models->getAll('m_origin');
         $this->load->view('dashboard/header',$data);
-        $this->load->view('User/Role/side',$data);
-        $this->load->view('User/Role/main',$data);
+        $this->load->view('Vendor/Origin/side',$data);
+        $this->load->view('Vendor/Origin/main',$data);
         $this->load->view('dashboard/footer');
     }
-    public function TambahRole(){
-        $this->form_validation->set_rules($this->rulesRoles());
+    public function List(){
+        $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
+        $data['vendor'] = $this->Models->getAll('m_vendor');
+        $this->load->view('dashboard/header',$data);
+        $this->load->view('Vendor/List/side',$data);
+        $this->load->view('Vendor/List/main',$data);
+        $this->load->view('dashboard/footer');
+    }
+
+    public function Brand(){
+        $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
+        $data['brand'] = $this->Models->AllBrand('m_brand');
+        $this->load->view('dashboard/header',$data);
+        $this->load->view('Vendor/Brand/side',$data);
+        $this->load->view('Vendor/Brand/main',$data);
+        $this->load->view('dashboard/footer');
+    }
+
+    public function TambahOrigin(){
+        $this->form_validation->set_rules($this->rulesOrigin());
         $ID = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         if($this->form_validation->run() === FALSE){
             $data['user'] =$this->Models->getID('m_user','username',$this->session->userdata('nama'));
             $this->load->view('dashboard/header',$data);
-            $this->load->view('User/Role/side',$data);
-            $this->load->view('User/Role/main',$data);
+            $this->load->view('Vendor/Origin/side',$data);
+            $this->load->view('Vendor/Origin/main',$data);
             $this->load->view('dashboard/footer');
         }else{
             $id = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));            
             $data['label'] = $this->input->post('label');
-            $data['level'] = $this->input->post('level');
             $data['created_by'] = $id[0]->id;;
             $data['updated_by'] = $id[0]->id;;
-            $this->Models->insert('m_role',$data);
+            $this->Models->insert('m_origin',$data);
             $this->session->set_flashdata('pesan','<script>alert("Data berhasil disimpan")</script>');
-            redirect(base_url('User/Role'));
+            redirect(base_url('Vendor/Origin'));
         }
     }
-    public function EditRole($id){
-        $this->form_validation->set_rules($this->rulesRoles());
+
+    public function TambahVendor(){
+        $this->form_validation->set_rules($this->rulesOrigin());
+        $ID = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
+        if($this->form_validation->run() === FALSE){
+            $data['user'] =$this->Models->getID('m_user','username',$this->session->userdata('nama'));
+            $this->load->view('dashboard/header',$data);
+            $this->load->view('Vendor/List/side',$data);
+            $this->load->view('Vendor/List/main',$data);
+            $this->load->view('dashboard/footer');
+        }else{
+            $id = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));            
+            $data['label'] = $this->input->post('label');
+            $data['created_by'] = $id[0]->id;;
+            $data['updated_by'] = $id[0]->id;;
+            $this->Models->insert('m_vendor',$data);
+            $this->session->set_flashdata('pesan','<script>alert("Data berhasil disimpan")</script>');
+            redirect(base_url('Vendor/List'));
+        }
+    }
+    public function EditOrigin($id){
+        $this->form_validation->set_rules($this->rulesOrigin());
         if($this->form_validation->run() === false){
             $data['user'] = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));   
             $where = array(
                 'id' => $id
             );
-            $data['role'] = $this->Models->getWhere2("m_role",$where);
+            $data['origin'] = $this->Models->getWhere2("m_origin",$where);
             $this->load->view('dashboard/header',$data);
-            $this->load->view('User/Role/side',$data);
-            $this->load->view('User/Role/edit',$data);
+            $this->load->view('Vendor/Origin/side',$data);
+            $this->load->view('Vendor/Origin/edit',$data);
             $this->load->view('dashboard/footer');  
             $this->session->set_flashdata('Pesan', '<script>alert("Data gagal diubah")</script>');
         }else{
             $ID = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));     
             $data['label'] = $this->input->post('label');
-            $data['level'] = $this->input->post('level');
             $data['updated_by'] = $ID[0]->id;
             $data['updated_at'] = $this->Models->GetTimestamp();
-            $this->Models->edit('m_role','id',$id,$data);
+            $this->Models->edit('m_origin','id',$id,$data);
             $this->session->set_flashdata('Pesan', '<script>alert("Data berhasil diubah")</script>');
-            redirect(base_url('User/Role'));
+            redirect(base_url('Vendor/Origin'));
+        }
+    }
+    public function EditVendor($id){
+        $this->form_validation->set_rules($this->rulesOrigin());
+        if($this->form_validation->run() === false){
+            $data['user'] = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));   
+            $where = array(
+                'id' => $id
+            );
+            $data['vendor'] = $this->Models->getWhere2("m_vendor",$where);
+            $this->load->view('dashboard/header',$data);
+            $this->load->view('Vendor/List/side',$data);
+            $this->load->view('Vendor/List/edit',$data);
+            $this->load->view('dashboard/footer');  
+            $this->session->set_flashdata('Pesan', '<script>alert("Data gagal diubah")</script>');
+        }else{
+            $ID = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));     
+            $data['label'] = $this->input->post('label');
+            $data['updated_by'] = $ID[0]->id;
+            $data['updated_at'] = $this->Models->GetTimestamp();
+            $this->Models->edit('m_vendor','id',$id,$data);
+            $this->session->set_flashdata('Pesan', '<script>alert("Data berhasil diubah")</script>');
+            redirect(base_url('Vendor/List'));
         }
     }
     public function Hapusrole($id){
@@ -193,6 +251,18 @@ class User extends CI_Controller {
         $this->session->set_flashdata('Pesan', '<script>alert("Data berhasil dihapus")</script>');
         redirect(base_url('User/Role'));
     }
+    public function HapusOrigin($id){
+        $this->Models->delete('m_origin','id',$id);
+        $this->session->set_flashdata('Pesan', '<script>alert("Data berhasil dihapus")</script>');
+        redirect(base_url('Vendor/Origin'));
+    }
+    public function HapusVendor($id){
+        $this->Models->delete('m_vendor','id',$id);
+        $this->session->set_flashdata('Pesan', '<script>alert("Data berhasil dihapus")</script>');
+        redirect(base_url('Vendor/List'));
+    }
+
+    
 }
 
 /* End of file Home.php */

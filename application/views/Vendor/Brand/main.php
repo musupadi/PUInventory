@@ -1,11 +1,11 @@
 
     <section class="content-header">
       <h1>
-        Role
+        Vendor
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-newspaper-o"></i>Role</a></li>
-        <li class="active">Role</li>
+        <li><a href="#"><i class="fa fa-newspaper-o"></i>Vendor</a></li>
+        <li class="active">Vendor</li>
       </ol>
     </section>
 
@@ -15,35 +15,34 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Role</h3>
+              <h3 class="box-title">Vendor</h3>
             </div>
             <!-- /.box-header -->
-            <a data-toggle="modal" data-target="#modal-success" class="btn btn-success btn-sm" style="width: 100px; margin-left: 10px"><i class="fa fa-fw fa-plus"></i>Add Role</a>
+            <a data-toggle="modal" data-target="#modal-success" class="btn btn-success btn-sm" style="width: 100px; margin-left: 10px"><i class="fa fa-fw fa-plus"></i>Add Vendor</a>
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Nama</th>
-                  <th>Level</th>
+                  <th>Label</th>
+                  <th>Origin</th>
                   <th style="width: 40px;">Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php
-                foreach ($role as $data){
+                foreach ($brand as $data){
 
                 ?>
                 <tr>
                   <td><?php echo $data->id?></td>
-                  <td><?php echo $data->label?></td>
-                  <td><?php echo $data->level?></td>
+                  <td><?php echo $data->brand?></td>
                   <td style="text-align: center;">
-                    <a href="<?php echo base_url('User/EditRole/'.$data->id);?>">
+                    <a href="<?php echo base_url('Vendor/EditVendor/'.$data->id);?>">
                       <i class="fa fa-fw fa-pencil"></i>
                     </a> 
-                    <a href="<?php echo base_url('User/HapusRole/'.$data->id);?>">
+                    <a href="<?php echo base_url('Vendor/HapusVendor/'.$data->id);?>">
                       <i class="fa fa-fw fa-trash"></i>
                     </a>
                     </div>
@@ -82,7 +81,6 @@
                 <tfoot>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Nama</th>
                   <th>Level</th>
                   <th style="width: 40px;">Aksi</th>
                 </tr>
@@ -93,26 +91,21 @@
             <!-- /.box-body -->
             <!-- INPUT -->
             <div class="modal modal-success fade" id="modal-success">
-            <?php echo form_open_multipart('User/TambahRole/')?>
-                <form role="form" action="<?php echo base_url('User/TambahRole/')?>" method="post" >
+            <?php echo form_open_multipart('Vendor/TambahVendor/')?>
+                <form role="form" action="<?php echo base_url('Vendor/TambahVendor/')?>" method="post" >
                 <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Input Kategori</h4>
+                        <h4 class="modal-title">Input Vendor</h4>
                     </div>
                     <div class="modal-body">
                         <div class="box-body">
                             <div class="form-group">
-                              <label for="text">Nama Role</label>
-                              <input type="text" class="form-control" name="label" placeholder="Nama Role">
+                              <label for="text">Nama Vendor</label>
+                              <input type="text" class="form-control" name="label" placeholder="Nama Vendor">
                               <p class="text-red"><?php echo form_error('label')?></p>
-                            </div>
-                            <div class="form-group">
-                              <label for="text">Level Role</label>
-                              <input type="number" class="form-control" name="level" placeholder="Level">
-                              <p class="text-red"><?php echo form_error('level')?></p>
                             </div>
                     </div>
                     <div class="modal-footer">
