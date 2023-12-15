@@ -47,8 +47,9 @@ class User extends CI_Controller {
             $this->load->view('User/List/input',$data);
             $this->load->view('dashboard/footer');
         }else{
-            $config['upload_path']          = './img/berita/';
+            $config['upload_path']          = './img/profile/';
             $config['allowed_types']        = 'gif|jpg|png|jpeg';
+            $config['file_name'] = uniqid();
             // $config['file_name']            = $this->id;
             // $config['overwrite']			= true;
             $config['max_size']             = 4096; // 1MB
@@ -93,11 +94,12 @@ class User extends CI_Controller {
             $this->load->view('User/List/edit',$data);
             $this->load->view('dashboard/footer');
         }else{
-            $config['upload_path']          = './img/berita/';
+            $config['upload_path']          = './img/profile/';
             $config['allowed_types']        = 'gif|jpg|png|jpeg';
             // $config['file_name']            = $this->id;
             // $config['overwrite']			= true;
             $config['max_size']             = 4096; // 1MB
+            $config['file_name'] = uniqid();
             // $config['max_width']            = 1024;
             // $config['max_height']           = 768;
 

@@ -20,9 +20,9 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active"><a href="<?php echo base_url("Home")?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+        <li><a href="<?php echo base_url("Home")?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
         
-        <li class="treeview">
+        <li class="treeview active">
           <a href="#">
             <i class="fa fa-database"></i> <span>Data Inventory</span>
             <span class="pull-right-container">
@@ -30,9 +30,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url('Inventory')?>"><i class="fa fa-book"></i>Item</a></li>
+            <li><a href="<?php echo base_url('Matakuliah')?>"><i class="fa fa-book"></i>Item</a></li>
             <li><a href="<?php echo base_url('Jurusan')?>"><i class="fa fa-book"></i>Item Non Asset</a></li>
-            <li><a href="<?php echo base_url('Inventory/Type')?>"><i class="fa fa-list"></i>Type</a></li>
+            <li class="active"><a href="<?php echo base_url('Inventory/Type')?>"><i class="fa fa-list"></i>Type</a></li>
           </ul>
         </li>
         <li class="treeview">

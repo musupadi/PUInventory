@@ -1,0 +1,155 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Inventory extends CI_Controller {
+
+    public function __construct(){
+        parent::__construct();
+        if($this->session->userdata('status') != "login"){
+            redirect(base_url("login"));
+        }
+        $this->load->model("Models");
+        $this->load->library('form_validation');
+    }
+    private function rulesType(){
+        return [
+            ['field' => 'label','label' => 'Label','rules' => 'required']
+        ];
+    }
+    private function rulesUser(){
+        return [
+            ['field' => 'name','label' => 'Name','rules' => 'required'],
+            ['field' => 'username','label' => 'Username ','rules' => 'required'],
+            ['field' => 'id_role','label' => 'Id_role','rules' => 'required'],
+            ['field' => 'email','label' => 'email','rules' => 'required'],
+        ];
+    }
+
+
+    public function index()
+    {
+        $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
+        $data['item'] = $this->Models->AllItem();
+        $this->load->view('dashboard/header',$data);
+        $this->load->view('Inventory/Item/side',$data);
+        $this->load->view('Inventory/Item/main',$data);
+        $this->load->view('dashboard/footer');
+    }
+
+    // Type
+    public function Type(){
+        $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
+        $data['type'] = $this->Models->getAll('m_type');
+        $this->load->view('dashboard/header',$data);
+        $this->load->view('Inventory/Type/side',$data);
+        $this->load->view('Inventory/Type/main',$data);
+        $this->load->view('dashboard/footer');
+    }
+    public function TambahType(){
+        $this->form_validation->set_rules($this->rulesType());
+        $ID = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
+        if($this->form_validation->run() === FALSE){
+            $data['user'] =$this->Models->getID('m_user','username',$this->session->userdata('nama'));
+            $this->load->view('dashboard/header',$data);
+            $this->load->view('Inventory/type/side',$data);
+            $this->load->view('Inventory/type/main',$data);
+            $this->load->view('dashboard/footer');
+        }else{
+            $id = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));            
+            $data['label'] = $this->input->post('label');
+            $data['created_by'] = $id[0]->id;;
+            $data['updated_by'] = $id[0]->id;;
+            $this->Models->insert('m_type',$data);
+            $this->session->set_flashdata('pesan','<script>alert("Data berhasil disimpan")</script>');
+            redirect(base_url('Inventory/Type'));
+        }
+    }
+    public function Typeedit($id){
+        $this->form_validation->set_rules($this->rulesType());
+        if($this->form_validation->run() === false){
+            $data['user'] = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));   
+            $where = array(
+                'id' => $id
+            );
+            $data['role'] = $this->Models->getWhere2("m_type",$where);
+            $this->load->view('dashboard/header',$data);
+            $this->load->view('User/Role/side',$data);
+            $this->load->view('Inventory/Type/edit',$data);
+            $this->load->view('dashboard/footer');  
+            $this->session->set_flashdata('Pesan', '<script>alert("Data gagal diubah")</script>');
+        }else{
+            $ID = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));     
+            $data['label'] = $this->input->post('label');
+            $data['updated_by'] = $ID[0]->id;
+            $data['updated_at'] = $this->Models->GetTimestamp();
+            $this->Models->edit('m_type','id',$id,$data);
+            $this->session->set_flashdata('Pesan', '<script>alert("Data berhasil diubah")</script>');
+            redirect(base_url('Inventory/Type'));
+        }
+    }
+    public function Hapustype($id){
+        $this->Models->delete('m_type','id',$id);
+        $this->session->set_flashdata('Pesan', '<script>alert("Data berhasil dihapus")</script>');
+        redirect(base_url('Inventory/Type'));
+    }
+
+    // Item
+    public function Item(){
+        $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
+        $data['item'] = $this->Models->getAll('m_item');
+        $this->load->view('dashboard/header',$data);
+        $this->load->view('Inventory/Item/side',$data);
+        $this->load->view('Inventory/Item/main',$data);
+        $this->load->view('dashboard/footer');
+    }
+
+    // public function TambahType(){
+    //     $this->form_validation->set_rules($this->rulesType());
+    //     $ID = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
+    //     if($this->form_validation->run() === FALSE){
+    //         $data['user'] =$this->Models->getID('m_user','username',$this->session->userdata('nama'));
+    //         $this->load->view('dashboard/header',$data);
+    //         $this->load->view('Inventory/type/side',$data);
+    //         $this->load->view('Inventory/type/main',$data);
+    //         $this->load->view('dashboard/footer');
+    //     }else{
+    //         $id = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));            
+    //         $data['label'] = $this->input->post('label');
+    //         $data['created_by'] = $id[0]->id;;
+    //         $data['updated_by'] = $id[0]->id;;
+    //         $this->Models->insert('m_type',$data);
+    //         $this->session->set_flashdata('pesan','<script>alert("Data berhasil disimpan")</script>');
+    //         redirect(base_url('Inventory/Type'));
+    //     }
+    // }
+    // public function Typeedit($id){
+    //     $this->form_validation->set_rules($this->rulesType());
+    //     if($this->form_validation->run() === false){
+    //         $data['user'] = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));   
+    //         $where = array(
+    //             'id' => $id
+    //         );
+    //         $data['role'] = $this->Models->getWhere2("m_type",$where);
+    //         $this->load->view('dashboard/header',$data);
+    //         $this->load->view('User/Role/side',$data);
+    //         $this->load->view('Inventory/Type/edit',$data);
+    //         $this->load->view('dashboard/footer');  
+    //         $this->session->set_flashdata('Pesan', '<script>alert("Data gagal diubah")</script>');
+    //     }else{
+    //         $ID = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));     
+    //         $data['label'] = $this->input->post('label');
+    //         $data['updated_by'] = $ID[0]->id;
+    //         $data['updated_at'] = $this->Models->GetTimestamp();
+    //         $this->Models->edit('m_type','id',$id,$data);
+    //         $this->session->set_flashdata('Pesan', '<script>alert("Data berhasil diubah")</script>');
+    //         redirect(base_url('Inventory/Type'));
+    //     }
+    // }
+    // public function Hapustype($id){
+    //     $this->Models->delete('m_type','id',$id);
+    //     $this->session->set_flashdata('Pesan', '<script>alert("Data berhasil dihapus")</script>');
+    //     redirect(base_url('Inventory/Type'));
+    // }
+}
+
+/* End of file Home.php */
