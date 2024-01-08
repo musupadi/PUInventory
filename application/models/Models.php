@@ -55,6 +55,16 @@ class Models extends CI_Model {
         return $data;
     }
 
+    public function AllItem(){
+        $this->db->select('a.id, a.name, b.label as type, a.asset_no, a.qty, a.description, a.id_status, c.label as brand, d.label as vendor, a.delivery_date, a.warranty, a.serial_number, a.photo');
+        $this->db->from('m_item as a');
+        $this->db->join('m_type as b', 'a.id_type = b.id', 'left');
+        $this->db->join('m_brand as c', 'a.id_brand = c.id', 'left'); // Corrected join condition
+        $this->db->join('m_vendor as d', 'a.id_vendor = d.id', 'left'); 
+        $data = $this->db->get()->result();
+        return $data;
+    }
+
     // Model Lama
     public function BeritaLimit($limit){
         $query = "SELECT a.id_berita,a.judul_berita,a.berita,b.kategori,a.gambar FROM berita a JOIN kategori_berita b ON a.id_kategori=b.id_kategori ORDER BY a.id_berita DESC LIMIT $limit";
