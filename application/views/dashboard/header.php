@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Inventory Podomoro University</title>
+  <title><?= $title; ?> - Inventory Podomoro University</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -117,7 +117,7 @@
                   <a href="<?php echo base_url('Tahun') ?>" class="btn btn-default btn-flat">Tahun Ajaran</a>
                 </div>
                 <div class="pull-right">
-                  <a href="<?php echo base_url("Login/logout")?>" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="<?php echo base_url("Login/logout")?>" class="btn btn-default btn-flat" onclick="return confirm('are you going to logout?');">Sign out</a>
                 </div>
               </li>
             </ul>

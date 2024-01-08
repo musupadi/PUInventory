@@ -31,6 +31,7 @@ class User extends CI_Controller {
     {
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         $data['Data'] = $this->Models->AllUser();
+        $data['title'] = 'User';
         $this->load->view('dashboard/header',$data);
         $this->load->view('User/List/side',$data);
         $this->load->view('User/List/main',$data);
@@ -42,6 +43,7 @@ class User extends CI_Controller {
         if($this->form_validation->run() === FALSE){
             $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
             $data['role'] =$this->Models->getAll('m_role');
+            $data['title'] = 'New User';
             $this->load->view('dashboard/header',$data);
             $this->load->view('User/List/side',$data);
             $this->load->view('User/List/input',$data);
@@ -88,6 +90,7 @@ class User extends CI_Controller {
             $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
             $data['role'] =$this->Models->getAll('m_role');
             $data['users'] =$this->Models->getID('m_user','id',$id);
+            $data['title'] = 'Edit';
             $this->load->view('dashboard/header',$data);
             $this->load->view('User/List/side',$data);
             $this->load->view('User/List/edit',$data);
@@ -139,6 +142,7 @@ class User extends CI_Controller {
     public function Role(){
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         $data['role'] = $this->Models->getAll('m_role');
+        $data['title'] = 'Role';
         $this->load->view('dashboard/header',$data);
         $this->load->view('User/Role/side',$data);
         $this->load->view('User/Role/main',$data);
@@ -172,6 +176,7 @@ class User extends CI_Controller {
                 'id' => $id
             );
             $data['role'] = $this->Models->getWhere2("m_role",$where);
+            $data['title'] = 'Edit Role';
             $this->load->view('dashboard/header',$data);
             $this->load->view('User/Role/side',$data);
             $this->load->view('User/Role/edit',$data);

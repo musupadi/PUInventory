@@ -11,7 +11,7 @@ class Login extends CI_Controller {
         return [
             ['field' => 'username','label' => 'Username','rules' => 'required'],
             ['field' => 'password','label' => 'Password','rules' => 'required'],
-            ['field' => 'nama','label' => 'Nama','rules' => 'required'],
+            ['field' => 'name','label' => 'Name','rules' => 'required'],
             ['field' => 'email','label' => 'Email','rules' => 'required'],
         ];
     }
@@ -50,44 +50,38 @@ class Login extends CI_Controller {
         $this->session->sess_destroy();
         redirect(base_url("Login"));
     }
-//     public function register(){
-//         $this->form_validation->set_rules($this->rules());
-//         if($this->form_validation->run() === FALSE){
-//             $this->load->view('register');
-//         }else{
-//             $config['upload_path']          = './img/profile/';
-//             $config['allowed_types']        = 'gif|jpg|png|jpeg';
-//             // $config['file_name']            = $this->id;
-//             // $config['overwrite']			= true;
-//             //$config['max_size']             = 4096; // 1MB
-//             // $config['max_width']            = 1024;
-//             // $config['max_height']           = 768;
+    public function register(){
+        $this->form_validation->set_rules($this->rules());
+        if($this->form_validation->run() === FALSE){
+            $this->load->view('register');
+        }else{
+            $config['upload_path']          = './img/profile/';
+            $config['allowed_types']        = 'gif|jpg|png|jpeg';
+            // $config['file_name']            = $this->id;
+            // $config['overwrite']			= true;
+            //$config['max_size']             = 4096; // 1MB
+            // $config['max_width']            = 1024;
+            // $config['max_height']           = 768;
 
-//             $this->load->library('upload', $config);
-//             if ($this->upload->do_upload('gambar')) {
-//                 $data['username'] = $this->input->post('username');
-//                 $data['password'] = MD5($this->input->post('password'));
-//                 $data['nama'] = $this->input->post('nama');
-//                 $data['email'] = $this->input->post('email');
-//                 $data['wallet'] = "0";
-//                 $data['profile'] = $this->upload->data("file_name");
-//                 $data['alamat'] = $this->input->post('alamat');
-//                 $data['level'] = "2";
-//             }else{
-//                 $data['username'] = $this->input->post('username');
-//                 $data['password'] = MD5($this->input->post('password'));
-//                 $data['nama'] = $this->input->post('nama');
-//                 $data['email'] = $this->input->post('email');
-//                 $data['wallet'] = "0";
-//                 $data['profile'] = "default.jpg";
-//                 $data['alamat'] = $this->input->post('alamat');
-//                 $data['level'] = "2";
-//             }
-//             $this->Models->insert('user',$data);
-//             $this->session->set_flashdata('pesan','<script>alert("Akun berhasil dibuat")</script>');
-//             redirect(base_url('Login'));
-//         }
-//     }
+            $this->load->library('upload', $config);
+            if ($this->upload->do_upload('gambar')) {
+                $data['username'] = $this->input->post('username');
+                $data['password'] = MD5($this->input->post('password'));
+                $data['name'] = $this->input->post('name');
+                $data['email'] = $this->input->post('email');
+                $data['photo'] = 'logo.jpg';
+            }else{
+                $data['username'] = $this->input->post('username');
+                $data['password'] = MD5($this->input->post('password'));
+                $data['name'] = $this->input->post('name');
+                $data['email'] = $this->input->post('email');
+                $data['photo'] = 'logo.jpg';
+            }
+            $this->Models->insert('m_user',$data);
+            $this->session->set_flashdata('pesan','<script>alert("Akun berhasil dibuat")</script>');
+            redirect(base_url('Login'));
+        }
+    }
 }
 
 /* End of file Controllername.php */

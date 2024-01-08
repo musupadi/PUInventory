@@ -28,11 +28,11 @@
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <a href="<?php echo base_url();?>asset/AdminLTE-2.4.18/index2.html"><b>Online</b>Shop</a>
+    <a href="<?php echo base_url();?>asset/AdminLTE-2.4.18/index2.html"><b>New</b>Account</a>
   </div>
 
   <div class="register-box-body">
-    <p class="login-box-msg">Daftar member Baru</p>
+    <p class="login-box-msg">Register New Account</p>
     <?php echo form_open_multipart('Login/register')?>
     <form action="<?php echo base_url('Login/register')?>" method="post">
       <div class="form-group has-feedback">
@@ -44,16 +44,12 @@
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" name="nama" placeholder="Nama">
+        <input type="text" class="form-control" name="name" placeholder="Nama">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
         <input type="email" class="form-control" name = "email" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-      </div>
-      <div class="form-group has-feedback">
-        <input type="text" class="form-control" name = "alamat" placeholder="Alamat">
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group">
                       <label for="text">Foto Profile</label>

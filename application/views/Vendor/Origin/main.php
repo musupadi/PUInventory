@@ -19,29 +19,31 @@
             </div>
             <!-- /.box-header -->
             <a data-toggle="modal" data-target="#modal-success" class="btn btn-success btn-sm" style="width: 100px; margin-left: 10px"><i class="fa fa-fw fa-plus"></i>Add Origin</a>
+            <?= $this->session->flashdata('Pesan') ?>
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Nama</th>
-                  <th style="width: 40px;">Aksi</th>
+                  <th>Name</th>
+                  <th style="width: 40px;">Action</th>
                 </tr>
                 </thead>
                 <tbody>
+                  <?php $i = 1; ?>
                 <?php
                 foreach ($origin as $data){
 
                 ?>
                 <tr>
-                  <td><?php echo $data->id?></td>
+                  <td><?php echo $i++; ?></td>
                   <td><?php echo $data->label?></td>
                   <td style="text-align: center;">
                     <a href="<?php echo base_url('Vendor/EditOrigin/'.$data->id);?>">
                       <i class="fa fa-fw fa-pencil"></i>
                     </a> 
-                    <a href="<?php echo base_url('Vendor/HapusOrigin/'.$data->id);?>">
+                    <a href="<?php echo base_url('Vendor/HapusOrigin/'.$data->id);?>"onclick="return confirm('yakin?');">
                       <i class="fa fa-fw fa-trash"></i>
                     </a>
                     </div>
@@ -80,8 +82,8 @@
                 <tfoot>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Level</th>
-                  <th style="width: 40px;">Aksi</th>
+                  <th>Name</th>
+                  <th style="width: 40px;">Action</th>
                 </tr>
                 </tfoot>
               </table>
@@ -102,8 +104,8 @@
                     <div class="modal-body">
                         <div class="box-body">
                             <div class="form-group">
-                              <label for="text">Nama Origin</label>
-                              <input type="text" class="form-control" name="label" placeholder="Nama Origin">
+                              <label for="text">Origin</label>
+                              <input type="text" class="form-control" name="label" placeholder="Origin" required>
                               <p class="text-red"><?php echo form_error('label')?></p>
                             </div>
                     </div>

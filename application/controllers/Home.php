@@ -16,6 +16,7 @@ class Home extends CI_Controller {
         // $data['barang'] = $this->Models->getMyProduct($this->session->userdata('nama'));
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         // $data['count_wallet'] = $this->Models->Count('wallet','status','Belum Diverifikasi');
+        $data['title'] = 'Dashboard';
         $this->load->view('dashboard/header',$data);
         $this->load->view('dashboard/side',$data);
         $this->load->view('dashboard/main',$data);

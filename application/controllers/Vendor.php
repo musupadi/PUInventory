@@ -138,6 +138,7 @@ class Vendor extends CI_Controller {
     public function Origin(){
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         $data['origin'] = $this->Models->getAll('m_origin');
+        $data['title'] = 'Origin';
         $this->load->view('dashboard/header',$data);
         $this->load->view('Vendor/Origin/side',$data);
         $this->load->view('Vendor/Origin/main',$data);
@@ -146,6 +147,7 @@ class Vendor extends CI_Controller {
     public function List(){
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         $data['vendor'] = $this->Models->getAll('m_vendor');
+        $data['title'] = 'Vendor';
         $this->load->view('dashboard/header',$data);
         $this->load->view('Vendor/List/side',$data);
         $this->load->view('Vendor/List/main',$data);
@@ -155,6 +157,7 @@ class Vendor extends CI_Controller {
     public function Brand(){
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         $data['brand'] = $this->Models->AllBrand('m_brand');
+        $data['title'] = 'Brand';
         $this->load->view('dashboard/header',$data);
         $this->load->view('Vendor/Brand/side',$data);
         $this->load->view('Vendor/Brand/main',$data);
@@ -200,6 +203,27 @@ class Vendor extends CI_Controller {
             redirect(base_url('Vendor/List'));
         }
     }
+
+    public function TambahBrand(){
+        $this->form_validation->set_rules($this->rulesOrigin());
+        $ID = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
+        if($this->form_validation->run() === FALSE){
+            $data['user'] =$this->Models->getID('m_user','username',$this->session->userdata('nama'));
+            $this->load->view('dashboard/header',$data);
+            $this->load->view('Vendor/Brand/side',$data);
+            $this->load->view('Vendor/Brand/main',$data);
+            $this->load->view('dashboard/footer');
+        }else{
+            $id = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));            
+            $data['label'] = $this->input->post('label');
+            $data['created_by'] = $id[0]->id;;
+            $data['updated_by'] = $id[0]->id;;
+            $this->Models->insert('m_brand',$data);
+            $this->session->set_flashdata('pesan','<script>alert("Data berhasil disimpan")</script>');
+            redirect(base_url('Vendor/Brand'));
+        }
+    }
+
     public function EditOrigin($id){
         $this->form_validation->set_rules($this->rulesOrigin());
         if($this->form_validation->run() === false){
@@ -208,6 +232,7 @@ class Vendor extends CI_Controller {
                 'id' => $id
             );
             $data['origin'] = $this->Models->getWhere2("m_origin",$where);
+            $data['title'] = 'Edit Origin';
             $this->load->view('dashboard/header',$data);
             $this->load->view('Vendor/Origin/side',$data);
             $this->load->view('Vendor/Origin/edit',$data);
@@ -231,6 +256,7 @@ class Vendor extends CI_Controller {
                 'id' => $id
             );
             $data['vendor'] = $this->Models->getWhere2("m_vendor",$where);
+            $data['title'] = 'Edit Vendor';
             $this->load->view('dashboard/header',$data);
             $this->load->view('Vendor/List/side',$data);
             $this->load->view('Vendor/List/edit',$data);
@@ -244,6 +270,31 @@ class Vendor extends CI_Controller {
             $this->Models->edit('m_vendor','id',$id,$data);
             $this->session->set_flashdata('Pesan', '<script>alert("Data berhasil diubah")</script>');
             redirect(base_url('Vendor/List'));
+        }
+    }
+
+    public function EditBrand($id){
+        $this->form_validation->set_rules($this->rulesOrigin());
+        if($this->form_validation->run() === false){
+            $data['user'] = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));   
+            $where = array(
+                'id' => $id
+            );
+            $data['brand'] = $this->Models->getWhere2("m_brand",$where);
+            $data['title'] = 'Edit Brand';
+            $this->load->view('dashboard/header',$data);
+            $this->load->view('Vendor/Brand/side',$data);
+            $this->load->view('Vendor/Brand/edit',$data);
+            $this->load->view('dashboard/footer');  
+            $this->session->set_flashdata('Pesan', '<script>alert("Data gagal diubah")</script>');
+        }else{
+            $ID = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));     
+            $data['label'] = $this->input->post('label');
+            $data['updated_by'] = $ID[0]->id;
+            $data['updated_at'] = $this->Models->GetTimestamp();
+            $this->Models->edit('m_brand','id',$id,$data);
+            $this->session->set_flashdata('Pesan', '<script>alert("Data berhasil diubah")</script>');
+            redirect(base_url('Vendor/Brand'));
         }
     }
     public function Hapusrole($id){
@@ -260,6 +311,11 @@ class Vendor extends CI_Controller {
         $this->Models->delete('m_vendor','id',$id);
         $this->session->set_flashdata('Pesan', '<script>alert("Data berhasil dihapus")</script>');
         redirect(base_url('Vendor/List'));
+    }
+    public function HapusBrand($id){
+        $this->Models->delete('m_brand','id',$id);
+        $this->session->set_flashdata('Pesan', '<script>alert("Data berhasil dihapus")</script>');
+        redirect(base_url('Vendor/Brand'));
     }
 
     

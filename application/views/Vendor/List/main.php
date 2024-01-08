@@ -19,33 +19,32 @@
             </div>
             <!-- /.box-header -->
             <a data-toggle="modal" data-target="#modal-success" class="btn btn-success btn-sm" style="width: 100px; margin-left: 10px"><i class="fa fa-fw fa-plus"></i>Add Vendor</a>
+            <?= $this->session->flashdata('Pesan') ?>
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Nama</th>
-                  <th style="width: 40px;">Aksi</th>
+                  <th>Name</th>
+                  <th style="width: 40px;">Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                <?php
-                foreach ($vendor as $data){
-
-                ?>
+                  <?php $i = 1; ?>
+                <?php foreach ($vendor as $data) : ?>
                 <tr>
-                  <td><?php echo $data->id?></td>
+                  <td><?php echo $i++; ?></td>
                   <td><?php echo $data->label?></td>
                   <td style="text-align: center;">
                     <a href="<?php echo base_url('Vendor/EditVendor/'.$data->id);?>">
                       <i class="fa fa-fw fa-pencil"></i>
                     </a> 
-                    <a href="<?php echo base_url('Vendor/HapusVendor/'.$data->id);?>">
+                    <a href="<?php echo base_url('Vendor/HapusVendor/'.$data->id);?>"onclick="return confirm('yakin?');">
                       <i class="fa fa-fw fa-trash"></i>
                     </a>
                     </div>
-                    </div>
+                    </div>  
                   </td>
                 </tr>
                 <?php echo form_open_multipart('User/EditRole/')?>
@@ -75,13 +74,15 @@
                         </div>
                     <!-- /.modal-dialog -->
                 </form>
-                <?php  } ?>
+              
+                <?php  endforeach; ?>
                 </tbody>
+
                 <tfoot>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Level</th>
-                  <th style="width: 40px;">Aksi</th>
+                  <th>Name</th>
+                  <th style="width: 40px;">Action</th>
                 </tr>
                 </tfoot>
               </table>
@@ -102,8 +103,8 @@
                     <div class="modal-body">
                         <div class="box-body">
                             <div class="form-group">
-                              <label for="text">Nama Vendor</label>
-                              <input type="text" class="form-control" name="label" placeholder="Nama Vendor">
+                              <label for="text">Vendor Name</label>
+                              <input type="text" class="form-control" name="label" placeholder="Vendor Name" required>
                               <p class="text-red"><?php echo form_error('label')?></p>
                             </div>
                     </div>

@@ -1,11 +1,11 @@
 
     <section class="content-header">
       <h1>
-        List User
+        User Management
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-newspaper-o"></i>User</a></li>
-        <li class="active">List User</li>
+        <li><a href="#"><i class="fa fa-newspaper-o"></i>User Management</a></li>
+        <li class="active">User</li>
       </ol>
     </section>
 
@@ -15,20 +15,20 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">User Baru</h3>
+              <h3 class="box-title">New User</h3>
             </div>
             <!-- /.box-header -->
-            <a href="<?php echo base_url('User/Postuser');?>" data-target="#modal-success" class="btn btn-success btn-sm" style="width: 100px; margin-left: 10px"><i class="fa fa-fw fa-plus" ></i>Tambah User</a>
+            <a href="<?php echo base_url('User/Postuser');?>" data-target="#modal-success" class="btn btn-success btn-sm" style="width: 100px; margin-left: 10px"><i class="fa fa-fw fa-plus" ></i>New User</a>
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Foto</th>
-                  <th>Nama</th>
+                  <th>Photo</th>
+                  <th>Name</th>
                   <th>Username</th>
                   <th>Role</th>
-                  <th>Aksi</th>
+                  <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -45,7 +45,7 @@
                     <a href="<?php echo base_url('User/Edit/'.$data->id);?>">
                       <i class="fa fa-fw fa-pencil"></i>
                     </a> 
-                    <a href="<?php echo base_url('User/Delete/'.$data->id);?>">
+                    <a href="<?php echo base_url('User/Delete/'.$data->id);?>"onclick="return confirm('yakin?');">
                       <i class="fa fa-fw fa-trash"></i>
                     </a>
                     </div>
@@ -56,11 +56,11 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Foto</th>
-                  <th>Nama</th>
+                  <th>Photo</th>
+                  <th>Name</th>
                   <th>Username</th>
                   <th>Role</th>
-                  <th>Aksi</th>
+                  <th>Action</th>
                 </tr>
                 </tfoot>
               </table>

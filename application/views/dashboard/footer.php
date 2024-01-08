@@ -4,7 +4,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 1
     </div>
-    <strong>Copyright &copy; 2023 <a href="<?php base_url() ?>">Podomoro University</a>.</strong> All rights
+    <strong>Copyright &copy; 2024 <a href="<?php base_url() ?>">Podomoro University</a>.</strong> All rights
     reserved.
   </footer>
 

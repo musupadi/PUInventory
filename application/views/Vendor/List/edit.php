@@ -1,10 +1,10 @@
 <section class="content-header">
       <h1>
-        Edit Origin
+        Edit Vendor
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-newspaper-o"></i>Edit Origin</a></li>
-        <li class="active">Edit Origin</li>
+        <li><a href="#"><i class="fa fa-newspaper-o"></i>Edit Vendor</a></li>
+        <li class="active">Edit Vendor</li>
       </ol>
     </section>
 

@@ -1,10 +1,10 @@
 
     <section class="content-header">
       <h1>
-        Role
+        User Management
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-newspaper-o"></i>Role</a></li>
+        <li><a href="#"><i class="fa fa-newspaper-o"></i>User Mana</a></li>
         <li class="active">Role</li>
       </ol>
     </section>
@@ -25,25 +25,26 @@
                 <thead>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Nama</th>
+                  <th>Name</th>
                   <th>Level</th>
-                  <th style="width: 40px;">Aksi</th>
+                  <th style="width: 40px;">Action</th>
                 </tr>
                 </thead>
                 <tbody>
+                  <?php $i = 1; ?>
                 <?php
                 foreach ($role as $data){
 
                 ?>
                 <tr>
-                  <td><?php echo $data->id?></td>
+                  <td><?= $i++; ?></td>
                   <td><?php echo $data->label?></td>
                   <td><?php echo $data->level?></td>
                   <td style="text-align: center;">
                     <a href="<?php echo base_url('User/EditRole/'.$data->id);?>">
                       <i class="fa fa-fw fa-pencil"></i>
                     </a> 
-                    <a href="<?php echo base_url('User/HapusRole/'.$data->id);?>">
+                    <a href="<?php echo base_url('User/HapusRole/'.$data->id);?>" onclick="return confirm('yakin?');">
                       <i class="fa fa-fw fa-trash"></i>
                     </a>
                     </div>
@@ -82,9 +83,9 @@
                 <tfoot>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Nama</th>
+                  <th>Name</th>
                   <th>Level</th>
-                  <th style="width: 40px;">Aksi</th>
+                  <th style="width: 40px;">Action</th>
                 </tr>
                 </tfoot>
               </table>
