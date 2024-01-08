@@ -104,8 +104,8 @@
                     <div class="modal-body">
                         <div class="box-body">
                             <div class="form-group">
-                              <label for="text">Origin</label>
-                              <input type="text" class="form-control" name="label" placeholder="Origin" required>
+                              <label for="text">Nama Origin</label>
+                              <input type="text" class="form-control" name="label" placeholder="Nama Origin">
                               <p class="text-red"><?php echo form_error('label')?></p>
                             </div>
                     </div>
