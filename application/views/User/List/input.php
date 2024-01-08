@@ -42,11 +42,9 @@
                     <div class="form-group">
                         <label>Pilih Role</label>
                         <select class="form-control" name="id_role">
-                        <?php foreach ($role as $data){
-
-                        ?>
-                            <option value="<?php echo $data->id?>"><?php echo $data->label ?></option>
-                        <?php }?>
+                          <?php foreach ($role as $data){ ?>
+                              <option value="<?php echo $data->id?>"><?php echo $data->label ?></option>
+                          <?php }?>
                         </select>
                     </div>
                     <div class="form-group">

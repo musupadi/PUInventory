@@ -88,6 +88,7 @@
             </div>
             <?php echo $this->session->flashdata('pesan');?>
             <!-- /.box-body -->
+            
             <!-- INPUT -->
             <div class="modal modal-success fade" id="modal-success">
             <?php echo form_open_multipart('Inventory/TambahType/')?>

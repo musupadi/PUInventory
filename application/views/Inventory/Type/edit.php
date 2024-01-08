@@ -22,10 +22,10 @@
                   <?php echo form_open_multipart('Inventory/Typeedit/'.$data->id)?>
                 <form role="form" action="<?php echo base_url('Inventory/Typeedit/'.$data->id)?>" method="post" >
                   <div class="box-body">
-                  <div class="form-group">
-                      <label for="text">Nama Type</label>
-                      <input type="text" class="form-control" name="label" placeholder="Nama Type" value="<?php echo $data->label ?>">
-                     <p class="text-red"><?php echo form_error('label')?></p>
+                    <div class="form-group">
+                        <label for="text">Nama Type</label>
+                        <input type="text" class="form-control" name="label" placeholder="Nama Type" value="<?php echo $data->label ?>">
+                      <p class="text-red"><?php echo form_error('label')?></p>
                     </div>
                   </div>
                   <!-- /.box-body -->
