@@ -72,6 +72,13 @@ class Models extends CI_Model {
         return $data;
     }
 
+    public function AllOrigin(){
+        $this->db->select('id, label');
+        $this->db->from('m_origin');
+        $data = $this->db->get()->result();
+        return $data;
+    }
+
     // Model Lama
     public function BeritaLimit($limit){
         $query = "SELECT a.id_berita,a.judul_berita,a.berita,b.kategori,a.gambar FROM berita a JOIN kategori_berita b ON a.id_kategori=b.id_kategori ORDER BY a.id_berita DESC LIMIT $limit";

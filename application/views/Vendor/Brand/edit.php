@@ -27,6 +27,16 @@
                       <input type="text" class="form-control" name="label" placeholder="Nama Role" value="<?php echo $data->label ?>">
                      <p class="text-red"><?php echo form_error('label')?></p>
                     </div>
+                    <div class="form-group">
+                        <label>Select Origin</label>
+                        <select class="form-control" name="id_origin">
+                        <?php foreach ($origin as $datas ){
+
+                        ?>
+                            <option value="<?php echo $datas->id?>"><?php echo $datas->label ?></option>
+                        <?php }?>
+                        </select>
+                    </div>
                   <!-- /.box-body -->
 
                   <div class="box-footer">
