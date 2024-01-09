@@ -30,8 +30,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url('Matakuliah')?>"><i class="fa fa-book"></i>Item</a></li>
-            <li><a href="<?php echo base_url('Ruang')?>"><i class="fa fa-list"></i>Type</a></li>
+            <li><a href="<?php echo base_url('Inventory/Item')?>"><i class="fa fa-book"></i>Item</a></li>
+            <li><a href="<?php echo base_url('Matakuliah')?>"><i class="fa fa-book"></i>Warehouse</a></li>
+            <li><a href="<?php echo base_url('Inventory/Type')?>"><i class="fa fa-list"></i>Type</a></li>
           </ul>
         </li>
         <li class="treeview">

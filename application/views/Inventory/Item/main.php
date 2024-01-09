@@ -38,7 +38,7 @@
                 <tbody>
                 <?php
                 $id = 1;
-                foreach ($item as $data){
+                foreach ($item as $data) {
 
                 ?>
                 <tr>
