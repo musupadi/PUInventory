@@ -22,7 +22,7 @@
         <li class="header">MAIN NAVIGATION</li>
         <li><a href="<?php echo base_url("Home")?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
         
-        <li class="treeview">
+        <li class="treeview active">
           <a href="#">
             <i class="fa fa-database"></i> <span>Data Inventory</span>
             <span class="pull-right-container">
@@ -31,7 +31,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url('Inventory/Item')?>"><i class="fa fa-book"></i>Item</a></li>
-            <li><a href="<?php echo base_url('Inventory/Warehouse')?>"><i class="fa fa-book"></i>Warehouse</a></li>
+            <li class = "active"><a href="<?php echo base_url('Inventory/Warehouse')?>"><i class="fa fa-book"></i>Warehouse</a></li>
             <li><a href="<?php echo base_url('Inventory/Type')?>"><i class="fa fa-list"></i>Type</a></li>
           </ul>
         </li>
@@ -48,7 +48,7 @@
             <li><a href="<?php echo base_url('Vendor/Brand')?>"><i class="fa fa-list"></i>Brand</a></li>
           </ul>
         </li>
-        <li class="treeview active">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-users"></i> <span>User Management</span>
             <span class="pull-right-container">
@@ -56,14 +56,14 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo base_url('User/Role')?>"><i class="fa fa-unlock-alt"></i>Role</a></li>
+            <li><a href="<?php echo base_url('User/Role')?>"><i class="fa fa-unlock-alt"></i>Role</a></li>
             <li><a href="<?php echo base_url('User')?>"><i class="fa fa-user"></i>User</a></li>
           </ul>
         </li>
         <li><a href="<?php echo base_url("Pengumuman")?>"><i class="fa fa-map"></i> <span>Location</span></a></li>
         <li><a href="<?php echo base_url("Jadwal")?>"><i class="fa fa-exchange"></i> <span>Transaction Asset Item</span></a></li>
         <li><a href="<?php echo base_url("Ujian")?>"><i class="fa fa-exchange"></i> <span>Transaction Non Asset Item</span></a></li>
-        <li><a href="<?php echo base_url("Login/logout")?>"onclick="return confirm('yakin?');"><i class="fa fa-user-times"></i> <span>Sign Out</span></a></li>
+        <li><a href="<?php echo base_url("Login/logout")?>"><i class="fa fa-user-times"></i> <span>Sign Out</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->

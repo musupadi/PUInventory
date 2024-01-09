@@ -26,37 +26,25 @@
                 <tr>
                   <th style="width: 10px;">#</th>
                   <th>Name</th>
-                  <th>Type</th>
-                  <th>Asset No</th>
-                  <th>Qty</th>
-                  <th>Warehouse</th>
                   <th>Description</th>
-                  <th>Warranty</th>
-                  <th>Serial Number</th>
                   <th style="width: 40px;">Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php
                 $id = 1;
-                foreach ($item as $data) {
+                foreach ($warehouse as $data) {
 
                 ?>
                 <tr>
                   <td><?php echo $id++?></td>
                   <td><?php echo $data->name?></td>
-                  <td><?php echo $data->type?></td>
-                  <td><?php echo $data->asset_no?></td>
-                  <td><?php echo $data->qty?></td>
-                  <td><?php echo $data->warehouse?></td>
                   <td><?php echo $data->description?></td>
-                  <td><?php echo $data->warranty?></td>
-                  <td><?php echo $data->serial_number?></td>
                   <td style="text-align: center;">
-                    <a href="<?php echo base_url('Inventory/Itemedit/'.$data->id);?>">
+                    <a href="<?php echo base_url('Inventory/WarehouseEdit/'.$data->id);?>">
                       <i class="fa fa-fw fa-pencil"></i>
                     </a> 
-                    <a href="<?php echo base_url('Inventory/HapusItem/'.$data->id);?>" onclick="return confirm('Data akan dihapus')">
+                    <a href="<?php echo base_url('Inventory/HapusWarehouse/'.$data->id);?>" onclick="return confirm('Data akan dihapus')">
                       <i class="fa fa-fw fa-trash"></i>
                     </a>
                     </div>
@@ -69,12 +57,7 @@
                 <tr>
                   <th style="width: 10px;">#</th>
                   <th>Name</th>
-                  <th>Type</th>
-                  <th>Asset No</th>
-                  <th>Qty</th>
                   <th>Description</th>
-                  <th>Warranty</th>
-                  <th>Serial Number</th>
                   <th style="width: 40px;">Aksi</th>
                 </tr>
                 </tfoot>
