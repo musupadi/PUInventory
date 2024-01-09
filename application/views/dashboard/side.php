@@ -31,7 +31,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url('Inventory/item')?>"><i class="fa fa-book"></i>Item</a></li>
-            <li><a href="<?php echo base_url('Jurusan')?>"><i class="fa fa-book"></i>Warehouse</a></li>
+            <li><a href="<?php echo base_url('Inventory/Warehouse')?>"><i class="fa fa-book"></i>Warehouse</a></li>
             <li><a href="<?php echo base_url('Inventory/Type')?>"><i class="fa fa-list"></i>Type</a></li>
           </ul>
         </li>

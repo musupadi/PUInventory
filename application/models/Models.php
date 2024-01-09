@@ -56,11 +56,19 @@ class Models extends CI_Model {
     }
 
     public function AllItem(){
-        $this->db->select('a.id, a.name, b.label as type, a.asset_no, a.qty, a.description, a.id_status, c.label as brand, d.label as vendor, a.warranty, a.serial_number, a.photo');
+        $this->db->select('a.id, a.name, b.label as type, a.asset_no, a.qty, a.description, a.id_status, c.label as brand, d.label as vendor, f.name as warehouse, a.warranty, a.serial_number, a.photo');
         $this->db->from('m_item as a');
         $this->db->join('m_type as b', 'a.id_type = b.id', 'left');
         $this->db->join('m_brand as c', 'a.id_brand = c.id', 'left'); // Corrected join condition
-        $this->db->join('m_vendor as d', 'a.id_vendor = d.id', 'left'); 
+        $this->db->join('m_vendor as d', 'a.id_vendor = d.id', 'left');
+        $this->db->join('m_warehouse as f', 'a.id_warehouse = f.id', 'left');
+        $data = $this->db->get()->result();
+        return $data;
+    }
+
+    public function AllWarehouse(){
+        $this->db->select('id, name, description');
+        $this->db->from('m_warehouse');
         $data = $this->db->get()->result();
         return $data;
     }
