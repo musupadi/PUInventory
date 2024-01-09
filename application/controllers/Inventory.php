@@ -62,6 +62,7 @@ class Inventory extends CI_Controller {
     public function Type(){
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         $data['type'] = $this->Models->getAll('m_type');
+        $data['title'] = 'Type';
         $this->load->view('dashboard/header',$data);
         $this->load->view('Inventory/Type/side',$data);
         $this->load->view('Inventory/Type/main',$data);
@@ -94,6 +95,7 @@ class Inventory extends CI_Controller {
                 'id' => $id
             );
             $data['role'] = $this->Models->getWhere2("m_type",$where);
+            $data['title'] = 'Edit Type';
             $this->load->view('dashboard/header',$data);
             $this->load->view('User/Role/side',$data);
             $this->load->view('Inventory/Type/edit',$data);
@@ -120,6 +122,7 @@ class Inventory extends CI_Controller {
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         $data['item'] = $this->Models->AllItem();
         $data['type'] = $this->Models->getAll('m_type');
+        $data['title'] = 'Item';
         $this->load->view('dashboard/header',$data);
         $this->load->view('Inventory/Item/side',$data);
         $this->load->view('Inventory/Item/main',$data);
