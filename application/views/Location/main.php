@@ -43,10 +43,10 @@
                   <td><?php echo $data->label?></td>
                   <td><?php echo $data->floor?></td>
                   <td style="text-align: center;">
-                    <a href="<?php echo base_url('Vendor/EditBrand/'.$data->id);?>">
+                    <a href="<?php echo base_url('Home/EditLocation/'.$data->id);?>">
                       <i class="fa fa-fw fa-pencil"></i>
                     </a> 
-                    <a href="<?php echo base_url('Vendor/HapusBrand/'.$data->id);?>" onclick="return confirm('yakin?');">
+                    <a href="<?php echo base_url('Home/HapusLocation/'.$data->id);?>" onclick="return confirm('yakin?');">
                       <i class="fa fa-fw fa-trash"></i>
                     </a>
                     </div>

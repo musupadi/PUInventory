@@ -18,6 +18,12 @@ class Home extends CI_Controller {
         ];
     }
 
+    private function rulesLocation(){
+        return [
+            ['field' => 'label','label' => 'Label','rules' => 'required']
+        ];
+    }
+
     public function index()
     {
         // $data['barang'] = $this->Models->getMyProduct($this->session->userdata('nama'));
@@ -119,7 +125,7 @@ class Home extends CI_Controller {
     public function Location(){
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         $data['location'] = $this->Models->getAll('m_location');
-        $data['title'] = 'Loction';
+        $data['title'] = 'Location';
         $this->load->view('dashboard/header',$data);
         $this->load->view('Location/side',$data);
         $this->load->view('Location/main',$data);
@@ -127,7 +133,7 @@ class Home extends CI_Controller {
     }
 
     public function TambahLocation(){
-        $this->form_validation->set_rules($this->rulesOrigin());
+        $this->form_validation->set_rules($this->rulesLocation());
         $ID = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         if($this->form_validation->run() === FALSE){
             $data['user'] =$this->Models->getID('m_user','username',$this->session->userdata('nama'));
@@ -145,6 +151,37 @@ class Home extends CI_Controller {
             $this->session->set_flashdata('pesan','<script>alert("Data berhasil disimpan")</script>');
             redirect(base_url('Home/Location'));
         }
+    }
+
+    public function EditLocation($id){
+        $this->form_validation->set_rules($this->rulesLocation());
+        if($this->form_validation->run() === false){
+            $data['user'] = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));   
+            $where = array(
+                'id' => $id
+            );
+            $data['location'] = $this->Models->getWhere2("m_location",$where);
+            $this->load->view('dashboard/header',$data);
+            $this->load->view('User/Role/side',$data);
+            $this->load->view('Location/edit',$data);
+            $this->load->view('dashboard/footer');  
+            $this->session->set_flashdata('pesan', '<script>alert("Data gagal diubah")</script>');
+        }else{
+            $ID = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));     
+            $data['label'] = $this->input->post('label');
+            $data['floor'] = $this->input->post('floor');
+            $data['updated_by'] = $ID[0]->id;
+            $data['updated_at'] = $this->Models->GetTimestamp();
+            $this->Models->edit('m_location','id',$id,$data);
+            $this->session->set_flashdata('pesan', '<script>alert("Data berhasil diubah")</script>');
+            redirect(base_url('Home/Location'));
+        }
+    }
+
+    public function HapusLocation($id){
+        $this->Models->delete('m_location','id',$id);
+        $this->session->set_flashdata('pesan', '<script>alert("Data berhasil dihapus")</script>');
+        redirect(base_url('Home/Location'));
     }
 
 }
