@@ -78,7 +78,7 @@ class Inventory extends CI_Controller {
             $data['created_by'] = $id[0]->id;
             $data['updated_by'] = $id[0]->id;
             $this->Models->insert('m_type',$data);
-            $this->session->set_flashdata('pesan','<script>alert("suuuuuu")</script>');
+            $this->session->set_flashdata('pesan','<script>alert("Data berhasil disimpan")</script>');
             redirect(base_url('Inventory/Type'));
         }
     }
@@ -145,7 +145,7 @@ class Inventory extends CI_Controller {
             $data['created_by'] = $id[0]->id;
             $data['updated_by'] = $id[0]->id;
             $this->Models->insert('m_item',$data);
-            $this->session->set_flashdata('pesan','<script>alert("suuuuuu")</script>');
+            $this->session->set_flashdata('pesan','<script>alert("Data berhasil disimpan")</script>');
             redirect(base_url('Inventory/Item'));
         }
     }
@@ -216,7 +216,7 @@ class Inventory extends CI_Controller {
             $data['created_by'] = $id[0]->id;
             $data['updated_by'] = $id[0]->id;
             $this->Models->insert('m_warehouse',$data);
-            $this->session->set_flashdata('pesan','<script>alert("suuuuuu")</script>');
+            $this->session->set_flashdata('pesan','<script>alert("Data berhasil disimpan")</script>');
             redirect(base_url('Inventory/Warehouse'));
         }
     }

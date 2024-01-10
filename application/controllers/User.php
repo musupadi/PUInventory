@@ -79,7 +79,7 @@ class User extends CI_Controller {
                 $data['updated_by'] = $id[0]->id;
             }
             $this->Models->insert('m_user',$data);
-            $this->session->set_flashdata('pesan','<script>alert("suuuu")</script>');
+            $this->session->set_flashdata('pesan','<script>alert("Data berhasil disimpan")</script>');
             redirect(base_url('User'));
         }
     }
@@ -127,7 +127,7 @@ class User extends CI_Controller {
                 $data['updated_at'] = $this->Models->GetTimestamp();
             }
             $this->Models->edit('m_user','id',$id,$data);
-            $this->session->set_flashdata('pesan','<script>alert("suuuu")</script>');
+            $this->session->set_flashdata('pesan','<script>alert("Data berhasil disimpan")</script>');
             redirect(base_url('User'));
         }
     }
@@ -164,7 +164,7 @@ class User extends CI_Controller {
             $data['created_by'] = $id[0]->id;;
             $data['updated_by'] = $id[0]->id;;
             $this->Models->insert('m_role',$data);
-            $this->session->set_flashdata('pesan','<script>alert("suuuu")</script>');
+            $this->session->set_flashdata('pesan','<script>alert("Data berhasil disimpan")</script>');
             redirect(base_url('User/Role'));
         }
     }
