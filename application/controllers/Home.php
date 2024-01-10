@@ -11,6 +11,13 @@ class Home extends CI_Controller {
         $this->load->model("Models");
         $this->load->library('form_validation');
     }
+
+    private function rulesOrigin(){
+        return [
+            ['field' => 'label','label' => 'Label','rules' => 'required']
+        ];
+    }
+
     public function index()
     {
         // $data['barang'] = $this->Models->getMyProduct($this->session->userdata('nama'));
@@ -106,6 +113,37 @@ class Home extends CI_Controller {
             $this->Models->edit('user','username',$this->session->userdata('nama'),$data);
             $this->session->set_flashdata('pesan','<script>alert("Data berhasil diubah")</script>');
             redirect(base_url('home/profile'));
+        }
+    }
+
+    public function Location(){
+        $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
+        $data['location'] = $this->Models->getAll('m_location');
+        $data['title'] = 'Loction';
+        $this->load->view('dashboard/header',$data);
+        $this->load->view('Location/side',$data);
+        $this->load->view('Location/main',$data);
+        $this->load->view('dashboard/footer');
+    }
+
+    public function TambahLocation(){
+        $this->form_validation->set_rules($this->rulesOrigin());
+        $ID = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
+        if($this->form_validation->run() === FALSE){
+            $data['user'] =$this->Models->getID('m_user','username',$this->session->userdata('nama'));
+            $this->load->view('dashboard/header',$data);
+            $this->load->view('Location/side',$data);
+            $this->load->view('Location/main',$data);
+            $this->load->view('dashboard/footer');
+        }else{
+            $id = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));            
+            $data['label'] = $this->input->post('label');
+            $data['floor'] = $this->input->post('floor');
+            $data['created_by'] = $id[0]->id;;
+            $data['updated_by'] = $id[0]->id;;
+            $this->Models->insert('m_location',$data);
+            $this->session->set_flashdata('pesan','<script>alert("Data berhasil disimpan")</script>');
+            redirect(base_url('Home/Location'));
         }
     }
 

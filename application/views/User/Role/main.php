@@ -4,7 +4,7 @@
         User Management
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-newspaper-o"></i>User Mana</a></li>
+        <li><a href="#"><i class="fa fa-newspaper-o"></i>User Management</a></li>
         <li class="active">Role</li>
       </ol>
     </section>
