@@ -198,6 +198,7 @@ class Inventory extends CI_Controller {
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         $data['warehouse'] = $this->Models->AllWarehouse();
         $data['type'] = $this->Models->getAll('m_type');
+        $data['title'] = 'Warehouse';
         $this->load->view('dashboard/header',$data);
         $this->load->view('Inventory/Warehouse/side',$data);
         $this->load->view('Inventory/Warehouse/main',$data);
