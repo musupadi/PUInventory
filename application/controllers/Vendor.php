@@ -157,6 +157,7 @@ class Vendor extends CI_Controller {
     public function Brand(){
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         $data['brand'] = $this->Models->AllBrand('m_brand');
+        $data['origin'] = $this->Models->AllOrigin();
         $data['title'] = 'Brand';
         $this->load->view('dashboard/header',$data);
         $this->load->view('Vendor/Brand/side',$data);
@@ -216,6 +217,7 @@ class Vendor extends CI_Controller {
         }else{
             $id = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));            
             $data['label'] = $this->input->post('label');
+            $data['id_origin'] = $this->input->post('id_origin');
             $data['created_by'] = $id[0]->id;;
             $data['updated_by'] = $id[0]->id;;
             $this->Models->insert('m_brand',$data);
@@ -281,6 +283,7 @@ class Vendor extends CI_Controller {
                 'id' => $id
             );
             $data['brand'] = $this->Models->getWhere2("m_brand",$where);
+            $data['origin'] =$this->Models->getAll('m_origin');
             $data['title'] = 'Edit Brand';
             $this->load->view('dashboard/header',$data);
             $this->load->view('Vendor/Brand/side',$data);
@@ -290,6 +293,7 @@ class Vendor extends CI_Controller {
         }else{
             $ID = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));     
             $data['label'] = $this->input->post('label');
+            $data['id_origin'] = $this->input->post('id_origin');
             $data['updated_by'] = $ID[0]->id;
             $data['updated_at'] = $this->Models->GetTimestamp();
             $this->Models->edit('m_brand','id',$id,$data);

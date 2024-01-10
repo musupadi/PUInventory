@@ -112,6 +112,14 @@
                               <input type="text" class="form-control" name="label" placeholder="Nama Brand" required>
                               <p class="text-red"><?php echo form_error('label')?></p>
                             </div>
+                            <div class="form-group">
+                          <label for="text">Select Origin</label>
+                          <select class="form-control" name="id_origin">
+                            <?php foreach ($origin as $data){ ?>
+                                <option value="<?php echo $data->id?>"><?php echo $data->label ?></option>
+                            <?php }?>
+                          </select>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
