@@ -76,7 +76,7 @@ class Vendor extends CI_Controller {
                 $data['updated_by'] = $id[0]->id;
             }
             $this->Models->insert('m_user',$data);
-            $this->session->set_flashdata('pesan','<script>alert("Data berhasil disimpan")</script>');
+            $this->session->set_flashdata('pesan','<script>alert("SUUU")</script>');
             redirect(base_url('User'));
         }
     }
@@ -123,7 +123,7 @@ class Vendor extends CI_Controller {
                 $data['updated_at'] = $this->Models->GetTimestamp();
             }
             $this->Models->edit('m_user','id',$id,$data);
-            $this->session->set_flashdata('pesan','<script>alert("Data berhasil disimpan")</script>');
+            $this->session->set_flashdata('pesan','<script>alert("SUUU")</script>');
             redirect(base_url('User'));
         }
     }
@@ -179,7 +179,7 @@ class Vendor extends CI_Controller {
             $data['created_by'] = $id[0]->id;;
             $data['updated_by'] = $id[0]->id;;
             $this->Models->insert('m_origin',$data);
-            $this->session->set_flashdata('pesan','<script>alert("Data berhasil disimpan")</script>');
+            $this->session->set_flashdata('pesan','<script>alert("SUUU")</script>');
             redirect(base_url('Vendor/Origin'));
         }
     }
@@ -199,7 +199,7 @@ class Vendor extends CI_Controller {
             $data['created_by'] = $id[0]->id;;
             $data['updated_by'] = $id[0]->id;;
             $this->Models->insert('m_vendor',$data);
-            $this->session->set_flashdata('pesan','<script>alert("Data berhasil disimpan")</script>');
+            $this->session->set_flashdata('pesan','<script>alert("SUUU")</script>');
             redirect(base_url('Vendor/List'));
         }
     }
@@ -219,7 +219,7 @@ class Vendor extends CI_Controller {
             $data['created_by'] = $id[0]->id;;
             $data['updated_by'] = $id[0]->id;;
             $this->Models->insert('m_brand',$data);
-            $this->session->set_flashdata('pesan','<script>alert("Data berhasil disimpan")</script>');
+            $this->session->set_flashdata('pesan','<script>alert("SUUU")</script>');
             redirect(base_url('Vendor/Brand'));
         }
     }
