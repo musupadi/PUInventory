@@ -33,7 +33,7 @@
                   <th>Description</th>
                   <th>Warranty</th>
                   <th>Serial Number</th>
-                  <th style="width: 40px;">Aksi</th>
+                  <th style="width: 40px;">Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -75,7 +75,7 @@
                   <th>Description</th>
                   <th>Warranty</th>
                   <th>Serial Number</th>
-                  <th style="width: 40px;">Aksi</th>
+                  <th style="width: 40px;">Action</th>
                 </tr>
                 </tfoot>
               </table>
@@ -102,7 +102,7 @@
                           <p class="text-red"><?php echo form_error('name')?></p>
                         </div>
                         <div class="form-group">
-                          <label for="text">Pilih Type</label>
+                          <label for="text">Select Type</label>
                           <select class="form-control" name="id_type">
                             <?php foreach ($type as $data){ ?>
                                 <option value="<?php echo $data->id?>"><?php echo $data->label ?></option>

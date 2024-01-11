@@ -39,11 +39,11 @@
     </div>
     <div class="login-box-body">
       <div class="box-header with-border">
-      <p class="login-box-msg">Silahkan Login</p>
+      <p class="login-box-msg">Please Login</p>
       <form action="<?php echo base_url('Login/check_login')?>" method="post">
         <div class="form-group has-feedback">
           <input type="text" class="form-control" placeholder="Username" name="username">
-          <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+          <span class="glyphicon glyphicon-user form-control-feedback"></span>
           <p><?php echo form_error('username'); ?></p>
         </div>
         <div class="form-group has-feedback">
