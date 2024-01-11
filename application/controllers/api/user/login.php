@@ -21,7 +21,7 @@ class login extends REST_Controller{
             'username' => $username,
             'password' => MD5($password)
         );
-        $data = $this->Models->getWhere("user",$where);
+        $data = $this->Models->getWhere("m_user",$where);
         if($data){
             $this->response([
                 'status' => "success",
