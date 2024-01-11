@@ -48,7 +48,7 @@ class Models extends CI_Model {
         return $data;
     }
     public function AllBrand(){
-        $this->db->select('a.id,a.label as brand,b.label as origin');
+        $this->db->select(' a.label, b.label, a.created_at, a.created_by, a.updated_at, a.updated_by');
         $this->db->from('m_brand as a');
         $this->db->join('m_origin as b','a.id_origin = b.id','left');
         $data = $this->db->get()->result();
@@ -65,28 +65,57 @@ class Models extends CI_Model {
         $data = $this->db->get()->result();
         return $data;
     }
+    public function AllVendor(){
+        $this->db->select('id, label, created_at, created_by, updated_at, updated_by');
+        $this->db->from('m_vendor');
+        $data = $this->db->get()->result();
+        return $data;
+    }
 
     public function AllWarehouse(){
-        $this->db->select('id, name, description');
+        $this->db->select('id, name, description, created_at, created_by, updated_at, updated_by');
         $this->db->from('m_warehouse');
         $data = $this->db->get()->result();
         return $data;
     }
 
     public function AllType(){
-        $this->db->select('id, label');
+        $this->db->select('id, label, created_at, created_by, updated_at, updated_by');
         $this->db->from('m_type');
         $data = $this->db->get()->result();
         return $data;
     }
 
     public function AllOrigin(){
-        $this->db->select('id, label');
+        $this->db->select('id, label, created_at, created_by, updated_at, updated_by');
         $this->db->from('m_origin');
         $data = $this->db->get()->result();
         return $data;
     }
 
+    public function AllTRItem(){
+        $this->db->select('b.name as names, c.name, a.category, a.status_handover, a.handover_date, d.label, d.floor, a.image, a.created_at, a.created_by, a.updated_at, a.updated_by');
+        $this->db->from('tr_item as a');
+        $this->db->join('m_user as b', 'a.id_user = b.id', 'left');
+        $this->db->join('m_item as c', 'a.id_item = c.id', 'left');
+        $this->db->join('m_location as d', 'a.id_location = d.id', 'left');
+        $data = $this->db->get()->result();
+        return $data;
+    }
+
+    public function AllRole(){
+        $this->db->select('id, label, level, created_at, created_by, updated_at, updated_by');
+        $this->db->from('m_role');
+        $data = $this->db->get()->result();
+        return $data;
+    }
+
+    public function AllLocation(){
+        $this->db->select('id, label, floor, created_at, created_by, updated_at, updated_by');
+        $this->db->from('m_location');
+        $data = $this->db->get()->result();
+        return $data;
+    }
     // Model Lama
     public function BeritaLimit($limit){
         $query = "SELECT a.id_berita,a.judul_berita,a.berita,b.kategori,a.gambar FROM berita a JOIN kategori_berita b ON a.id_kategori=b.id_kategori ORDER BY a.id_berita DESC LIMIT $limit";

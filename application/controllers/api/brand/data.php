@@ -15,7 +15,7 @@ class data extends REST_Controller{
         $this->load->model('Models');
     }
     public function index_get(){
-        $data = $this->Models->AllUser("m_user");
+        $data = $this->Models->AllBrand();
         if($data){
             $this->response([
                 'status' => "success",
