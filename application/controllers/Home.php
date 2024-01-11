@@ -35,6 +35,9 @@ class Home extends CI_Controller {
         $this->load->view('dashboard/main',$data);
         $this->load->view('dashboard/footer');
     }
+
+    
+
     public function profile(){
         $data['barang'] = $this->Models->getMyProduct($this->session->userdata('nama'));
         $data['user'] = $this->Models->getID('user','username',$this->session->userdata('nama'));
