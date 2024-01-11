@@ -19,7 +19,7 @@ class checker extends REST_Controller{
         $where = array(
             'username' => $username
         );
-        $data = $this->Models->getWhere("user",$where);
+        $data = $this->Models->getWhere("m_user",$where);
         if($data){
             $this->response([
                 'status' => "success",

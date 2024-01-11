@@ -9,13 +9,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 require APPPATH . 'libraries/REST_Controller.php';
 require APPPATH . 'libraries/Format.php';
 
-class TahunAjaran extends REST_Controller{
+class data extends REST_Controller{
     public function __construct(){
         parent::__construct();
         $this->load->model('Models');
     }
     public function index_get(){
-        $data = $this->Models->getAll('tahun_ajaran');
+        $data = $this->Models->getAll("m_user");
         if($data){
             $this->response([
                 'status' => "success",
