@@ -48,7 +48,7 @@ class Models extends CI_Model {
         return $data;
     }
     public function AllBrand(){
-        $this->db->select(' a.label, b.label, a.created_at, a.created_by, a.updated_at, a.updated_by');
+        $this->db->select('a.id, a.label as brand, b.label as origin, a.created_at, a.created_by, a.updated_at, a.updated_by');
         $this->db->from('m_brand as a');
         $this->db->join('m_origin as b','a.id_origin = b.id','left');
         $data = $this->db->get()->result();
