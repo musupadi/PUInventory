@@ -134,17 +134,17 @@ class Inventory extends CI_Controller {
             $this->load->view('Inventory/Item/main',$data);
             $this->load->view('dashboard/footer');
         }else{
-            $id = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));            
-            $data['name'] = $this->input->post('name');
-            $data['id_type'] = $this->input->post('id_type');
-            $data['asset_no'] = $this->input->post('asset_no');
-            $data['qty'] = $this->input->post('qty');
-            $data['description'] = $this->input->post('description');
-            $data['id_status'] = 1;
-            $data['warranty'] = $this->input->post('warranty');
-            $data['serial_number'] = $this->input->post('serial_number');
-            $data['created_by'] = $id[0]->id;
-            $data['updated_by'] = $id[0]->id;
+            $id = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));
+                $data['name'] = $this->input->post('name');
+                $data['id_type'] = $this->input->post('id_type');
+                $data['asset_no'] = $this->input->post('asset_no');
+                $data['qty'] = $this->input->post('qty');
+                $data['description'] = $this->input->post('description');
+                $data['id_status'] = 1;
+                $data['warranty'] = $this->input->post('warranty');
+                $data['serial_number'] = $this->input->post('serial_number');
+                $data['created_by'] = $id[0]->id;
+                $data['updated_by'] = $id[0]->id;
             $this->Models->insert('m_item',$data);
             $this->session->set_flashdata('pesan','<script>alert("Data berhasil disimpan")</script>');
             redirect(base_url('Inventory/Item'));

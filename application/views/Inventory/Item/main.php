@@ -133,6 +133,11 @@
                         <label for="text">Serial Number</label>
                           <input type="text" class="form-control" name="serial_number" placeholder="Serial Number">
                         <p class="text-red"><?php echo form_error('serial_number')?></p>
+                      </div>       
+                      <div class="form-group">
+                        <label for="text">Photo</label>
+                          <input type="file" class="form-control" name="photo">
+                        <p class="text-red"><?php echo form_error('photo')?></p>
                       </div>     
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>

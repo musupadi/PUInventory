@@ -66,6 +66,7 @@ class Models extends CI_Model {
         $data = $this->db->get()->result();
         return $data;
     }
+    
     public function AllVendor(){
         $this->db->select('id, label, created_at, created_by, updated_at, updated_by');
         $this->db->from('m_vendor');
