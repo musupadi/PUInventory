@@ -26,7 +26,7 @@
                 <tr>
                   <th style="width: 10px;">#</th>
                   <th>Nama</th>
-                  <th style="width: 40px;">Aksi</th>
+                  <th style="width: 40px;">Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -67,7 +67,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                            <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Batal</button>
+                            <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancel</button>
                             <button type="submit" class="btn btn-outline">Beli</button>
                             </div>
                         </div>
@@ -81,7 +81,7 @@
                 <tr>
                   <th style="width: 10px;">#</th>
                   <th>Nama</th>
-                  <th style="width: 40px;">Aksi</th>
+                  <th style="width: 40px;">Action</th>
                 </tr>
                 </tfoot>
               </table>
@@ -103,7 +103,7 @@
                     <div class="modal-body">
                         <div class="box-body">
                             <div class="form-group">
-                              <label for="text">Nama Type</label>
+                              <label for="text">Name Type</label>
                               <input type="text" class="form-control" name="label" placeholder="Nama Type">
                               <p class="text-red"><?php echo form_error('label')?></p>
                             </div>

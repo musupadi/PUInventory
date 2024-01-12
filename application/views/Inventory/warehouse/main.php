@@ -27,7 +27,7 @@
                   <th style="width: 10px;">#</th>
                   <th>Name</th>
                   <th>Description</th>
-                  <th style="width: 40px;">Aksi</th>
+                  <th style="width: 40px;">Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -58,7 +58,7 @@
                   <th style="width: 10px;">#</th>
                   <th>Name</th>
                   <th>Description</th>
-                  <th style="width: 40px;">Aksi</th>
+                  <th style="width: 40px;">Action</th>
                 </tr>
                 </tfoot>
               </table>

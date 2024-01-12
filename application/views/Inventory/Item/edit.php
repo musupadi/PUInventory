@@ -65,7 +65,7 @@
 
                   <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Edit Data</button>
-                    <a href="<?php echo base_url('Inventory/Type')?>">Batal</a>
+                    <a href="<?php echo base_url('Inventory/Type')?>">Cancel</a>
                   </div>
                   <?php } ?>
                 </form>

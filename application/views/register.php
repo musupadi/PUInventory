@@ -44,7 +44,7 @@
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" name="name" placeholder="Nama">
+        <input type="text" class="form-control" name="name" placeholder="Your Name">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
@@ -52,7 +52,7 @@
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group">
-                      <label for="text">Foto Profile</label>
+                      <label for="text">Photo Profile</label>
                       <input type="file" name="gambar" size="20" />
                       <p class="text-red"><?php echo form_error('nama')?></p>
                     </div>
@@ -65,7 +65,7 @@
       </div>
     </form>
 
-    <a href="<?php echo base_url("login") ?>" class="text-center">Sudah memiliki Akun</a>
+    <a href="<?php echo base_url("login") ?>" class="text-center">Already have Account?</a>
   </div>
   <!-- /.form-box -->
 </div>

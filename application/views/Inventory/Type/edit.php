@@ -23,7 +23,7 @@
                 <form role="form" action="<?php echo base_url('Inventory/Typeedit/'.$data->id)?>" method="post" >
                   <div class="box-body">
                     <div class="form-group">
-                        <label for="text">Nama Type</label>
+                        <label for="text">Name Type</label>
                         <input type="text" class="form-control" name="label" placeholder="Nama Type" value="<?php echo $data->label ?>">
                       <p class="text-red"><?php echo form_error('label')?></p>
                     </div>
@@ -32,7 +32,7 @@
 
                   <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Edit Data</button>
-                    <a href="<?php echo base_url('Inventory/Type')?>">Batal</a>
+                    <a href="<?php echo base_url('Inventory/Type')?>">Cancel</a>
                   </div>
                   <?php } ?>
                 </form>
