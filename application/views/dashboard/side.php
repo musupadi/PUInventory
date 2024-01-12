@@ -62,7 +62,7 @@
           </ul>
         </li>
         <li><a href="<?php echo base_url("Home/Location")?>"><i class="fa fa-map"></i> <span>Location</span></a></li>
-        <li><a href="<?php echo base_url("Transaction/Asset")?>"><i class="fa fa-exchange"></i> <span>History Transaction</span></a></li>
+        <li><a href="<?php echo base_url("Transaction/Asset")?>"><i class="fa fa-exchange"></i> <span>Transaction Asset Item</span></a></li>
         <li><a href="<?php echo base_url("Login/logout")?>"onclick="return confirm('are you going to logout?');"><i class="fa fa-user-times"></i> <span>Sign Out</span></a></li>
       </ul>
     </section>
