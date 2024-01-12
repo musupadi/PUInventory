@@ -25,6 +25,7 @@
                 <thead>
                 <tr>
                   <th style="width: 10px;">#</th>
+                  <th>Photo</th>
                   <th>Name</th>
                   <th>Type</th>
                   <th>Asset No</th>
@@ -44,6 +45,7 @@
                 ?>
                 <tr>
                   <td><?php echo $id++?></td>
+                  <td><img class="profile-user-img img-responsive" src="<?php echo base_url()?>img/item/<?php echo $data->photo?>" alt="Image Item"></td>
                   <td><?php echo $data->name?></td>
                   <td><?php echo $data->type?></td>
                   <td><?php echo $data->asset_no?></td>
