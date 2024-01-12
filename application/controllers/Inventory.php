@@ -127,25 +127,53 @@ class Inventory extends CI_Controller {
     public function TambahItem(){
         $this->form_validation->set_rules($this->rulesItem());
         $ID = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
-        if($this->form_validation->run() === FALSE){
+        $data['item'] = $this->Models->AllItem();
+        $data['type'] = $this->Models->getAll('m_type');
+        $data['title'] = 'Item';
+        if(empty($this->input->post())){
             $data['user'] =$this->Models->getID('m_user','username',$this->session->userdata('nama'));
             $this->load->view('dashboard/header',$data);
             $this->load->view('Inventory/Item/side',$data);
             $this->load->view('Inventory/Item/main',$data);
             $this->load->view('dashboard/footer');
         }else{
-            $id = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));            
-            $data['name'] = $this->input->post('name');
-            $data['id_type'] = $this->input->post('id_type');
-            $data['asset_no'] = $this->input->post('asset_no');
-            $data['qty'] = $this->input->post('qty');
-            $data['description'] = $this->input->post('description');
-            $data['id_status'] = 1;
-            $data['warranty'] = $this->input->post('warranty');
-            $data['serial_number'] = $this->input->post('serial_number');
-            $data['created_by'] = $id[0]->id;
-            $data['updated_by'] = $id[0]->id;
-            $this->Models->insert('m_item',$data);
+            $id = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));    
+            $config['upload_path']          = './img/item/';
+            $config['allowed_types']        = 'gif|jpg|png|jpeg';
+            $config['file_name']            = uniqid();
+            // $config['overwrite']			= true;
+            $config['max_size']             = 4096; // 1MB
+            // $config['max_width']            = 1024;
+            // $config['max_height']           = 768;
+
+            $this->load->library('upload', $config);
+            if ($this->upload->do_upload('gambar')) {
+                $insert['photo'] = $this->upload->data("file_name");
+                $insert['name'] = $this->input->post('name');
+                $insert['id_type'] = $this->input->post('id_type');
+                $insert['asset_no'] = $this->input->post('asset_no');
+                $insert['qty'] = $this->input->post('qty');
+                $insert['description'] = $this->input->post('description');
+                $insert['id_status'] = 1;
+                $insert['warranty'] = $this->input->post('warranty');
+                $insert['serial_number'] = $this->input->post('serial_number');
+                $insert['created_by'] = $id[0]->id;
+                $insert['updated_by'] = $id[0]->id;
+            }else{
+                $insert['photo'] = "default.jpg";
+                $insert['name'] = $this->input->post('name');
+                $insert['id_type'] = $this->input->post('id_type');
+                $insert['asset_no'] = $this->input->post('asset_no');
+                $insert['qty'] = $this->input->post('qty');
+                $insert['description'] = $this->input->post('description');
+                $insert['id_status'] = 1;
+                $insert['warranty'] = $this->input->post('warranty');
+                $insert['serial_number'] = $this->input->post('serial_number');
+                $insert['created_by'] = $id[0]->id;
+                $insert['updated_by'] = $id[0]->id;
+            }
+            
+            $this->Models->insert('m_item',$insert);
             $this->session->set_flashdata('pesan','<script>alert("Data berhasil disimpan")</script>');
             redirect(base_url('Inventory/Item'));
         }

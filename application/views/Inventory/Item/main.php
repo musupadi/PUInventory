@@ -133,7 +133,12 @@
                         <label for="text">Serial Number</label>
                           <input type="text" class="form-control" name="serial_number" placeholder="Serial Number">
                         <p class="text-red"><?php echo form_error('serial_number')?></p>
-                      </div>     
+                      </div>
+                      <div class="form-group">
+                        <label for="text">Gambar</label>
+                        <input type="file" name="gambar" size="20" />
+                        <p class="text-red"><?php echo form_error('nama')?></p>
+                      </div> 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-outline">Save changes</button>
