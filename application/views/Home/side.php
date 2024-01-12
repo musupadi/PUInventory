@@ -21,6 +21,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li><a href="<?php echo base_url("Home")?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+        <li class=""><a href="<?php echo base_url("Transaction")?>"><i class="fa fa-list-alt"></i> <span>Transaction</span></a></li>
         <li class="treeview">
           <a href="#">
             <i class="fa  fa-newspaper-o"></i> <span>Berita</span>
