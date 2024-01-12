@@ -125,11 +125,6 @@
                         <p class="text-red"><?php echo form_error('description')?></p>
                       </div>
                       <div class="form-group">
-                        <label for="text">Delivery Date</label>
-                          <input type="date" class="form-control" name="delivery_date" placeholder="Delivery Date">
-                        <p class="text-red"><?php echo form_error('delivery_date')?></p>
-                      </div>
-                      <div class="form-group">
                         <label for="text">Warranty</label>
                           <input type="text" class="form-control" name="warranty" placeholder="Warranty">
                         <p class="text-red"><?php echo form_error('warranty')?></p>

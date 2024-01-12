@@ -140,6 +140,7 @@ class Inventory extends CI_Controller {
             $data['asset_no'] = $this->input->post('asset_no');
             $data['qty'] = $this->input->post('qty');
             $data['description'] = $this->input->post('description');
+            $data['id_status'] = 1;
             $data['warranty'] = $this->input->post('warranty');
             $data['serial_number'] = $this->input->post('serial_number');
             $data['created_by'] = $id[0]->id;
@@ -171,7 +172,6 @@ class Inventory extends CI_Controller {
             $data['asset_no'] = $this->input->post('asset_no');
             $data['qty'] = $this->input->post('qty');
             $data['description'] = $this->input->post('description');
-            $data['delivery_date'] = $this->input->post('delivery_date');
             $data['warranty'] = $this->input->post('warranty');
             $data['serial_number'] = $this->input->post('serial_number');
             $data['updated_by'] = $ID[0]->id;
@@ -181,9 +181,11 @@ class Inventory extends CI_Controller {
             redirect(base_url('Inventory/Item'));
         }
     }
-
+    
     public function HapusItem($id){
-        $this->Models->delete('m_item','id',$id);
+        $where = ['id' => $id];
+        $data['id_status'] = 0;
+        $this->Models->edit('m_item','id',$id, $data);
         $this->session->set_flashdata('pesan', '<script>alert("Data berhasil dihapus")</script>');
         redirect(base_url('Inventory/Item'));
     }

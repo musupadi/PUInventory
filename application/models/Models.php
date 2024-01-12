@@ -62,6 +62,7 @@ class Models extends CI_Model {
         $this->db->join('m_brand as c', 'a.id_brand = c.id', 'left'); // Corrected join condition
         $this->db->join('m_vendor as d', 'a.id_vendor = d.id', 'left');
         $this->db->join('m_warehouse as f', 'a.id_warehouse = f.id', 'left');
+        $this->db->where('id_status = 1');
         $data = $this->db->get()->result();
         return $data;
     }
