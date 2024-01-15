@@ -16,9 +16,9 @@
           <!-- small box -->
           <div class="small-box bg-gray ">
             <div class="inner">
-              <img src="img/default.jpg" alt="" style="margin-left:15px;">
+              <img src="img/logo.jpg" alt="" style="margin-left:5px;">
             </div>
-            <a href="#" class="small-box-footer">Request <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="#" class="btn btn-primary" style="margin:5% 34%;">Request <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -26,9 +26,9 @@
           <!-- small box -->
           <div class="small-box bg-gray">
             <div class="inner">
-              <img src="img/default.jpg" alt="" style="margin-left:15px;">
+              <img src="img/logo.jpg" alt="" style="margin-left:5px;">
             </div>
-            <a href="#" class="small-box-footer">Request <i class="fa fa-arrow-circle-right"></i></a>
+             <a href="#" class="btn btn-primary" style="margin:5% 34%;">Request <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -36,9 +36,9 @@
           <!-- small box -->
           <div class="small-box bg-gray">
             <div class="inner">
-              <img src="img/PU.jpg" alt="" style="margin-left:15px;">
+              <img src="img/logo.jpg" alt="" style="margin-left:5px;">
             </div>
-            <a href="#" class="small-box-footer">Request <i class="fa fa-arrow-circle-right"></i></a>
+             <a href="#" class="btn btn-primary" style="margin:5% 34%;">Request <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -46,9 +46,9 @@
           <!-- small box -->
           <div class="small-box bg-gray">
             <div class="inner">
-              <img src="img/default.jpg" alt="" style="margin-left:15px;">
+              <img src="img/logo.jpg" alt="" style="margin-left:5px;">
             </div>
-            <a href="#" class="small-box-footer">Request <i class="fa fa-arrow-circle-right"></i></a>
+             <a href="#" class="btn btn-primary" style="margin:5% 34%;">Request <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
