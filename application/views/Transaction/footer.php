@@ -260,10 +260,6 @@
 <script>
   $.widget.bridge('uibutton', $.ui.button);
 </script>
-
-
-
-
 <!-- DataTables -->
 <script src="<?php echo base_url();?>asset/AdminLTE-2.4.18/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url();?>asset/AdminLTE-2.4.18/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
