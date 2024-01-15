@@ -30,8 +30,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url('Inventory/Item')?>"><i class="fa fa-book"></i>Item</a></li>
-            <li><a href="<?php echo base_url('Inventory/Warehouse')?>"><i class="fa fa-book"></i>Warehouse</a></li>
+            <li><a href="<?php echo base_url('Inventory/Item')?>"><i class="fa fa-cube"></i>Item</a></li>
+            <li><a href="<?php echo base_url('Inventory/Warehouse')?>"><i class="fa fa-home"></i>Warehouse</a></li>
             <li><a href="<?php echo base_url('Inventory/Type')?>"><i class="fa fa-list"></i>Type</a></li>
           </ul>
         </li>
@@ -44,8 +44,8 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url('Vendor/List')?>"><i class="fa fa-briefcase"></i>Vendor</a></li>
-            <li class="active"><a href="<?php echo base_url('Vendor/Origin')?>"><i class="fa fa-list"></i>Origin</a></li>
-            <li><a href="<?php echo base_url('Vendor/Brand')?>"><i class="fa fa-list"></i>Brand</a></li>
+            <li class="active"><a href="<?php echo base_url('Vendor/Origin')?>"><i class="fa fa-archive"></i>Origin</a></li>
+            <li><a href="<?php echo base_url('Vendor/Brand')?>"><i class="fa fa-industry"></i>Brand</a></li>
           </ul>
         </li>
         <li class="treeview">
