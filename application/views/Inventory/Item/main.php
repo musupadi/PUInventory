@@ -70,10 +70,12 @@
                 <tfoot>
                 <tr>
                   <th style="width: 10px;">#</th>
+                  <th>Photo</th>
                   <th>Name</th>
                   <th>Type</th>
                   <th>Asset No</th>
                   <th>Qty</th>
+                  <th>Warehouse</th>
                   <th>Description</th>
                   <th>Warranty</th>
                   <th>Serial Number</th>
