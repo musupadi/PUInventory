@@ -29,8 +29,6 @@
                   <th>Name</th>
                   <th>Type</th>
                   <th>Asset No</th>
-                  <th>Qty</th>
-                  <th>Warehouse</th>
                   <th>Description</th>
                   <th>Warranty</th>
                   <th>Serial Number</th>
@@ -49,8 +47,6 @@
                   <td><?php echo $data->name?></td>
                   <td><?php echo $data->type?></td>
                   <td><?php echo $data->asset_no?></td>
-                  <td><?php echo $data->qty?></td>
-                  <td><?php echo $data->warehouse?></td>
                   <td><?php echo $data->description?></td>
                   <td><?php echo $data->warranty?></td>
                   <td><?php echo $data->serial_number?></td>
@@ -73,9 +69,7 @@
                   <th>Photo</th>
                   <th>Name</th>
                   <th>Type</th>
-                  <th>Asset No</th>
-                  <th>Qty</th>
-                  <th>Warehouse</th>
+                  <th>Asset No</th> 
                   <th>Description</th>
                   <th>Warranty</th>
                   <th>Serial Number</th>

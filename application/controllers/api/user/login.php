@@ -17,18 +17,16 @@ class login extends REST_Controller{
     public function index_post(){
         $username = $this->post('username');
         $password = $this->post('password');
-        $where = array(
-            'username' => $username,
-            'password' => MD5($password)
-        );
-        $data = $this->Models->getWhere("m_user",$where);
+        $data = $this->Models->LoginData($username,MD5($password));
         if($data){
             $this->response([
+                'code' => 0,
                 'status' => "success",
                 'data' => $data
             ],REST_Controller::HTTP_OK);
         }else{
             $this->response([
+                'code' => 1,
                 'status' => "failed",
                 'data' => $data
             ],REST_Controller::HTTP_OK);
