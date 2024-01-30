@@ -189,7 +189,7 @@ class Inventory extends CI_Controller {
             $data['item'] = $this->Models->getWhere2("m_item",$where);
             $data['type'] = $this->Models->getAll('m_type');
             $this->load->view('dashboard/header',$data);
-            $this->load->view('User/Role/side',$data);
+            $this->load->view('Inventory/Item/side',$data);
             $this->load->view('Inventory/Item/edit',$data);
             $this->load->view('dashboard/footer');  
             $this->session->set_flashdata('pesan', '<script>alert("Data gagal diubah")</script>');
