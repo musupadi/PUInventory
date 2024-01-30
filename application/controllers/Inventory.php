@@ -188,6 +188,7 @@ class Inventory extends CI_Controller {
             );
             $data['item'] = $this->Models->getWhere2("m_item",$where);
             $data['type'] = $this->Models->getAll('m_type');
+            $data['title'] = "Edit Item";
             $this->load->view('dashboard/header',$data);
             $this->load->view('Inventory/Item/side',$data);
             $this->load->view('Inventory/Item/edit',$data);
