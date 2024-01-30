@@ -41,7 +41,7 @@
                     <a href="<?php echo base_url('Inventory/Typeedit/'.$data->id);?>">
                       <i class="fa fa-fw fa-pencil"></i>
                     </a> 
-                    <a href="<?php echo base_url('Inventory/Hapustype/'.$data->id);?>">
+                    <a href="<?php echo base_url('Inventory/Hapustype/'.$data->id);?>"onclick="return confirm('Data akan dihapus?')">
                       <i class="fa fa-fw fa-trash"></i>
                     </a>
                     </div>
