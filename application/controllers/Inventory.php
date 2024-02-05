@@ -91,7 +91,7 @@ class Inventory extends CI_Controller {
             $data['role'] = $this->Models->getWhere2("m_type",$where);
             $data['title'] = 'Edit Type';
             $this->load->view('dashboard/header',$data);
-            $this->load->view('User/Role/side',$data);
+            $this->load->view('Inventory/Type/side',$data);
             $this->load->view('Inventory/Type/edit',$data);
             $this->load->view('dashboard/footer');  
             $this->session->set_flashdata('Pesan', '<script>alert("Data gagal diubah")</script>');
@@ -285,7 +285,7 @@ class Inventory extends CI_Controller {
             );
             $data['warehouse'] = $this->Models->getWhere2("m_warehouse",$where);
             $this->load->view('dashboard/header',$data);
-            $this->load->view('User/Role/side',$data);
+            $this->load->view('Inventory/Warehouse/side',$data);
             $this->load->view('Inventory/Warehouse/edit',$data);
             $this->load->view('dashboard/footer');  
             $this->session->set_flashdata('pesan', '<script>alert("Data gagal diubah")</script>');
