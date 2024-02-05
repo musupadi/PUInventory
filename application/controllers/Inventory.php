@@ -111,7 +111,7 @@ class Inventory extends CI_Controller {
         redirect(base_url('Inventory/Type'));
     }
 
-    // Item
+    // Inventory Item
     public function Item(){
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         $data['item'] = $this->Models->AllItem();
