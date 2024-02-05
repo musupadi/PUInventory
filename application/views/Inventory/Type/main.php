@@ -104,7 +104,7 @@
                         <div class="box-body">
                             <div class="form-group">
                               <label for="text">Name Type</label>
-                              <input type="text" class="form-control" name="label" placeholder="Nama Type">
+                              <input type="text" class="form-control" name="label" placeholder="Nama Type" required>
                               <p class="text-red"><?php echo form_error('label')?></p>
                             </div>
                     </div>
