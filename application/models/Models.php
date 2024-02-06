@@ -139,10 +139,23 @@ class Models extends CI_Model {
         return $data;
     }
     function data_login($table,$where){
-        
         return $this->db->get_where($table,$where);
     }
-    
+    public function AllTransaction(){
+        $this->db->select('b.id as id_user,b.name,c.name as item_name,
+        d.label as type,c.asset_no,c.description,c.category,c.warranty,
+        c.serial_number,c.photo,a.status_handover,a.handover_date,a.image,
+        a.status,a.created_at,a.created_by,a.updated_at,a.updated_by,a.qty,a.id,a.handover_date,
+        e.name as warehouse_name,f.label as location');
+        $this->db->from('tr_item as a');
+        $this->db->join('m_user as b', 'a.id_user = b.id', 'left');
+        $this->db->join('m_item as c', 'a.id_item = c.id', 'left');
+        $this->db->join('m_type as d', 'c.id_type = d.id', 'left');
+        $this->db->join('m_warehouse as e', 'a.id_warehouse = e.id', 'left');
+        $this->db->join('m_location as f', 'a.id_location = f.id', 'left');
+        $data = $this->db->get()->result();
+        return $data;
+    }
     // Model Lama
     public function BeritaLimit($limit){
         $query = "SELECT a.id_berita,a.judul_berita,a.berita,b.kategori,a.gambar FROM berita a JOIN kategori_berita b ON a.id_kategori=b.id_kategori ORDER BY a.id_berita DESC LIMIT $limit";
