@@ -60,12 +60,17 @@
                         <input type="text" class="form-control" name="serial_number" placeholder="Serial Number" value="<?php echo $data->serial_number ?>">
                      <p class="text-red"><?php echo form_error('serial_number')?></p>
                     </div>
+                    <div class="form-group">
+                      <label for="text">Photo</label>
+                      <input type="file" name="photo" size="20" />
+                      <p class="text-red"><?php echo form_error('photo')?></p>
+                    </div>
                   </div>
                   <!-- /.box-body -->
 
                   <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Edit Data</button>
-                    <a href="<?php echo base_url('Inventory/Type')?>">Cancel</a>
+                    <a href="<?php echo base_url('Inventory/Item')?>">Cancel</a>
                   </div>
                   <?php } ?>
                 </form>

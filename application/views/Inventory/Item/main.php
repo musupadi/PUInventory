@@ -96,8 +96,8 @@
                       <div class="box-body">
                         <div class="form-group">
                           <label for="text">Name</label>
-                            <input type="text" class="form-control" name="name" placeholder="Name">
-                          <p class="text-red"><?php echo form_error('name')?></p>
+                            <input type="text" class="form-control" name="name" placeholder="Name" required>
+                            <p class="text-red"><?php echo form_error('name')?></p>
                         </div>
                         <div class="form-group">
                           <label for="text">Select Type</label>
@@ -109,33 +109,33 @@
                         </div>
                         <div class="form-group">
                           <label for="text">Asset No</label>
-                            <input type="text" class="form-control" name="asset_no" placeholder="Asset No">
+                            <input type="text" class="form-control" name="asset_no" placeholder="Asset No" required>
                           <p class="text-red"><?php echo form_error('asset_no')?></p>
                         </div>
                         <div class="form-group">
                           <label for="text">Qty</label>
-                            <input type="text" class="form-control" name="qty" placeholder="Qty">
+                            <input type="text" class="form-control" name="qty" placeholder="Qty" required>
                           <p class="text-red"><?php echo form_error('qty')?></p>
                         </div>
                       <div class="form-group">
                         <label for="text">Description</label>
-                          <input type="text" class="form-control" name="description" placeholder="description">
+                          <input type="text" class="form-control" name="description" placeholder="description" required>
                         <p class="text-red"><?php echo form_error('description')?></p>
                       </div>
                       <div class="form-group">
                         <label for="text">Warranty</label>
-                          <input type="text" class="form-control" name="warranty" placeholder="Warranty">
+                          <input type="text" class="form-control" name="warranty" placeholder="Warranty" required>
                         <p class="text-red"><?php echo form_error('warranty')?></p>
                       </div>
                       <div class="form-group">
                         <label for="text">Serial Number</label>
-                          <input type="text" class="form-control" name="serial_number" placeholder="Serial Number">
+                          <input type="text" class="form-control" name="serial_number" placeholder="Serial Number" required>
                         <p class="text-red"><?php echo form_error('serial_number')?></p>
                       </div>
                       <div class="form-group">
                         <label for="text">Gambar</label>
-                        <input type="file" name="gambar" size="20" />
-                        <p class="text-red"><?php echo form_error('nama')?></p>
+                        <input type="file" name="photo" size="20" />
+                        <p class="text-red"><?php echo form_error('photo')?></p>
                       </div> 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
