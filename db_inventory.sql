@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 06, 2024 at 05:19 AM
+-- Generation Time: Feb 12, 2024 at 04:38 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.2.34
 
@@ -61,6 +61,7 @@ CREATE TABLE `m_item` (
   `id_status` int(11) NOT NULL,
   `id_brand` int(11) NOT NULL,
   `id_vendor` int(11) NOT NULL,
+  `id_satuan` int(11) NOT NULL,
   `category` enum('Asset','Non Asset') NOT NULL DEFAULT 'Asset',
   `warranty` varchar(255) NOT NULL,
   `serial_number` char(11) NOT NULL,
@@ -75,20 +76,20 @@ CREATE TABLE `m_item` (
 -- Dumping data for table `m_item`
 --
 
-INSERT INTO `m_item` (`id`, `name`, `id_type`, `asset_no`, `description`, `id_status`, `id_brand`, `id_vendor`, `category`, `warranty`, `serial_number`, `photo`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(161, 'Komputer', 1, '01/YPAP/IT/PC/2015', 'Samsung', 1, 1, 1, 'Asset', '4 Tahun', '536HG25J', 'default.jpg', '2023-10-24 09:41:26', 0, '0000-00-00 00:00:00', 0),
-(175, 'Handphone', 1, '2463YERGW37', 'Iphone', 1, 1, 1, 'Asset', '3 Years', '924502YUEU', '', '2023-10-25 11:38:18', 0, '0000-00-00 00:00:00', 0),
-(176, 'Qrqer', 1, 'QETQET', 'Qetqet', 1, 1, 1, 'Asset', '5 Years', 'QEQET', '', '2023-10-26 09:10:56', 0, '0000-00-00 00:00:00', 0),
-(177, 'Tes', 1, '2464gsr', 'aegaeg', 1, 1, 1, 'Asset', '5 ', '24twtsgs', '', '2023-10-26 09:36:57', 0, '2023-10-26 09:36:57', 0),
-(178, 'Tes', 1, '2464gsr', 'aegaeg', 1, 1, 1, 'Asset', '5 ', '24twtsgs', '', '2023-10-26 09:36:59', 0, '2023-10-26 09:36:59', 0),
-(179, 'Qeteqt', 1, 'QETEQT', 'Eqtqet', 1, 1, 1, 'Asset', '5 Years', 'QETQETQET', '', '2023-10-26 09:38:16', 0, '0000-00-00 00:00:00', 0),
-(181, 'Sgsfg', 1, 'SFGSFG', 'Gsfgsfg', 1, 1, 1, 'Asset', '5 Years', 'SGSFG', '', '2023-10-28 20:41:18', 0, '0000-00-00 00:00:00', 0),
-(182, 'Wrywrywry', 1, 'WRYWRYW', 'Wrywry', 1, 1, 1, 'Asset', '2 Years', 'WRYWRY', '', '2023-10-28 20:42:40', 0, '0000-00-00 00:00:00', 0),
-(183, 'Sepeda', 1, '1308571035', 'BMX', 1, 1, 1, 'Asset', '3 Years', '816353', '', '2023-11-09 10:08:47', 0, '0000-00-00 00:00:00', 0),
-(184, '12412412', 1, '21412', '412', 1, 0, 0, 'Asset', '124', '142142', '/default.jpg', '2024-01-12 10:19:27', 1, '2024-01-12 10:19:27', 1),
-(185, '1', 1, '1', '1', 1, 1, 1, 'Asset', '1', '1', '65a0b4e524c76.png', '2024-01-12 10:41:25', 1, '2024-01-12 10:41:25', 1),
-(186, '1', 1, '1', '1', 1, 1, 1, 'Asset', '1', '1', '65a0b513796d7.png', '2024-01-12 10:42:11', 1, '2024-01-12 10:42:11', 1),
-(187, '1', 1, '1', '1', 1, 1, 1, 'Asset', '1', '1', '65a0b549de53f.png', '2024-01-12 10:43:05', 1, '2024-01-12 10:43:05', 1);
+INSERT INTO `m_item` (`id`, `name`, `id_type`, `asset_no`, `description`, `id_status`, `id_brand`, `id_vendor`, `id_satuan`, `category`, `warranty`, `serial_number`, `photo`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(161, 'Komputer', 1, '01/YPAP/IT/PC/2015', 'Samsung', 1, 1, 1, 0, 'Asset', '4 Tahun', '536HG25J', 'default.jpg', '2023-10-24 09:41:26', 0, '0000-00-00 00:00:00', 0),
+(175, 'Handphone', 1, '2463YERGW37', 'Iphone', 1, 1, 1, 0, 'Asset', '3 Years', '924502YUEU', '', '2023-10-25 11:38:18', 0, '0000-00-00 00:00:00', 0),
+(176, 'Qrqer', 1, 'QETQET', 'Qetqet', 1, 1, 1, 0, 'Asset', '5 Years', 'QEQET', '', '2023-10-26 09:10:56', 0, '0000-00-00 00:00:00', 0),
+(177, 'Tes', 1, '2464gsr', 'aegaeg', 1, 1, 1, 0, 'Asset', '5 ', '24twtsgs', '', '2023-10-26 09:36:57', 0, '2023-10-26 09:36:57', 0),
+(178, 'Tes', 1, '2464gsr', 'aegaeg', 1, 1, 1, 0, 'Asset', '5 ', '24twtsgs', '', '2023-10-26 09:36:59', 0, '2023-10-26 09:36:59', 0),
+(179, 'Qeteqt', 1, 'QETEQT', 'Eqtqet', 1, 1, 1, 0, 'Asset', '5 Years', 'QETQETQET', '', '2023-10-26 09:38:16', 0, '0000-00-00 00:00:00', 0),
+(181, 'Sgsfg', 1, 'SFGSFG', 'Gsfgsfg', 1, 1, 1, 0, 'Asset', '5 Years', 'SGSFG', '', '2023-10-28 20:41:18', 0, '0000-00-00 00:00:00', 0),
+(182, 'Wrywrywry', 1, 'WRYWRYW', 'Wrywry', 1, 1, 1, 0, 'Asset', '2 Years', 'WRYWRY', '', '2023-10-28 20:42:40', 0, '0000-00-00 00:00:00', 0),
+(183, 'Sepeda', 1, '1308571035', 'BMX', 1, 1, 1, 0, 'Asset', '3 Years', '816353', '', '2023-11-09 10:08:47', 0, '0000-00-00 00:00:00', 0),
+(184, '12412412', 1, '21412', '412', 1, 0, 0, 0, 'Asset', '124', '142142', '/default.jpg', '2024-01-12 10:19:27', 1, '2024-01-12 10:19:27', 1),
+(185, '1', 1, '1', '1', 1, 1, 1, 0, 'Asset', '1', '1', '65a0b4e524c76.png', '2024-01-12 10:41:25', 1, '2024-01-12 10:41:25', 1),
+(186, '1', 1, '1', '1', 1, 1, 1, 0, 'Asset', '1', '1', '65a0b513796d7.png', '2024-01-12 10:42:11', 1, '2024-01-12 10:42:11', 1),
+(187, '1', 1, '1', '1', 1, 1, 1, 0, 'Asset', '1', '1', '65a0b549de53f.png', '2024-01-12 10:43:05', 1, '2024-01-12 10:43:05', 1);
 
 -- --------------------------------------------------------
 
@@ -164,6 +165,21 @@ INSERT INTO `m_role` (`id`, `label`, `level`, `created_at`, `created_by`, `updat
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `m_satuan`
+--
+
+CREATE TABLE `m_satuan` (
+  `id` int(11) NOT NULL,
+  `label` int(11) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `created_by` int(11) NOT NULL,
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_by` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `m_stock`
 --
 
@@ -183,7 +199,7 @@ CREATE TABLE `m_stock` (
 --
 
 INSERT INTO `m_stock` (`id`, `id_item`, `id_warehouse`, `qty`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(1, 1, 1, 10, '2024-01-22 10:03:12', '2024-01-22 10:03:12', '2024-01-22 10:03:12', '2024-01-22 10:03:12');
+(1, 161, 1, 10, '2024-01-22 10:03:12', '2024-01-22 10:03:12', '2024-01-22 10:03:12', '2024-01-22 10:03:12');
 
 -- --------------------------------------------------------
 
@@ -205,7 +221,7 @@ CREATE TABLE `m_type` (
 --
 
 INSERT INTO `m_type` (`id`, `label`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(1, 'Type 1', '2023-12-15 15:19:06', 1, '2023-12-15 15:19:06', 1);
+(1, 'Piece', '2023-12-15 15:19:06', 1, '2024-02-06 11:22:50', 1);
 
 -- --------------------------------------------------------
 
@@ -414,6 +430,12 @@ ALTER TABLE `m_role`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `m_satuan`
+--
+ALTER TABLE `m_satuan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `m_stock`
 --
 ALTER TABLE `m_stock`
@@ -513,6 +535,12 @@ ALTER TABLE `m_origin`
 --
 ALTER TABLE `m_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `m_satuan`
+--
+ALTER TABLE `m_satuan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `m_stock`
