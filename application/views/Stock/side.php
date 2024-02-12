@@ -22,7 +22,7 @@
         <li class="header">MAIN NAVIGATION</li>
         <li><a href="<?php echo base_url("Home")?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
         <li class=""><a href="<?php echo base_url("Transaction")?>"><i class="fa fa-list-alt"></i> <span>Transaction</span></a></li>
-        <li class=""><a href="<?php echo base_url("Stock")?>"><i class="fa fa-list-alt"></i> <span>Stock</span></a></li>
+        <li class="active"><a href="<?php echo base_url("Stock")?>"><i class="fa fa-archive"></i> <span>Stock</span></a></li>
         <li class="treeview">
           <a href="#">
             <i class="fa  fa-newspaper-o"></i> <span>Berita</span>
@@ -54,7 +54,7 @@
         <li><a href="<?php echo base_url("Jadwal")?>"><i class="fa fa-clock-o"></i> <span>Jadwal Kuliah</span></a></li>
         <li><a href="<?php echo base_url("Ujian")?>"><i class="fa fa-calendar"></i> <span>Jadwal Ujian</span></a></li>
         <li><a href="<?php echo base_url("Feedback")?>"><i class="fa fa-envelope"></i> <span>Feedback</span></a></li>
-        <li class="active"><a href="<?php echo base_url("About")?>"><i class="fa fa-user"></i> <span>About</span></a></li>
+        <li><a href="<?php echo base_url("About")?>"><i class="fa fa-user"></i> <span>About</span></a></li>
         <li><a href="<?php echo base_url("Login/logout")?>"><i class="fa fa-user-times"></i> <span>Sign Out</span></a></li>
       </ul>
     </section>
