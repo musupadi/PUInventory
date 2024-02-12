@@ -32,14 +32,24 @@ class Login extends CI_Controller {
                 'username' => $username,
                 'password' => MD5($password)
             );
-            $cek = $this->Models->data_login("m_user",$where)->num_rows();
+            $cek = $this->Models->data_login("m_user",$where)->row_array();
             if($cek >0){
                 $data_session = array(
                     'nama' => $username,
+                    'id_role' => $cek['id_role'],
                     'status' => "login"
                 );
                 $this->session->set_userdata($data_session);
-                redirect(base_url("Home"));
+                if ($cek['id_role'] == 1) {
+                    redirect('Home');
+                } else if ($cek['id_role'] == 2) {
+                    redirect('Home');
+                } else if ($cek['id_role'] == 3 ){
+                    redirect('Home/AdminWarehouse');
+                } else {
+                    redirect('Home/UserPage');
+                }
+
             }else{
                 $this->session->set_flashdata('pesan','<br>Email atau Password Salah');
                 redirect(base_url("Login"));
@@ -69,12 +79,14 @@ class Login extends CI_Controller {
                 $data['password'] = MD5($this->input->post('password'));
                 $data['name'] = $this->input->post('name');
                 $data['email'] = $this->input->post('email');
+                $data['id_role'] = 4;
                 $data['photo'] = 'logo.jpg';
             }else{
                 $data['username'] = $this->input->post('username');
                 $data['password'] = MD5($this->input->post('password'));
                 $data['name'] = $this->input->post('name');
                 $data['email'] = $this->input->post('email');
+                $data['id_role'] = 4;
                 $data['photo'] = 'logo.jpg';
             }
             $this->Models->insert('m_user',$data);

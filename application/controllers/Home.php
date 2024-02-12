@@ -199,6 +199,29 @@ class Home extends CI_Controller {
         $this->load->view('History/footer');
     }
 
+    public function UserPage() 
+    {
+        $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
+        // $data['history'] = $this->Models->AllHistoryTr();
+        $data['title'] = 'User Page';
+        $this->load->view('User_Page/header',$data);
+        $this->load->view('User_Page/side',$data);
+        $this->load->view('User_Page/main',$data);
+        $this->load->view('User_Page/footer');
+    }
+
+    public function AdminWarehouse() 
+    {
+        $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
+        // $data['history'] = $this->Models->AllHistoryTr();
+        $data['title'] = 'Admin Warehouse Page';
+        $this->load->view('Admin_Warehouse/header',$data);
+        $this->load->view('Admin_Warehouse/side',$data);
+        $this->load->view('Admin_Warehouse/main',$data);
+        $this->load->view('Admin_Warehouse/footer');
+    }
+
+
 }
 
 /* End of file Home.php */
