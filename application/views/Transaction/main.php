@@ -82,7 +82,7 @@
                       <button type="button" class="btn btn-block btn-success">Accept</button>
                     </a>
                     <br> 
-                    <a data-toggle="modal" data-target="#modal-reject" onclick=reject_data("<?=$data->id?>")>
+                    <a href="<?php echo base_url('Transaction/EditStatusRejected/'.$data->id);?>" onclick="return confirm('yakin?');")>
                       <button type="button" class="btn btn-block btn-danger">Rejected</button>
                     </a>
                     <?php endif ?>
@@ -94,7 +94,7 @@
                         <button type="button" class="btn btn-block btn-danger">Rejected</button>
                       <?php endif ?>
                     <?php endif ?>
-                    
+                   
                     </div>
                     </div>
                   </td>
