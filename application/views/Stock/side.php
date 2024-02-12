@@ -12,7 +12,7 @@
           <img src="<?php echo base_url();?>img/profile/<?php echo $data->photo ?>" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p><?php echo  $data->nama?></p>
+          <p><?php echo  $data->name?></p>
                 <?php } ?>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -20,42 +20,52 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li><a href="<?php echo base_url("Home")?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-        <li class=""><a href="<?php echo base_url("Transaction")?>"><i class="fa fa-list-alt"></i> <span>Transaction</span></a></li>
-        <li class="active"><a href="<?php echo base_url("Stock")?>"><i class="fa fa-archive"></i> <span>Stock</span></a></li>
+        <li class=""><a href="<?php echo base_url("Home")?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+        <li class="active"><a href="<?php echo base_url("Transaction")?>"><i class="fa fa-exchange"></i> <span>Transaction</span></a></li>
+        <li class=""><a href="<?php echo base_url("Stock")?>"><i class="fa fa-list-alt"></i> <span>Stock</span></a></li>
+        
         <li class="treeview">
           <a href="#">
-            <i class="fa  fa-newspaper-o"></i> <span>Berita</span>
+            <i class="fa fa-database"></i> <span>Data Inventory</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url('Berita')?>"><i class="fa fa-list"></i>List Berita</a></li>
-            <li><a href="<?php echo base_url('Berita/Postberita')?>"><i class="fa fa-map-pin"></i>Post Berita</a></li>
-            <li><a href="<?php echo base_url('Berita/Kategori')?>"><i class="fa fa-wrench"></i>Kategori</a></li>
+            <li><a href="<?php echo base_url('Inventory/item')?>"><i class="fa fa-cube"></i>Item</a></li>
+            <li><a href="<?php echo base_url('Inventory/Warehouse')?>"><i class="fa fa-home"></i>Warehouse</a></li>
+            <li><a href="<?php echo base_url('Inventory/Type')?>"><i class="fa fa-list"></i>Type</a></li>
           </ul>
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-bank"></i> <span>Data Kampus</span>
+            <i class="fa fa-briefcase"></i> <span>Vendor</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu active">
+            <li><a href="<?php echo base_url('Vendor/List')?>"><i class="fa fa-briefcase"></i>Vendor</a></li>
+            <li><a href="<?php echo base_url('Vendor/Origin')?>"><i class="fa fa-archive"></i>Origin</a></li>
+            <li><a href="<?php echo base_url('Vendor/Brand')?>"><i class="fa fa-industry"></i>Brand</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-users"></i> <span>User Management</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url('Matakuliah')?>"><i class="fa fa-book"></i>Mata Kuliah</a></li>
-            <li><a href="<?php echo base_url('Jurusan')?>"><i class="fa fa-mortar-board"></i>Jurusan</a></li>
-            <li><a href="<?php echo base_url('Kelas')?>"><i class="fa fa-users"></i>Kelas</a></li>
-            <li><a href="<?php echo base_url('Ruang')?>"><i class="fa fa-users"></i>Ruang</a></li>
-            <li><a href="<?php echo base_url('Dosen')?>"><i class="fa fa-users"></i>Dosen</a></li>
+            <li><a href="<?php echo base_url('User/Role')?>"><i class="fa fa-unlock-alt"></i>Role</a></li>
+            <li><a href="<?php echo base_url('User')?>"><i class="fa fa-user"></i>User</a></li>
           </ul>
         </li>
-        <li><a href="<?php echo base_url("Jadwal")?>"><i class="fa fa-clock-o"></i> <span>Jadwal Kuliah</span></a></li>
-        <li><a href="<?php echo base_url("Ujian")?>"><i class="fa fa-calendar"></i> <span>Jadwal Ujian</span></a></li>
-        <li><a href="<?php echo base_url("Feedback")?>"><i class="fa fa-envelope"></i> <span>Feedback</span></a></li>
-        <li><a href="<?php echo base_url("About")?>"><i class="fa fa-user"></i> <span>About</span></a></li>
-        <li><a href="<?php echo base_url("Login/logout")?>"><i class="fa fa-user-times"></i> <span>Sign Out</span></a></li>
+        <li><a href="<?php echo base_url("Home/Location")?>"><i class="fa fa-map"></i> <span>Location</span></a></li>
+        <li><a href="<?php echo base_url("Transaction/Asset")?>"><i class="fa fa-exchange"></i> <span>History Transaction</span></a></li>
+        <li><a href="<?php echo base_url("Home/HistoryTransaction")?>"><i class="fa fa-history"></i> <span>History Transaction</span></a></li>
+        <li><a href="<?php echo base_url("Login/logout")?>"onclick="return confirm('are you going to logout?');"><i class="fa fa-user-times"></i> <span>Sign Out</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->

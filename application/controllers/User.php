@@ -110,7 +110,7 @@ class User extends CI_Controller {
             if ($this->upload->do_upload('gambar')) {
                 $data['name'] = $this->input->post('name');
                 $data['username'] = $this->input->post('username');
-                $data['password'] = MD5($this->input->post('password'));
+                // $data['password'] = MD5($this->input->post('password'));
                 $data['email'] = $this->input->post('email');
                 $data['id_role '] = $this->input->post('id_role');
                 $data['photo'] = $this->upload->data("file_name");
@@ -119,7 +119,7 @@ class User extends CI_Controller {
             }else{
                 $data['name'] = $this->input->post('name');
                 $data['username'] = $this->input->post('username');
-                $data['password'] = MD5($this->input->post('password'));
+                // $data['password'] = MD5($this->input->post('password')); 
                 $data['email'] = $this->input->post('email');
                 $data['id_role '] = $this->input->post('id_role');
                 $data['photo'] = "logo.jpg";
