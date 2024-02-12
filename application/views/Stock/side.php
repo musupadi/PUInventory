@@ -21,8 +21,8 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li class=""><a href="<?php echo base_url("Home")?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-        <li class="active"><a href="<?php echo base_url("Transaction")?>"><i class="fa fa-exchange"></i> <span>Transaction</span></a></li>
-        <li class=""><a href="<?php echo base_url("Stock")?>"><i class="fa fa-list-alt"></i> <span>Stock</span></a></li>
+        <li class=""><a href="<?php echo base_url("Transaction")?>"><i class="fa fa-exchange"></i> <span>Transaction</span></a></li>
+        <li class="active"><a href="<?php echo base_url("Stock")?>"><i class="fa fa-list-alt"></i> <span>Stock</span></a></li>
         
         <li class="treeview">
           <a href="#">
