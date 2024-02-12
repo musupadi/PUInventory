@@ -42,9 +42,9 @@ class Login extends CI_Controller {
                 $this->session->set_userdata($data_session);
                 if ($cek['id_role'] == 1) {
                     redirect('Home');
-                } else if ($cek['id_role'] == 2) {
+                }if ($cek['id_role'] == 2) {
                     redirect('Home');
-                } else if ($cek['id_role'] == 3 ){
+                }if ($cek['id_role'] == 3 ){
                     redirect('Home/AdminWarehouse');
                 } else {
                     redirect('Home/UserPage');
