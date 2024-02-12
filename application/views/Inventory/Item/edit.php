@@ -41,11 +41,6 @@
                      <p class="text-red"><?php echo form_error('asset_no')?></p>
                     </div>
                     <div class="form-group">
-                      <label for="text">Qty</label>
-                        <input type="text" class="form-control" name="qty" placeholder="Qty" value="<?php echo $data->qty ?>">
-                     <p class="text-red"><?php echo form_error('qty')?></p>
-                    </div>
-                    <div class="form-group">
                       <label for="text">Description</label>
                         <input type="text" class="form-control" name="description" placeholder="Description" value="<?php echo $data->description ?>">
                      <p class="text-red"><?php echo form_error('description')?></p>
