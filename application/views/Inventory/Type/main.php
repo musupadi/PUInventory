@@ -41,7 +41,7 @@
                     <a href="<?php echo base_url('Inventory/Typeedit/'.$data->id);?>">
                       <i class="fa fa-fw fa-pencil"></i>
                     </a> 
-                    <a href="<?php echo base_url('Inventory/Hapustype/'.$data->id);?>">
+                    <a href="<?php echo base_url('Inventory/Hapustype/'.$data->id);?>"onclick="return confirm('Data akan dihapus?')">
                       <i class="fa fa-fw fa-trash"></i>
                     </a>
                     </div>
@@ -104,7 +104,7 @@
                         <div class="box-body">
                             <div class="form-group">
                               <label for="text">Name Type</label>
-                              <input type="text" class="form-control" name="label" placeholder="Nama Type">
+                              <input type="text" class="form-control" name="label" placeholder="Nama Type" required>
                               <p class="text-red"><?php echo form_error('label')?></p>
                             </div>
                     </div>

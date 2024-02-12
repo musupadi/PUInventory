@@ -56,13 +56,25 @@ class Models extends CI_Model {
     }
 
     public function AllItem(){
-        $this->db->select('a.id, a.name, b.label as type, a.asset_no, a.qty, a.description, a.id_status, c.label as brand, d.label as vendor, f.name as warehouse, a.warranty, a.serial_number, a.photo');
+        $this->db->select('a.id, a.name, b.label as type, a.asset_no, a.description, a.id_status, c.label as brand, d.label as vendor, a.warranty, a.serial_number, a.photo');
         $this->db->from('m_item as a');
         $this->db->join('m_type as b', 'a.id_type = b.id', 'left');
         $this->db->join('m_brand as c', 'a.id_brand = c.id', 'left'); // Corrected join condition
         $this->db->join('m_vendor as d', 'a.id_vendor = d.id', 'left');
-        $this->db->join('m_warehouse as f', 'a.id_warehouse = f.id', 'left');
         $this->db->where('id_status = 1');
+        $data = $this->db->get()->result();
+        return $data;
+    }
+    public function ItemWarehouse($id_warehouse){
+        $this->db->select('a.id, a.name, b.label as type, a.asset_no, a.description, a.id_status, c.label as brand, d.label as vendor, a.warranty, a.serial_number, a.photo,e.qty,f.name as warehouse');
+        $this->db->from('m_item as a');
+        $this->db->join('m_type as b', 'a.id_type = b.id', 'left');
+        $this->db->join('m_brand as c', 'a.id_brand = c.id', 'left'); // Corrected join condition
+        $this->db->join('m_vendor as d', 'a.id_vendor = d.id', 'left');
+        $this->db->join('m_stock as e', 'a.id = e.id_item', 'left');
+        $this->db->join('m_warehouse as f', 'e.id_warehouse = f.id', 'left');
+        $this->db->where('a.id_status = 1');
+        $this->db->where('e.id_warehouse = '.$id_warehouse);
         $data = $this->db->get()->result();
         return $data;
     }
@@ -114,6 +126,33 @@ class Models extends CI_Model {
     public function AllLocation(){
         $this->db->select('id, label, floor, created_at, created_by, updated_at, updated_by');
         $this->db->from('m_location');
+        $data = $this->db->get()->result();
+        return $data;
+    }
+    public function LoginData($username,$password){
+        $this->db->select('a.id as id_user,a.name,a.email,a.photo,b.label as role,b.level');
+        $this->db->from('m_user as a');
+        $this->db->join('m_role as b', 'a.id_role = b.id', 'left');
+        $this->db->where('a.username',$username);
+        $this->db->where('a.password',$password);
+        $data = $this->db->get()->result();
+        return $data;
+    }
+    function data_login($table,$where){
+        return $this->db->get_where($table,$where);
+    }
+    public function AllTransaction(){
+        $this->db->select('b.id as id_user,b.name,c.name as item_name,
+        d.label as type,c.asset_no,c.description,c.category,c.warranty,
+        c.serial_number,c.photo,a.status_handover,a.handover_date,a.image,
+        a.status,a.created_at,a.created_by,a.updated_at,a.updated_by,a.qty,a.id,a.handover_date,
+        e.name as warehouse_name,f.label as location');
+        $this->db->from('tr_item as a');
+        $this->db->join('m_user as b', 'a.id_user = b.id', 'left');
+        $this->db->join('m_item as c', 'a.id_item = c.id', 'left');
+        $this->db->join('m_type as d', 'c.id_type = d.id', 'left');
+        $this->db->join('m_warehouse as e', 'a.id_warehouse = e.id', 'left');
+        $this->db->join('m_location as f', 'a.id_location = f.id', 'left');
         $data = $this->db->get()->result();
         return $data;
     }
@@ -227,9 +266,7 @@ class Models extends CI_Model {
             return "Nothing";
         }
     }
-    function data_login($table,$where){
-        return $this->db->get_where($table,$where);
-    }
+ 
     public function countAllTransaction($user){
         $query = "SELECT a.id,a.id_barang,a.id_penjual,a.id_pembeli,a.quantity,a.total,b.nama_barang,b.harga,b.gambar,b.deskripsi,c.username,c.nama,c.email,c.wallet,c.profile,c.level FROM history a JOIN barang b ON a.id_barang=b.id JOIN user c ON a.id_penjual=c.username WHERE a.id_penjual = '$user' OR a.id_pembeli = '$user'";
         return $this->db->query($query)->result();

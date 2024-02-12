@@ -21,7 +21,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li><a href="<?php echo base_url("Home")?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-        <li class=""><a href="<?php echo base_url("Transaction")?>"><i class="fa fa-list-alt"></i> <span>Transaction</span></a></li>
+        <li class=""><a href="<?php echo base_url("Transaction")?>"><i class="fa fa-exchange"></i> <span>Transaction</span></a></li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-database"></i> <span>Data Inventory</span>
@@ -30,8 +30,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url('Inventory/Item')?>"><i class="fa fa-book"></i>Item</a></li>
-            <li><a href="<?php echo base_url('Inventory/Warehouse')?>"><i class="fa fa-book"></i>Warehouse</a></li>
+            <li><a href="<?php echo base_url('Inventory/Item')?>"><i class="fa fa-cube"></i>Item</a></li>
+            <li><a href="<?php echo base_url('Inventory/Warehouse')?>"><i class="fa fa-home"></i>Warehouse</a></li>
             <li><a href="<?php echo base_url('Inventory/Type')?>"><i class="fa fa-list"></i>Type</a></li>
           </ul>
         </li>
@@ -44,8 +44,8 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url('Vendor/List')?>"><i class="fa fa-briefcase"></i>Vendor</a></li>
-            <li class="active"><a href="<?php echo base_url('Vendor/Origin')?>"><i class="fa fa-list"></i>Origin</a></li>
-            <li><a href="<?php echo base_url('Vendor/Brand')?>"><i class="fa fa-list"></i>Brand</a></li>
+            <li class="active"><a href="<?php echo base_url('Vendor/Origin')?>"><i class="fa fa-archive"></i>Origin</a></li>
+            <li><a href="<?php echo base_url('Vendor/Brand')?>"><i class="fa fa-industry"></i>Brand</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -61,7 +61,7 @@
           </ul>
         </li>
         <li><a href="<?php echo base_url("Home/Location")?>"><i class="fa fa-map"></i> <span>Location</span></a></li>
-        <li><a href="<?php echo base_url("Transaction/Assets")?>"><i class="fa fa-exchange"></i> <span>History Transaction</span></a></li>
+        <li><a href="<?php echo base_url("Home/HistoryTransaction")?>"><i class="fa fa-history"></i> <span>History Transaction</span></a></li>
         <li><a href="<?php echo base_url("Login/logout")?>"onclick="return confirm('are you going to logout?');"><i class="fa fa-user-times"></i> <span>Sign Out</span></a></li>
       </ul>
     </section>

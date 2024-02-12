@@ -187,6 +187,18 @@ class Home extends CI_Controller {
         redirect(base_url('Home/Location'));
     }
 
+    public function HistoryTransaction()
+    {
+        // $data['barang'] = $this->Models->getMyProduct($this->session->userdata('nama'));
+        $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
+        // $data['count_wallet'] = $this->Models->Count('wallet','status','Belum Diverifikasi');
+        $data['title'] = 'History Transaction';
+        $this->load->view('History/header',$data);
+        $this->load->view('History/side',$data);
+        $this->load->view('History/main',$data);
+        $this->load->view('History/footer');
+    }
+
 }
 
 /* End of file Home.php */

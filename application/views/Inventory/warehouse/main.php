@@ -81,12 +81,12 @@
                       <div class="box-body">
                         <div class="form-group">
                           <label for="text">Name</label>
-                            <input type="text" class="form-control" name="name" placeholder="Name">
+                            <input type="text" class="form-control" name="name" placeholder="Name" required>
                           <p class="text-red"><?php echo form_error('name')?></p>
                         </div>
                         <div class="form-group">
                           <label for="text">Description</label>
-                            <input type="text" class="form-control" name="description" placeholder="Description">
+                            <input type="text" class="form-control" name="description" placeholder="Description" required>
                           <p class="text-red"><?php echo form_error('description')?></p>
                         </div>
                     <div class="modal-footer">

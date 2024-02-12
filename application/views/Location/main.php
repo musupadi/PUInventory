@@ -114,7 +114,7 @@
                             </div>
                           <div class="form-group">
                           <label for="text">Floor</label>
-                            <input type="text" class="form-control" name="floor" placeholder="Floor">
+                            <input type="text" class="form-control" name="floor" placeholder="Floor" required>
                           <p class="text-red"><?php echo form_error('floor')?></p>
                         </div>
                           </select>
