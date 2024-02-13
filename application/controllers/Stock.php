@@ -86,10 +86,11 @@ class Stock extends CI_Controller {
         }
     }
 
-    public function StockItem() 
+    public function StockItem($id_warehouse) 
     {
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
-        $data['transaction'] = $this->Models->AllTransaction();
+        $data['item'] = $this->Models->ItemWarehouse($id_warehouse);
+        $data['type'] = $this->Models->getAll('m_type');
         $data['title'] = "Stock Item";
         $this->load->view('dashboard/header',$data);
         $this->load->view('Stock/side',$data);

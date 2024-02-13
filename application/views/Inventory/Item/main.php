@@ -112,11 +112,6 @@
                             <input type="text" class="form-control" name="asset_no" placeholder="Asset No" required>
                           <p class="text-red"><?php echo form_error('asset_no')?></p>
                         </div>
-                        <div class="form-group">
-                          <label for="text">Qty</label>
-                            <input type="text" class="form-control" name="qty" placeholder="Qty" required>
-                          <p class="text-red"><?php echo form_error('qty')?></p>
-                        </div>
                       <div class="form-group">
                         <label for="text">Description</label>
                           <input type="text" class="form-control" name="description" placeholder="description" required>

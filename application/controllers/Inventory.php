@@ -152,7 +152,6 @@ class Inventory extends CI_Controller {
                 $insert['name'] = $this->input->post('name');
                 $insert['id_type'] = $this->input->post('id_type');
                 $insert['asset_no'] = $this->input->post('asset_no');
-                $insert['qty'] = $this->input->post('qty');
                 $insert['description'] = $this->input->post('description');
                 $insert['id_status'] = 1;
                 $insert['warranty'] = $this->input->post('warranty');
@@ -164,7 +163,6 @@ class Inventory extends CI_Controller {
                 $insert['name'] = $this->input->post('name');
                 $insert['id_type'] = $this->input->post('id_type');
                 $insert['asset_no'] = $this->input->post('asset_no');
-                $insert['qty'] = $this->input->post('qty');
                 $insert['description'] = $this->input->post('description');
                 $insert['id_status'] = 1;
                 $insert['warranty'] = $this->input->post('warranty');

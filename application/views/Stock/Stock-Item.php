@@ -42,18 +42,18 @@
                 <tbody>
                 <?php
                 $id = 1;
-                foreach ($transaction as $data) {
+                foreach ($item as $data) {
 
                 ?>
                 <tr>
                   <td><?php echo $id++?></td>
                   <td style="height: 50px; vertical-align: middle;"><img class="profile-user-img img-responsive" src="<?php echo base_url()?>img/item/<?php echo $data->photo?>" alt="Image Item"></td>
-                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->item_name?></td>
+                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->name?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->type?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->asset_no?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->description?></td>
-                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->category?></td>
-                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->warehouse_name?></td>
+                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->warranty?></td>
+                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->serial_number?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->qty?></td>  
                   <td style="height: 50px; vertical-align: middle;"><a data-toggle="modal" data-target="#modal-stock" class="btn btn-success btn-sm" style="width: 150px; margin-left: 10px"><i class="fa fa-fw fa-plus" onclick="accept_data('<?=$data->id ?>')"></i>Add Quantity Stock</a></td>  
                 </tr>
@@ -92,7 +92,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                           <label for="text">Name Item</label>
-                            <input type="text" class="form-control" name="name" placeholder="Name" value="<?php echo $data->item_name ?>" disabled>
+                            <input type="text" class="form-control" name="name" placeholder="Name" value="<?php echo $data->name ?>" disabled>
                             <p class="text-red"><?php echo form_error('name')?></p>
                         </div>
                         <div class="form-group">
