@@ -55,7 +55,7 @@
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->category?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->warehouse_name?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->qty?></td>  
-                  <td style="height: 50px; vertical-align: middle;"><a data-toggle="modal" data-target="#modal-stock" class="btn btn-success btn-sm" style="width: 150px; margin-left: 10px"><i class="fa fa-fw fa-plus" onclick="accept_data('<?=$data->id ?>')"></i>Add Quantity Stock</a></td>  
+                  <td style="height: 50px; vertical-align: middle;"><a data-toggle="modal" data-target="#modal-stock" class="btn btn-success btn-sm" style="width: 150px; margin-left: 10px"><i class="fa fa-fw fa-plus" onclick=accept_data("<?=$data->id ?>")></i>Add Quantity Stock</a></td>  
                 </tr>
                 <?php  } ?>
                 </tbody>
@@ -91,14 +91,17 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                          <label for="text">Name Item</label>
-                            <input type="text" class="form-control" name="name" placeholder="Name" value="<?php echo $data->item_name ?>" disabled>
-                            <p class="text-red"><?php echo form_error('name')?></p>
+                          <label for="text">Select Item</label>
+                          <select class="form-control" name="">
+                            <?php foreach ($transaction as $data){ ?>
+                                <option value="<?php echo $data->id?>"><?php echo $data->item_name ?></option>
+                            <?php }?>
+                          </select>
                         </div>
                         <div class="form-group">
                           <label for="text">Qty</label>
-                            <input type="number" class="form-control" name="qty" placeholder="Qty" value="<?= $data->qty ?>" required>
-                            <input type="hidden" id="id_add" name="id" value="" style="color:black">
+                            <input type="text" class="form-control" name="qty" placeholder="Qty" value="<?= $data->qty ?>" required>
+                            <input type="text" id="id_add" name="id" value="" style="color:black">
                           <p class="text-red"><?php echo form_error('qty')?></p>
                         </div>
                     <div class="modal-footer">
