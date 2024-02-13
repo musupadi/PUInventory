@@ -20,6 +20,7 @@
             <div class="box-header">
               <h3 class="box-title">Stock Item Main Warehouse</h3>
             </div>
+            <a href="<?php echo base_url();?>Stock/AddItemStock/<?php echo $id_warehouse ?>" class="btn btn-success btn-sm" style="width: 130px; margin-left: 10px"><i class="fa fa-fw fa-plus"></i>Add Item</a>
             <!-- /.box-header -->
            
             <!-- /.box-header -->
@@ -55,7 +56,7 @@
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->warranty?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->serial_number?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->qty?></td>
-                  <td style="height: 50px; vertical-align: middle;"><a data-toggle="modal" data-target="#modal-stock" class="btn btn-success btn-sm" style="width: 150px; margin-left: 10px" onclick="accept_data('<?=$data->id ?>')"><i class="fa fa-fw fa-plus"></i>Add Quantity Stock</a></td>  
+                  <td style="height: 50px; vertical-align: middle;"><a data-toggle="modal" data-target="#modal-stock" class="btn btn-success btn-sm" style="width: 150px; margin-left: 10px" onclick="accept_data('<?=$data->id ?>')"><i class="fa fa-fw fa-plus"></i>Edit Quantity Stock</a></td>  
                 </tr>
                 <?php  } ?>
                 </tbody>
@@ -80,33 +81,33 @@
 
              <!-- INPUT -->
              <div class="modal modal-success fade" id="modal-stock">
-            <?php echo form_open_multipart('Stock/AddStockItem/')?>
-                <form role="form" action="<?php echo base_url('Stock/AddStockItem/')?>" method="post" >
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Add Stock</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                          <label for="text">Name Item</label>
-                            <input type="text" class="form-control" name="name" placeholder="Name" value="<?php echo $data->name ?>" disabled>
-                            <p class="text-red"><?php echo form_error('name')?></p>
-                        </div>
-                        <div class="form-group">
-                          <label for="text">Qty</label>
-                            <input type="number" class="form-control" name="qty" placeholder="Qty" value="<?= $data->qty ?>" required>
-                            <input type="hidden" id="id_add" name="id" value="" style="color:black">
-                          <p class="text-red"><?php echo form_error('qty')?></p>
-                        </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-outline">Save changes</button>
-                    </div>
-                </form>
-            </div>
+              <?php echo form_open_multipart('Stock/AddStockItem/'.$id_warehouse)?>
+                  <form role="form" action="<?php echo base_url('Stock/AddStockItem/'.$id_warehouse)?>" method="post" >
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title">Add Stock</h4>
+                      </div>
+                      <div class="modal-body">
+                          <div class="form-group">
+                            <label for="text">Name Item</label>
+                              <input type="text" class="form-control" name="name" placeholder="Name" value="<?php echo $data->name ?>" disabled>
+                              <p class="text-red"><?php echo form_error('name')?></p>
+                          </div>
+                          <div class="form-group">
+                            <label for="text">Qty</label>
+                              <input type="number" class="form-control" name="qty" placeholder="Qty" value="<?= $data->qty ?>" required>
+                              <input type="hidden" id="id_add" name="id_add" value="" style="color:black">
+                            <p class="text-red"><?php echo form_error('qty')?></p>
+                          </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                          <button type="submit" class="btn btn-outline">Save changes</button>
+                      </div>
+                  </form>
+              </div>
         </div>
         <!-- /.col -->
       </div>

@@ -27,6 +27,7 @@ class Transaction extends CI_Controller {
         // $data['barang'] = $this->Models->getMyProduct($this->session->userdata('nama'));
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         $data['transaction'] = $this->Models->AllTransaction();
+        $data['transaction'] = $this->Models->AllTransaction();
         $data['title'] = 'Transaction';
         $this->load->view('Transaction/header',$data);
         $this->load->view('Transaction/side',$data);
@@ -45,14 +46,34 @@ class Transaction extends CI_Controller {
             $this->load->view('dashboard/footer');  
             $this->session->set_flashdata('pesan', '<script>alert("Data gagal diubah")</script>');
         }else{
-            $ID = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));   
-            $data['handover_date'] = $this->input->post('handover_date');   
-            $data['status'] = 1;
-            $data['updated_by'] = $ID[0]->id;
-            $data['updated_at'] = $this->Models->GetTimestamp();
-            $this->Models->edit('tr_item','id',$this->input->post('id'),$data);
-            $this->session->set_flashdata('pesan', '<script>alert("Data berhasil diubah")</script>');
-            redirect(base_url('Transaction'));
+            $ID = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));  
+            $qty = $this->Models->GetQuantity($this->input->post('id_item'),$this->input->post('id_warehouse'));
+            if($qty){
+                if($qty[0]->qty < $this->input->post('qty')){
+                    $this->session->set_flashdata('pesan', '<script>alert("Stock barang Tidak Cukup")</script>');
+                    redirect(base_url('Transaction'));
+                }else{
+                    $data['handover_date'] = $this->input->post('handover_date');   
+                    $data['status'] = 1;
+                    $data['updated_by'] = $ID[0]->id;
+                    $data['updated_at'] = $this->Models->GetTimestamp();
+                    $this->Models->edit('tr_item','id',$this->input->post('id'),$data);
+    
+                    $data2['qty'] = $qty[0]->qty-$this->input->post('qty');   
+                    $data2['updated_by'] = $ID[0]->id;
+                    $data2['updated_at'] = $this->Models->GetTimestamp();
+                    $this->Models->edit('m_stock','id',$qty[0]->id,$data2);
+                    
+    
+                    $this->session->set_flashdata('pesan', '<script>alert("Data berhasil diubah")</script>');
+                    redirect(base_url('Transaction'));
+                }
+            }else{
+                $this->session->set_flashdata('pesan', '<script>alert("Barang Tersebut Belum ada Mohon Tambahkan di Menu Stock")</script>');
+                redirect(base_url('Transaction'));
+            }
+            
+          
         }
     }
     public function EditStatusRejected($id){

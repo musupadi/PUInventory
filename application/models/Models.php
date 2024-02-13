@@ -47,6 +47,16 @@ class Models extends CI_Model {
         $data = $this->db->get()->result();
         return $data;
     }
+
+    public function GetQuantity($id_item,$id_warehouse){
+        $this->db->select('id,qty');
+        $this->db->from('m_stock');
+        $this->db->where('id_item = '.$id_item);
+        $this->db->where('id_warehouse = '.$id_warehouse);
+        $data = $this->db->get()->result();
+        return $data;
+    }
+
     public function AllBrand(){
         $this->db->select('a.id, a.label as brand, b.label as origin, a.created_at, a.created_by, a.updated_at, a.updated_by');
         $this->db->from('m_brand as a');
@@ -67,7 +77,7 @@ class Models extends CI_Model {
     }
     
     public function ItemWarehouse($id_warehouse){
-        $this->db->select('a.id, a.name, b.label as type, a.asset_no, a.description, a.id_status, c.label as brand, d.label as vendor, a.warranty, a.serial_number, a.photo,e.qty,f.name as warehouse');
+        $this->db->select('e.id,a.id as ItemName, a.name, b.label as type, a.asset_no, a.description, a.id_status, c.label as brand, d.label as vendor, a.warranty, a.serial_number, a.photo,e.qty,f.name as warehouse');
         $this->db->from('m_item as a');
         $this->db->join('m_type as b', 'a.id_type = b.id', 'left');
         $this->db->join('m_brand as c', 'a.id_brand = c.id', 'left'); // Corrected join condition
@@ -144,7 +154,7 @@ class Models extends CI_Model {
         return $this->db->get_where($table,$where);
     }
     public function AllTransaction(){
-        $this->db->select('b.id as id_user,b.name,c.name as item_name,
+        $this->db->select('e.id as id_warehouse,c.id as id_item,b.id as id_user,b.name,c.name as item_name,
         d.label as type,c.asset_no,c.description,c.category,c.warranty,
         c.serial_number,c.photo,a.status_handover,a.handover_date,a.image,
         a.status,a.created_at,a.created_by,a.updated_at,a.updated_by,a.qty,a.id,a.handover_date,
