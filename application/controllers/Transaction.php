@@ -70,4 +70,28 @@ class Transaction extends CI_Controller {
         redirect(base_url('Transaction'));
     }
 
+    public function userTransaction()
+    {
+        $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
+        $data['transaction'] = $this->Models->AllTransaction();
+        $data['title'] = 'Transaction';
+        $this->load->view('User_Transaction/header',$data);
+        $this->load->view('User_Transaction/side',$data);
+        $this->load->view('User_Transaction/main',$data);
+        $this->load->view('User_Transaction/footer');
+    }
+
+    public function trAdminWarehouse()
+    {
+        $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
+        $data['transaction'] = $this->Models->AllTransaction();
+        $data['title'] = 'Transaction';
+        $this->load->view('Tr_Admin_Warehouse/header',$data);
+        $this->load->view('Tr_Admin_Warehouse/side',$data);
+        $this->load->view('Tr_Admin_Warehouse/main',$data);
+        $this->load->view('Tr_Admin_Warehouse/footer');
+    }
+
+
+
 }

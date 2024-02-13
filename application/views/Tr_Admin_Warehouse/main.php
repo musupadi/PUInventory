@@ -33,7 +33,6 @@
                   <th>Category</th>
                   <th>Warehouse</th>
                   <th>Qty</th>
-                  <th>Handover Date</th>
                   <th style="width: 40px;">Action</th>
                 </tr>
                 </thead>
@@ -53,7 +52,7 @@
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->category?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->warehouse_name?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->qty?></td>  
-                  <td style="height: 50px; vertical-align: middle;">
+                  <!-- <td style="height: 50px; vertical-align: middle;">
                     <?php if ($data->status==0): ?>
                       <button type="button" class="btn btn-block btn-warning">Requested</button>
                     <?php endif ?>
@@ -64,7 +63,7 @@
                       <button type="button" class="btn btn-block btn-danger">Rejected</button>
                     <?php endif ?>
                    
-                  </td>  
+                  </td>   -->
                   <!-- <td style="height: 50px; vertical-align: middle;">
                     <?php if ($data->status==0): ?>
                       <button type="button" class="btn btn-block btn-warning">Requested</button>
@@ -112,7 +111,6 @@
                   <th>Category</th>
                   <th>Warehouse</th>
                   <th>Qty</th>
-                  <th>Handover Date</th>
                   <th style="width: 40px;">Action</th>
                 </tr>
                 </tfoot>

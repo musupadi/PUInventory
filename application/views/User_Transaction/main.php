@@ -33,7 +33,6 @@
                   <th>Category</th>
                   <th>Warehouse</th>
                   <th>Qty</th>
-                  <th>Handover Date</th>
                   <th style="width: 40px;">Action</th>
                 </tr>
                 </thead>
@@ -52,8 +51,9 @@
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->description?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->category?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->warehouse_name?></td>
-                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->qty?></td>  
-                  <td style="height: 50px; vertical-align: middle;">
+                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->qty?></td>
+                  <td style="height: 50px; vertical-align: middle;"><button type="button" class="btn btn-block btn-primary">Request</button></td>
+                  <!-- <td style="height: 50px; vertical-align: middle;">
                     <?php if ($data->status==0): ?>
                       <button type="button" class="btn btn-block btn-warning">Requested</button>
                     <?php endif ?>
@@ -64,7 +64,7 @@
                       <button type="button" class="btn btn-block btn-danger">Rejected</button>
                     <?php endif ?>
                    
-                  </td>  
+                  </td>   -->
                   <!-- <td style="height: 50px; vertical-align: middle;">
                     <?php if ($data->status==0): ?>
                       <button type="button" class="btn btn-block btn-warning">Requested</button>
@@ -75,8 +75,11 @@
                     <?php if ($data->status==2): ?>
                       <button type="button" class="btn btn-block btn-danger">Rejected</button>
                     <?php endif ?>
+
+
+                    
                   </td> -->
-                  <td style="text-align: center; vertical-align: middle;" >
+                  <!-- <td style="text-align: center; vertical-align: middle;" >
                     <?php if ($data->status==0): ?>
                     <a data-toggle="modal" data-target="#modal-accept" onclick=accept_data("<?=$data->id?>")>
                       <button type="button" class="btn btn-block btn-success">Accept</button>
@@ -97,7 +100,7 @@
                    
                     </div>
                     </div>
-                  </td>
+                  </td> -->
                 </tr>
                 <?php  } ?>
                 </tbody>
@@ -112,7 +115,6 @@
                   <th>Category</th>
                   <th>Warehouse</th>
                   <th>Qty</th>
-                  <th>Handover Date</th>
                   <th style="width: 40px;">Action</th>
                 </tr>
                 </tfoot>
