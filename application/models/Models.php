@@ -65,6 +65,7 @@ class Models extends CI_Model {
         $data = $this->db->get()->result();
         return $data;
     }
+    
     public function ItemWarehouse($id_warehouse){
         $this->db->select('a.id, a.name, b.label as type, a.asset_no, a.description, a.id_status, c.label as brand, d.label as vendor, a.warranty, a.serial_number, a.photo,e.qty,f.name as warehouse');
         $this->db->from('m_item as a');
@@ -78,6 +79,7 @@ class Models extends CI_Model {
         $data = $this->db->get()->result();
         return $data;
     }
+    
     public function AllVendor(){
         $this->db->select('id, label, created_at, created_by, updated_at, updated_by');
         $this->db->from('m_vendor');
