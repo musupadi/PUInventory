@@ -54,8 +54,8 @@
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->description?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->warranty?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->serial_number?></td>
-                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->qty?></td>  
-                  <td style="height: 50px; vertical-align: middle;"><a data-toggle="modal" data-target="#modal-stock" class="btn btn-success btn-sm" style="width: 150px; margin-left: 10px"><i class="fa fa-fw fa-plus" onclick="accept_data('<?=$data->id ?>')"></i>Add Quantity Stock</a></td>  
+                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->qty?></td>
+                  <td style="height: 50px; vertical-align: middle;"><a data-toggle="modal" data-target="#modal-stock" class="btn btn-success btn-sm" style="width: 150px; margin-left: 10px" onclick="accept_data('<?=$data->id ?>')"><i class="fa fa-fw fa-plus"></i>Add Quantity Stock</a></td>  
                 </tr>
                 <?php  } ?>
                 </tbody>
