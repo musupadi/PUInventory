@@ -81,8 +81,8 @@
 
              <!-- INPUT -->
              <div class="modal modal-success fade" id="modal-stock">
-            <?php echo form_open_multipart('Stock/AddStockItem/')?>
-                <form role="form" action="<?php echo base_url('Stock/AddStockItem/')?>" method="post" >
+            <?php echo form_open_multipart('Stock/AddStockItem/'.$id_warehouse)?>
+                <form role="form" action="<?php echo base_url('Stock/AddStockItem/'.$id_warehouse)?>" method="post" >
                 <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">
@@ -99,8 +99,9 @@
                         <div class="form-group">
                           <label for="text">Qty</label>
                             <input type="number" class="form-control" name="qty" placeholder="Qty" value="<?= $data->qty ?>" required>
-                            <input type="hidden" id="id_add" name="id" value="" style="color:black">
+                    
                           <p class="text-red"><?php echo form_error('qty')?></p>
+                          <input type="hidden" id="id_add" name="id_add" value="" style="color:black">
                         </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
