@@ -78,7 +78,7 @@
                   </td> -->
                   <td style="text-align: center; vertical-align: middle;" >
                     <?php if ($data->status==0): ?>
-                    <a data-toggle="modal" data-target="#modal-accept" onclick=accept_data("<?=$data->id?>")>
+                    <a data-toggle="modal" data-target="#modal-accept" onclick=accept_data("<?=$data->id?>","<?=$data->qty?>","<?=$data->id_item?>","<?=$data->id_warehouse?>")>
                       <button type="button" class="btn btn-block btn-success">Accept</button>
                     </a>
                     <br> 
@@ -138,7 +138,7 @@
                         <div class="form-group">
                             <label for="datepicker">Delivery Date : </label>
                             <input type="date" id="handover_date" name="handover_date" style="color: black;">
-                      </div>
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-outline">Save changes</button>
@@ -186,9 +186,12 @@
   }
 </script>
 <script>
-  function accept_data(id)
+  function accept_data(id,qty,id_item,id_warehouse)
   {
     console.log(id);
     document.getElementById('id_edit').value = id;
+    document.getElementById('qty').value = qty;
+    document.getElementById('id_item').value = id_item;
+    document.getElementById('id_warehouse').value = id_warehouse;
   }
 </script>
