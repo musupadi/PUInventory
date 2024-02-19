@@ -84,7 +84,6 @@
             <!-- INPUT -->
             <div class="modal modal-success fade" id="modal-success">
             <?php echo form_open_multipart('Inventory/TambahItem/')?>
-                <form role="form" action="<?php echo base_url('Inventory/TambahItem/')?>" method="post" >
                 <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">

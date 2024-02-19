@@ -54,8 +54,8 @@
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->description?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->warranty?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->serial_number?></td>
-                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->qty?></td>
-                  <td style="height: 50px; vertical-align: middle;"><a data-toggle="modal" data-target="#modal-stock" class="btn btn-success btn-sm" style="width: 150px; margin-left: 10px" onclick="accept_data('<?=$data->id ?>')"><i class="fa fa-fw fa-plus"></i>Add Quantity Stock</a></td>  
+                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->qty?></td>  
+                  <td style="height: 50px; vertical-align: middle;"><a data-toggle="modal" data-target="#modal-stock" class="btn btn-success btn-sm" style="width: 150px; margin-left: 10px" onclick="accept_data(<?=$data->id ?>, '<?=$data->name ?>', '<?=$data->qty ?>')"><i class="fa fa-fw fa-plus"></i>Add Quantity Stock</a></td>  
                 </tr>
                 <?php  } ?>
                 </tbody>
@@ -92,12 +92,12 @@
                     <div class="modal-body">
                         <div class="form-group">
                           <label for="text">Name Item</label>
-                            <input type="text" class="form-control" name="name" placeholder="Name" value="<?php echo $data->name ?>" disabled>
+                            <input type="text" id="name" class="form-control" name="name" placeholder="Name" value="<?php echo $data->name ?>" disabled>
                             <p class="text-red"><?php echo form_error('name')?></p>
                         </div>
                         <div class="form-group">
                           <label for="text">Qty</label>
-                            <input type="number" class="form-control" name="qty" placeholder="Qty" value="<?= $data->qty ?>" required>
+                            <input type="number" id="qty" class="form-control" name="qty" placeholder="Qty" value="<?= $data->qty ?>" required>
                             <input type="hidden" id="id_add" name="id" value="" style="color:black">
                           <p class="text-red"><?php echo form_error('qty')?></p>
                         </div>
@@ -115,9 +115,11 @@
     <!-- /.content -->
 
 <script>
-  function accept_data(id)
+  function accept_data(id, name, qty)
   {
-    console.log(id);
+    console.log(id, name, qty);
     document.getElementById('id_add').value = id;
+    document.getElementById('name').value = name;
+    document.getElementById('qty').value = qty;
   }
 </script>
