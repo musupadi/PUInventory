@@ -31,8 +31,6 @@
                   <th>Asset No</th>
                   <th>Description</th>
                   <th>Category</th>
-                  <th>Warehouse</th>
-                  <th>Qty</th>
                   <th style="width: 40px;">Action</th>
                 </tr>
                 </thead>
@@ -43,15 +41,13 @@
 
                 ?>
                 <tr>
-                  <td><?php echo $id++?></td>
+                  <td><?php echo $id++?>
                   <td style="height: 50px; vertical-align: middle;"><img class="profile-user-img img-responsive" src="<?php echo base_url()?>img/item/<?php echo $data->photo?>" alt="Image Item"></td>
-                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->item_name?></td>
+                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->name?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->type?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->asset_no?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->description?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->category?></td>
-                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->warehouse_name?></td>
-                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->qty?></td>
                   <td style="height: 50px; vertical-align: middle;"><button type="button" class="btn btn-block btn-primary">Request</button></td>
                   <!-- <td style="height: 50px; vertical-align: middle;">
                     <?php if ($data->status==0): ?>
@@ -113,8 +109,6 @@
                   <th>Asset No</th>
                   <th>Description</th>
                   <th>Category</th>
-                  <th>Warehouse</th>
-                  <th>Qty</th>
                   <th style="width: 40px;">Action</th>
                 </tr>
                 </tfoot>

@@ -27,7 +27,6 @@ class Transaction extends CI_Controller {
         // $data['barang'] = $this->Models->getMyProduct($this->session->userdata('nama'));
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         $data['transaction'] = $this->Models->AllTransaction();
-        $data['transaction'] = $this->Models->AllTransaction();
         $data['title'] = 'Transaction';
         $this->load->view('Transaction/header',$data);
         $this->load->view('Transaction/side',$data);
@@ -94,7 +93,9 @@ class Transaction extends CI_Controller {
     public function userTransaction()
     {
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
-        $data['transaction'] = $this->Models->AllTransaction();
+        $data['transaction'] = $this->Models->AllItem();
+        $data['warehouse'] = $this->Models->AllWarehouse();
+        $data['type'] = $this->Models->getAll('m_type');
         $data['title'] = 'Transaction';
         $this->load->view('User_Transaction/header',$data);
         $this->load->view('User_Transaction/side',$data);
