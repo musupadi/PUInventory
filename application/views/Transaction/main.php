@@ -138,7 +138,7 @@
                         <div class="form-group">
                             <label for="datepicker">Delivery Date : </label>
                             <input type="date" id="handover_date" name="handover_date" style="color: black;">
-
+                      </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-outline">Save changes</button>
@@ -163,7 +163,8 @@
                         <div class="form-group">
                             <label for="datepicker">Delivery Date : </label>
                             <input type="date" id="handover_date" name="handover_date" style="color: black;">
-
+                      </div>
+                       
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-outline">Save changes</button>
