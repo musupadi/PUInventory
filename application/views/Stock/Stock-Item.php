@@ -77,7 +77,7 @@
               </table>
             </div>
             <?php echo $this->session->flashdata('pesan');?>
-            <!-- /.box-body -->
+            <!-- box-body -->
 
              <!-- INPUT -->
              <div class="modal modal-success fade" id="modal-stock">
@@ -116,9 +116,9 @@
     <!-- /.content -->
 
 <script>
-  function accept_data(id)
+  function accept_data(id, name, qty)
   {
     console.log(id);
-    document.getElementById('id_edit').value = id;
+    document.getElementById('id_add').value = id;
   }
 </script>
