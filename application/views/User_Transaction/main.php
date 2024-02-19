@@ -48,55 +48,7 @@
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->asset_no?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->description?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->category?></td>
-                  <td style="height: 50px; vertical-align: middle;"><button type="button" class="btn btn-block btn-primary">Request</button></td>
-                  <!-- <td style="height: 50px; vertical-align: middle;">
-                    <?php if ($data->status==0): ?>
-                      <button type="button" class="btn btn-block btn-warning">Requested</button>
-                    <?php endif ?>
-                    <?php if ($data->status==1): ?>
-                      <?php echo $data->handover_date?>
-                    <?php endif ?>
-                    <?php if ($data->status==2): ?>
-                      <button type="button" class="btn btn-block btn-danger">Rejected</button>
-                    <?php endif ?>
-                   
-                  </td>   -->
-                  <!-- <td style="height: 50px; vertical-align: middle;">
-                    <?php if ($data->status==0): ?>
-                      <button type="button" class="btn btn-block btn-warning">Requested</button>
-                    <?php endif ?>
-                    <?php if ($data->status==1): ?>
-                      <button type="button" class="btn btn-block btn-success">Deliverd</button>
-                    <?php endif ?>
-                    <?php if ($data->status==2): ?>
-                      <button type="button" class="btn btn-block btn-danger">Rejected</button>
-                    <?php endif ?>
-
-
-                    
-                  </td> -->
-                  <!-- <td style="text-align: center; vertical-align: middle;" >
-                    <?php if ($data->status==0): ?>
-                    <a data-toggle="modal" data-target="#modal-accept" onclick=accept_data("<?=$data->id?>")>
-                      <button type="button" class="btn btn-block btn-success">Accept</button>
-                    </a>
-                    <br> 
-                    <a href="<?php echo base_url('Transaction/EditStatusRejected/'.$data->id);?>" onclick="return confirm('yakin?');")>
-                      <button type="button" class="btn btn-block btn-danger">Rejected</button>
-                    </a>
-                    <?php endif ?>
-                    <?php if ($data->status!=0): ?>
-                      <?php if ($data->status==1): ?>
-                        <button type="button" class="btn btn-block btn-success">Delivered</button>
-                      <?php endif ?>
-                      <?php if ($data->status==2): ?>
-                        <button type="button" class="btn btn-block btn-danger">Rejected</button>
-                      <?php endif ?>
-                    <?php endif ?>
-                   
-                    </div>
-                    </div>
-                  </td> -->
+                  <td style="height: 50px; vertical-align: middle;"><a href="<?= base_url('Transaction/userTransactionWarehouse/' . $data->id); ?>" class="btn btn-success btn-sm" style="width: 130px; margin-left: 10px">Request</a></td>
                 </tr>
                 <?php  } ?>
                 </tbody>
@@ -116,56 +68,6 @@
             </div>
             <?php echo $this->session->flashdata('pesan');?>
             <!-- /.box-body -->
-
-            <!-- INPUT -->
-            <div class="modal modal-success fade" id="modal-accept">
-            <?php echo form_open_multipart('Transaction/EditStatusAccept/')?>
-                <form role="form" action="<?php echo base_url('Transaction/EditStatusAccept/')?>" method="post" >
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Delivery Date</h4>
-                    </div>
-                    <div class="modal-body">
-                      <input type="hidden" id='id_edit' name='id' value="" style="color: black;">
-                      <div class="box-body">
-                        <div class="form-group">
-                            <label for="datepicker">Delivery Date : </label>
-                            <input type="date" id="handover_date" name="handover_date" style="color: black;">
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-outline">Save changes</button>
-                    </div>
-                </form>
-            </div>
-
-
-            <div class="modal modal-danger fade" id="modal-reject">
-            <?php echo form_open_multipart('Transaction/EditStatusRejected/')?>
-                <form role="form" action="<?php echo base_url('Transaction/EditStatusRejected/')?>" method="post" >
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Delivery Date</h4>
-                    </div>
-                    <div class="modal-body">
-                      <input type="hidden" id='id_edit' name='id' value="" style="color: black;">
-                      <div class="box-body">
-                        <div class="form-group">
-                            <label for="datepicker">Delivery Date : </label>
-                            <input type="date" id="handover_date" name="handover_date" style="color: black;">
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-outline">Save changes</button>
-                    </div>
-                </form>
-            </div>
         </div>
         <!-- /.col -->
       </div>
