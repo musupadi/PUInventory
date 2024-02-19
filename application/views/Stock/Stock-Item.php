@@ -77,7 +77,7 @@
               </table>
             </div>
             <?php echo $this->session->flashdata('pesan');?>
-            <!-- /.box-body -->
+            <!-- box-body -->
 
              <!-- INPUT -->
              <div class="modal modal-success fade" id="modal-stock">
