@@ -23,6 +23,12 @@ class Stock extends CI_Controller {
             ['field' => 'id_add','label' => 'id_add','rules' => 'required']
         ];
     }
+    private function rulesStock(){
+        return [
+            ['field' => 'qty','label' => 'qty','rules' => 'required'],
+            ['field' => 'id','label' => 'id','rules' => 'required']
+        ];
+    }
     public function index()
     {
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
@@ -129,6 +135,65 @@ class Stock extends CI_Controller {
         $this->load->view('Stock/AddItem',$data);
         $this->load->view('dashboard/footer');
     }
+
+    public function AddEditItemStock($id_warehouse){
+        $this->form_validation->set_rules($this->rulesStock());
+        if($this->form_validation->run() === false){
+            $data['id_warehouse'] = $id_warehouse;
+            $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
+            $data['item'] = $this->Models->AllItem();
+            $data['warehouse'] = $this->Models->AllWarehouse();
+            $data['type'] = $this->Models->getAll('m_type');
+            $data['title'] = 'Item';
+            $this->load->view('dashboard/header',$data);
+            $this->load->view('Stock/side',$data);
+            $this->load->view('Stock/AddItem',$data);
+            $this->load->view('dashboard/footer');
+        }else{
+            $Checker = $this->Models->GetQuantity($this->input->post('id'),$id_warehouse);
+            if($Checker){
+                $ID = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));   
+                $data['qty'] = $this->input->post('qty');   
+                $data['updated_by'] = $ID[0]->id;
+                $data['updated_at'] = $this->Models->GetTimestamp();
+                $this->Models->edit('m_stock','id_item',$this->input->post('id'),$data);
+
+
+                $data2['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
+                $data2['item'] = $this->Models->ItemWarehouse($id_warehouse);
+                $data2['id_warehouse'] = $id_warehouse;
+                $data2['type'] = $this->Models->getAll('m_type');
+                $data2['title'] = "Stock Item";
+                $this->load->view('dashboard/header',$data2);
+                $this->load->view('Stock/side',$data2);
+                $this->load->view('Stock/Stock-Item',$data2);
+                $this->load->view('dashboard/footer');
+            }else{
+                $ID = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));   
+                $data['qty'] = $this->input->post('qty');   
+                $data['id_item'] = $this->input->post('id');
+                $data['id_warehouse'] = $id_warehouse;
+                $data['created_by'] = $ID[0]->id;
+                $data['created_at'] = $this->Models->GetTimestamp();
+                $data['updated_by'] = $ID[0]->id;
+                $data['updated_at'] = $this->Models->GetTimestamp();
+                $this->Models->insert('m_stock',$data);
+
+                $data2['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
+                $data2['item'] = $this->Models->ItemWarehouse($id_warehouse);
+                $data2['id_warehouse'] = $id_warehouse;
+                $data2['type'] = $this->Models->getAll('m_type');
+                $data2['title'] = "Stock Item";
+                $this->load->view('dashboard/header',$data2);
+                $this->load->view('Stock/side',$data2);
+                $this->load->view('Stock/Stock-Item',$data2);
+                $this->load->view('dashboard/footer');
+            }
+        }
+    }
+
+
+
     public function AddStockItem($id_warehouse){
         $this->form_validation->set_rules($this->rulesEditStock());
         if($this->form_validation->run() === false){

@@ -50,7 +50,7 @@
                   <td><?php echo $data->description?></td>
                   <td><?php echo $data->warranty?></td>
                   <td><?php echo $data->serial_number?></td>
-                  <td style="vertical-align: middle;"><a data-toggle="modal" data-target="#modal-stock" class="btn btn-success btn-sm" style="width: 100px;" onclick="accept_data('<?=$data->id ?>')"><i class="fa fa-fw fa-plus"></i>Add Item</a></td>  
+                  <td style="vertical-align: middle;"><a data-toggle="modal" data-target="#modal-success" class="btn btn-success btn-sm" style="width: 100px;" onclick="accept_data('<?=$data->id ?>','<?=$data->name ?>')"><i class="fa fa-fw fa-plus"></i>Add Item</a></td>  
                 </tr>
                 <?php  } ?>
                 </tbody>
@@ -74,8 +74,8 @@
 
             <!-- INPUT -->
             <div class="modal modal-success fade" id="modal-success">
-            <?php echo form_open_multipart('Inventory/TambahItem/')?>
-                <form role="form" action="<?php echo base_url('Inventory/TambahItem/')?>" method="post" >
+            <?php echo form_open_multipart('Stock/AddEditItemStock/'.$id_warehouse)?>
+                <form role="form" action="<?php echo base_url('Stock/AddEditItemStock/'.$id_warehouse)?>" method="post" >
                 <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">
@@ -87,42 +87,16 @@
                       <div class="box-body">
                         <div class="form-group">
                           <label for="text">Name</label>
-                            <input type="text" class="form-control" name="name" placeholder="Name" required>
+                            <input type="text" disabled class="form-control"  id="name" name="name" placeholder="Name" required>
                             <p class="text-red"><?php echo form_error('name')?></p>
                         </div>
+                        <input type="hidden" id="id" name="id" value="" style="color:black">
                         <div class="form-group">
-                          <label for="text">Select Type</label>
-                          <select class="form-control" name="id_type">
-                            <?php foreach ($type as $data){ ?>
-                                <option value="<?php echo $data->id?>"><?php echo $data->label ?></option>
-                            <?php }?>
-                          </select>
+                          <label for="text">Qty</label>
+                            <input type="number" class="form-control" name="qty" placeholder="Qty" required>
+                    
+                          <p class="text-red"><?php echo form_error('qty')?></p>
                         </div>
-                        <div class="form-group">
-                          <label for="text">Asset No</label>
-                            <input type="text" class="form-control" name="asset_no" placeholder="Asset No" required>
-                          <p class="text-red"><?php echo form_error('asset_no')?></p>
-                        </div>
-                      <div class="form-group">
-                        <label for="text">Description</label>
-                          <input type="text" class="form-control" name="description" placeholder="description" required>
-                        <p class="text-red"><?php echo form_error('description')?></p>
-                      </div>
-                      <div class="form-group">
-                        <label for="text">Warranty</label>
-                          <input type="text" class="form-control" name="warranty" placeholder="Warranty" required>
-                        <p class="text-red"><?php echo form_error('warranty')?></p>
-                      </div>
-                      <div class="form-group">
-                        <label for="text">Serial Number</label>
-                          <input type="text" class="form-control" name="serial_number" placeholder="Serial Number" required>
-                        <p class="text-red"><?php echo form_error('serial_number')?></p>
-                      </div>
-                      <div class="form-group">
-                        <label for="text">Gambar</label>
-                        <input type="file" name="photo" size="20" />
-                        <p class="text-red"><?php echo form_error('photo')?></p>
-                      </div> 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-outline">Save changes</button>
@@ -135,4 +109,13 @@
       <!-- /.row -->
     </section>
     <!-- /.content -->
+
+    <script>
+  function accept_data(id, name)
+  {
+    console.log(id, name);
+    document.getElementById('id').value = id;
+    document.getElementById('name').value = name;
+  }
+</script>
 
