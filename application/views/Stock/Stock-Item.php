@@ -120,5 +120,7 @@
   {
     console.log(id);
     document.getElementById('id_add').value = id;
+    document.getElementById('name').value = name;
+    document.getElementById('qty').value = qty;
   }
 </script>
