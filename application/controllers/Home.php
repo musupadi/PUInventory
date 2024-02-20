@@ -131,15 +131,7 @@ class Home extends CI_Controller {
         $data['Data'] = $this->Models->AllUser();
         $data['title'] = 'My Profile';
         $this->load->view('dashboard/header',$data);
-        if($data['user'][0]->id_role == 1 || $data['user'][0]->id_role == 2)
-        {
-            $this->load->view('dashboard/side',$data);
-        }else if($data['user'][0]->id_role == 3){
-            $this->load->view('Admin_Warehouse/side',$data);
-        }else{
-            $this->load->view('User_Page/side',$data);
-        }
-                
+        $this->load->view('dashboard/side',$data);
         $this->load->view('MyProfile/main',$data);
         $this->load->view('dashboard/footer');
     }
