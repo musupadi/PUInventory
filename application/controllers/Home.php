@@ -193,10 +193,10 @@ class Home extends CI_Controller {
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         // $data['count_wallet'] = $this->Models->Count('wallet','status','Belum Diverifikasi');
         $data['title'] = 'History Transaction';
-        $this->load->view('History/header',$data);
+        $this->load->view('dashboard/header',$data);
         $this->load->view('History/side',$data);
         $this->load->view('History/main',$data);
-        $this->load->view('History/footer');
+        $this->load->view('dashboard/footer');
     }
 
     public function UserPage() 
@@ -204,10 +204,10 @@ class Home extends CI_Controller {
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         // $data['history'] = $this->Models->AllHistoryTr();
         $data['title'] = 'User Page';
-        $this->load->view('User_Page/header',$data);
-        $this->load->view('User_Page/side',$data);
-        $this->load->view('User_Page/main',$data);
-        $this->load->view('User_Page/footer');
+        $this->load->view('dashboard/header',$data);
+        $this->load->view('dashboard/side',$data);
+        $this->load->view('dashboard/main',$data);
+        $this->load->view('dashboard/footer');
     }
 
     public function AdminWarehouse() 
@@ -215,10 +215,10 @@ class Home extends CI_Controller {
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         // $data['history'] = $this->Models->AllHistoryTr();
         $data['title'] = 'Admin Warehouse Page';
-        $this->load->view('Admin_Warehouse/header',$data);
-        $this->load->view('Admin_Warehouse/side',$data);
-        $this->load->view('Admin_Warehouse/main',$data);
-        $this->load->view('Admin_Warehouse/footer');
+        $this->load->view('dashboard/header',$data);
+        $this->load->view('dashboard/side',$data);
+        $this->load->view('dashboard/main',$data);
+        $this->load->view('dashboard/footer');
     }
 
     

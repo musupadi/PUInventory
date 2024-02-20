@@ -28,10 +28,10 @@ class Transaction extends CI_Controller {
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         $data['transaction'] = $this->Models->AllTransaction();
         $data['title'] = 'Transaction';
-        $this->load->view('Transaction/header',$data);
+        $this->load->view('dashboard/header',$data);
         $this->load->view('Transaction/side',$data);
         $this->load->view('Transaction/main',$data);
-        $this->load->view('Transaction/footer');
+        $this->load->view('dashboard/footer');
     }
     public function EditStatusAccept(){
         $this->form_validation->set_rules($this->rulesTransaction());
@@ -97,20 +97,20 @@ class Transaction extends CI_Controller {
         $data['warehouse'] = $this->Models->AllWarehouse();
         $data['type'] = $this->Models->getAll('m_type');
         $data['title'] = 'Transaction';
-        $this->load->view('User_Transaction/header',$data);
+        $this->load->view('dashboard/header',$data);
         $this->load->view('User_Transaction/side',$data);
         $this->load->view('User_Transaction/main',$data);
-        $this->load->view('User_Transaction/footer');
+        $this->load->view('dashboard/footer');
     }
     public function userTransactionWarehouse($id_item)
     {
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         $data['transaction'] = $this->Models->ItemWarehouseSearch($id_item);
         $data['title'] = 'Transaction';
-        $this->load->view('User_Transaction/header',$data);
+        $this->load->view('dashboard/header',$data);
         $this->load->view('User_Transaction/side',$data);
         $this->load->view('User_Transaction/main2',$data);
-        $this->load->view('User_Transaction/footer');
+        $this->load->view('dashboard/footer');
     }
 
     public function trAdminWarehouse()
@@ -118,10 +118,10 @@ class Transaction extends CI_Controller {
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         $data['transaction'] = $this->Models->AllTransaction();
         $data['title'] = 'Transaction';
-        $this->load->view('Tr_Admin_Warehouse/header',$data);
+        $this->load->view('dashboard/header',$data);
         $this->load->view('Tr_Admin_Warehouse/side',$data);
         $this->load->view('Tr_Admin_Warehouse/main',$data);
-        $this->load->view('Tr_Admin_Warehouse/footer');
+        $this->load->view('dashboard/footer');
     }
 
 

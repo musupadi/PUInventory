@@ -13,13 +13,15 @@
         </div>
         <div class="pull-left info">
           <p><?php echo  $data->name?></p>
-                <?php } ?>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
+
+        <!-- Super Admin & Admin -->
+        <?php if ( $data->id_role == 1 || $data->id_role == 2) : ?>
         <li class="active"><a href="<?php echo base_url("Home")?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
         <li class=""><a href="<?php echo base_url("Transaction")?>"><i class="fa fa-exchange"></i> <span>Transaction</span></a></li>
         <li class=""><a href="<?php echo base_url("Stock")?>"><i class="fa fa-list-alt"></i> <span>Stock</span></a></li>
@@ -64,6 +66,22 @@
         <li><a href="<?php echo base_url("Home/Location")?>"><i class="fa fa-map"></i> <span>Location</span></a></li>
         <li><a href="<?php echo base_url("Home/HistoryTransaction")?>"><i class="fa fa-history"></i> <span>History Transaction</span></a></li>
         <li><a href="<?php echo base_url("Login/logout")?>"onclick="return confirm('are you going to logout?');"><i class="fa fa-user-times"></i> <span>Sign Out</span></a></li>
+        <?php endif ?>
+
+        <!-- Admin Warehouse -->
+        <?php if ($data->id_role == 3) : ?>
+          <li class="active"><a href="<?php echo base_url("Home")?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+          <li class=""><a href="<?php echo base_url("Transaction/trAdminWarehouse")?>"><i class="fa fa-exchange"></i> <span>Transaction</span></a></li>
+          <li class=""><a href="<?php echo base_url("Stock/stockAdminWarehouse")?>"><i class="fa fa-list-alt"></i> <span>Stock</span></a></li>
+          <li><a href="<?php echo base_url("Login/logout")?>"onclick="return confirm('are you going to logout?');"><i class="fa fa-user-times"></i> <span>Sign Out</span></a></li>
+        <?php endif ?>
+
+        <!-- User -->
+        <?php if ($data->id_role == 4) : ?>
+          <li class="active"><a href="<?php echo base_url("Home")?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+          <li class=""><a href="<?php echo base_url("Transaction/userTransaction")?>"><i class="fa fa-exchange"></i> <span>Transaction</span></a></li>
+          <li><a href="<?php echo base_url("Login/logout")?>"onclick="return confirm('are you going to logout?');"><i class="fa fa-user-times"></i> <span>Sign Out</span></a></li>
+        <?php endif ?>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -71,4 +89,5 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+  <?php } ?>
     <!-- Content Header (Page header) -->
