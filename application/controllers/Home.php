@@ -234,10 +234,10 @@ class Home extends CI_Controller {
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         // $data['history'] = $this->Models->AllHistoryTr();
         $data['title'] = 'Admin Warehouse Page';
-        $this->load->view('Admin_Warehouse/header',$data);
+        $this->load->view('dashboard/header',$data);
         $this->load->view('Admin_Warehouse/side',$data);
         $this->load->view('Admin_Warehouse/main',$data);
-        $this->load->view('Admin_Warehouse/footer');
+        $this->load->view('dashboard/footer');
     }
 
 
