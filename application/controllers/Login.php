@@ -26,6 +26,7 @@ class Login extends CI_Controller {
         if($this->form_validation->run() == FALSE){
             $this->load->view('form_login');
         }else{
+            var_dump($this->session->userdata());
             $username = $this->input->post('username');
             $password = $this->input->post('password');
             $where = array(
@@ -40,16 +41,7 @@ class Login extends CI_Controller {
                     'status' => "login"
                 );
                 $this->session->set_userdata($data_session);
-                if ($cek['id_role'] == 1) {
                     redirect('Home');
-                }if ($cek['id_role'] == 2) {
-                    redirect('Home');
-                }if ($cek['id_role'] == 3 ){
-                    redirect('Home/AdminWarehouse');
-                } else {
-                    redirect('Home/UserPage');
-                }
-
             }else{
                 $this->session->set_flashdata('pesan','<br>Email atau Password Salah');
                 redirect(base_url("Login"));
