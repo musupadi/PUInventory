@@ -235,8 +235,8 @@ class Home extends CI_Controller {
         // $data['history'] = $this->Models->AllHistoryTr();
         $data['title'] = 'Admin Warehouse Page';
         $this->load->view('dashboard/header',$data);
-        $this->load->view('Admin_Warehouse/side',$data);
-        $this->load->view('Admin_Warehouse/main',$data);
+        $this->load->view('dashboard/side',$data);
+        $this->load->view('dashboard/main',$data);
         $this->load->view('dashboard/footer');
     }
 
