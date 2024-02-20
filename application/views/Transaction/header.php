@@ -101,7 +101,7 @@
                 </p>
               </li>
               <!-- Menu Body -->
-              <li class="user-body">
+              <!-- <li class="user-body">
                 <div class="row">
                   <div class="col-xs-6 text-center">
                     <a href="<?php echo base_url('Barang/saya')?>">My Product</a>
@@ -110,12 +110,12 @@
                     <a href="#">History</a>
                   </div>
                 </div>
-                <!-- /.row -->
-              </li>
+                 /.row 
+              </li> -->
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="<?php echo base_url('Tahun') ?>" class="btn btn-default btn-flat">Tahun Ajaran</a>
+                  <a href="<?php echo base_url('Home/MyProfile') ?>" class="btn btn-default btn-flat">My Profile</a>
                 </div>
                 <div class="pull-right">
                   <a href="<?php echo base_url("Login/logout")?>" class="btn btn-default btn-flat" onclick="return confirm('are you going to logout?');">Sign out</a>

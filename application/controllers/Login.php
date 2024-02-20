@@ -80,7 +80,7 @@ class Login extends CI_Controller {
                 $data['name'] = $this->input->post('name');
                 $data['email'] = $this->input->post('email');
                 $data['id_role'] = 4;
-                $data['photo'] = 'logo.jpg';
+                $data['photo'] = $this->upload->data('file_name');
             }else{
                 $data['username'] = $this->input->post('username');
                 $data['password'] = MD5($this->input->post('password'));

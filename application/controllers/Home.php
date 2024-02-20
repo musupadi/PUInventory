@@ -125,6 +125,25 @@ class Home extends CI_Controller {
         }
     }
 
+    public function MyProfile()
+    {
+        $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
+        $data['Data'] = $this->Models->AllUser();
+        $data['title'] = 'My Profile';
+        $this->load->view('dashboard/header',$data);
+        if($data['user'][0]->id_role == 1 || $data['user'][0]->id_role == 2)
+        {
+            $this->load->view('dashboard/side',$data);
+        }else if($data['user'][0]->id_role == 3){
+            $this->load->view('Admin_Warehouse/side',$data);
+        }else{
+            $this->load->view('User_Page/side',$data);
+        }
+                
+        $this->load->view('MyProfile/main',$data);
+        $this->load->view('dashboard/footer');
+    }
+
     public function Location(){
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         $data['location'] = $this->Models->getAll('m_location');
@@ -215,11 +234,12 @@ class Home extends CI_Controller {
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         // $data['history'] = $this->Models->AllHistoryTr();
         $data['title'] = 'Admin Warehouse Page';
-        $this->load->view('Admin_Warehouse/header',$data);
+        $this->load->view('dashboard/header',$data);
         $this->load->view('Admin_Warehouse/side',$data);
         $this->load->view('Admin_Warehouse/main',$data);
-        $this->load->view('Admin_Warehouse/footer');
+        $this->load->view('dashboard/footer');
     }
+
 
     
 
