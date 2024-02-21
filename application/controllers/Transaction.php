@@ -105,7 +105,7 @@ class Transaction extends CI_Controller {
     public function userTransactionWarehouse($id_item)
     {
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
-        $data['transaction'] = $this->Models->ItemWarehouseSearch($id_item);
+        $data['transaction'] = $this->Models->ItemWarehouseSearch($id_item); 
         $data['title'] = 'Transaction';
         $this->load->view('dashboard/header',$data);
         $this->load->view('User_Transaction/side',$data);
@@ -124,6 +124,37 @@ class Transaction extends CI_Controller {
         $this->load->view('dashboard/footer');
     }
 
+    public function requestTransaction(){
+        $this->form_validation->set_rules($this->rulesItem());
+        $ID = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
+        $data['item'] = $this->Models->AllItem();
+        $data['type'] = $this->Models->getAll('m_type');
+        $data['title'] = 'Item';
+        if(empty($this->input->post())){
+            $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
+            $data['transaction'] = $this->Models->AllItem();
+            $data['warehouse'] = $this->Models->AllWarehouse();
+            $data['type'] = $this->Models->getAll('m_type');
+            $data['title'] = 'Transaction';
+            $this->load->view('dashboard/header',$data);
+            $this->load->view('User_Transaction/side',$data);
+            $this->load->view('User_Transaction/main',$data);
+            $this->load->view('dashboard/footer');
+        }else{
 
+            $insert['id_user'] = $ID[0]->id;
+            $insert['id_item'] = $this->input->post('id_item');
+            $insert['id_warehouse'] = $this->input->post('id_warehouse');;
+            $insert['status_handover'] = "0";
+            $insert['image'] = "default.jpg";
+            $insert['status'] = "0";
+            $insert['qty'] = $this->input->post('qty');
+            $insert['created_by'] = $ID[0]->id;
+            $insert['updated_by'] = $ID[0]->id;
+            $this->Models->insert('tr_item',$insert);
+            $this->session->set_flashdata('pesan','<script>alert("Data berhasil disimpan")</script>');
+            redirect(base_url('Inventory/Item'));
+        }
+    }
 
 }

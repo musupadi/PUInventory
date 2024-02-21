@@ -91,7 +91,7 @@ class Models extends CI_Model {
     }
 
     public function ItemWarehouseSearch($id_item){
-        $this->db->select('e.id,a.id as ItemName, a.name, b.label as type, a.asset_no, a.description, a.id_status, c.label as brand, d.label as vendor, a.warranty, a.serial_number, a.photo,e.qty,f.name as warehouse,f.description as warehouse_description');
+        $this->db->select('e.id,a.id as ItemName, a.name, b.label as type, a.asset_no, a.description, a.id_status, c.label as brand, d.label as vendor, a.warranty, a.serial_number, a.photo,e.qty, f.id as id_warehouse ,f.name as warehouse,f.description as warehouse_description');
         $this->db->from('m_item as a');
         $this->db->join('m_type as b', 'a.id_type = b.id');
         $this->db->join('m_brand as c', 'a.id_brand = c.id'); // Corrected join condition

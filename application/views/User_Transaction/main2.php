@@ -45,7 +45,7 @@
                   <td><?php echo $data->warehouse_description?></td>
                   <td><?php echo $data->qty?></td>
                   <td style="text-align: center;">
-                      <a class="btn btn-success btn-sm" style="width: 130px; margin-left: 10px" data-toggle="modal" data-target="#modal-success">Request</a>
+                      <a class="btn btn-success btn-sm" style="width: 130px; margin-left: 10px" data-toggle="modal" data-target="#modal-success" onclick="accept_data(<?=$data->ItemName?>, <?=$data->id_warehouse?>)">Request</a>
                     </div>
                     </div>
                   </td>
@@ -70,7 +70,6 @@
             <!-- INPUT -->
             <div class="modal modal-success fade" id="modal-success">
             <?php echo form_open_multipart('Inventory/TambahWarehouse/')?>
-                <form role="form" action="<?php echo base_url('Inventory/TambahWarehouse/')?>" method="post" >
                 <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">
@@ -82,6 +81,8 @@
                       <div class="box-body">
                         <div class="form-group">
                           <label for="text">Quantity</label>
+                            <input type="hidden" class="form-control" name="id" id="id">
+                            <input type="text" class="form-control" name="id_warehouse" id="id_warehouse">
                             <input type="number" class="form-control" name="qty" placeholder="Quantity" required>
                           <p class="text-red"><?php echo form_error('name')?></p>
                         </div>
@@ -98,3 +99,11 @@
     </section>
     <!-- /.content -->
 
+    <script>
+  function accept_data(id, $id_warehouse)
+  {
+    console.log(id, $id_warehouse);
+    document.getElementById('id').value = id;
+    document.getElementById('id_warehouse').value = id_warehouse;
+  }
+</script>

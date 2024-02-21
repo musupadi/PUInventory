@@ -156,8 +156,8 @@ class Inventory extends CI_Controller {
                 $insert['id_status'] = 1;
                 $insert['warranty'] = $this->input->post('warranty');
                 $insert['serial_number'] = $this->input->post('serial_number');
-                $insert['created_by'] = $id[0]->id;
-                $insert['updated_by'] = $id[0]->id;
+                $insert['created_by'] = $ID[0]->id;
+                $insert['updated_by'] = $ID[0]->id;
             }else{
                 $insert['photo'] = "default.jpg";
                 $insert['name'] = $this->input->post('name');
@@ -167,8 +167,8 @@ class Inventory extends CI_Controller {
                 $insert['id_status'] = 1;
                 $insert['warranty'] = $this->input->post('warranty');
                 $insert['serial_number'] = $this->input->post('serial_number');
-                $insert['created_by'] = $id[0]->id;
-                $insert['updated_by'] = $id[0]->id;
+                $insert['created_by'] = $ID[0]->id;
+                $insert['updated_by'] = $ID[0]->id;
             }
             
             $this->Models->insert('m_item',$insert);
