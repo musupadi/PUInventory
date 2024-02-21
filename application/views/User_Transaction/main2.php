@@ -45,7 +45,7 @@
                   <td><?php echo $data->warehouse_description?></td>
                   <td><?php echo $data->qty?></td>
                   <td style="text-align: center;">
-                      <a class="btn btn-success btn-sm" style="width: 130px; margin-left: 10px">Request</a>
+                      <a class="btn btn-success btn-sm" style="width: 130px; margin-left: 10px" data-toggle="modal" data-target="#modal-success">Request</a>
                     </div>
                     </div>
                   </td>
@@ -81,14 +81,9 @@
                     <div class="modal-body">
                       <div class="box-body">
                         <div class="form-group">
-                          <label for="text">Name</label>
+                          <label for="text">Quantity</label>
                             <input type="text" class="form-control" name="name" placeholder="Name" required>
                           <p class="text-red"><?php echo form_error('name')?></p>
-                        </div>
-                        <div class="form-group">
-                          <label for="text">Description</label>
-                            <input type="text" class="form-control" name="description" placeholder="Description" required>
-                          <p class="text-red"><?php echo form_error('description')?></p>
                         </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
