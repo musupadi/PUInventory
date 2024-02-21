@@ -82,7 +82,7 @@
                       <div class="box-body">
                         <div class="form-group">
                           <label for="text">Quantity</label>
-                            <input type="text" class="form-control" name="name" placeholder="Name" required>
+                            <input type="number" class="form-control" name="qty" placeholder="Quantity" required>
                           <p class="text-red"><?php echo form_error('name')?></p>
                         </div>
                     <div class="modal-footer">

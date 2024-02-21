@@ -172,13 +172,13 @@ class Models extends CI_Model {
         d.label as type,c.asset_no,c.description,c.category,c.warranty,
         c.serial_number,c.photo,a.status_handover,a.handover_date,a.image,
         a.status,a.created_at,a.created_by,a.updated_at,a.updated_by,a.qty,a.id,a.handover_date,
-        e.name as warehouse_name,f.label as location');
+        e.name as warehouse_name');
         $this->db->from('tr_item as a');
         $this->db->join('m_user as b', 'a.id_user = b.id', 'left');
         $this->db->join('m_item as c', 'a.id_item = c.id', 'left');
         $this->db->join('m_type as d', 'c.id_type = d.id', 'left');
         $this->db->join('m_warehouse as e', 'a.id_warehouse = e.id', 'left');
-        $this->db->join('m_location as f', 'a.id_location = f.id', 'left');
+       
         $data = $this->db->get()->result();
         return $data;
     }
