@@ -20,7 +20,7 @@ class Stock extends CI_Controller {
     private function rulesEditStock(){
         return [
             ['field' => 'qty','label' => 'qty','rules' => 'required'],
-            ['field' => 'id_add','label' => 'id_add','rules' => 'required']
+            ['field' => 'id','label' => 'id_add','rules' => 'required']
         ];
     }
     private function rulesStock(){
@@ -212,7 +212,7 @@ class Stock extends CI_Controller {
             $data['qty'] = $this->input->post('qty');   
             $data['updated_by'] = $ID[0]->id;
             $data['updated_at'] = $this->Models->GetTimestamp();
-            $this->Models->edit('m_stock','id',$this->input->post('id_add'),$data);
+            $this->Models->edit('m_stock','id',$this->input->post('id'),$data);
 
 
             $data2['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));

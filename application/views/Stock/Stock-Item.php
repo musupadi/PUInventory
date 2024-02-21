@@ -81,7 +81,7 @@
 
              <!-- INPUT -->
              <div class="modal modal-success fade" id="modal-stock">
-            <?php echo form_open_multipart('Stock/AddStockItem/')?>
+            <?php echo form_open_multipart('Stock/AddStockItem/' . $id_warehouse)?>
                 <form role="form" action="<?php echo base_url('Stock/AddStockItem/')?>" method="post" >
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -99,7 +99,7 @@
                         <div class="form-group">
                           <label for="text">Qty</label>
                             <input type="number" id="qty" class="form-control" name="qty" placeholder="Qty" required>
-                            <input type="hidden" id="id_add" name="id" value="" style="color:black">
+                            <input type="hidden" id="id" name="id" value="" style="color:black">
                           <p class="text-red"><?php echo form_error('qty')?></p>
                         </div>
                     <div class="modal-footer">
@@ -119,7 +119,7 @@
   function accept_data(id, name, qty)
   {
     console.log(id);
-    document.getElementById('id_add').value = id;
+    document.getElementById('id').value = id;
     document.getElementById('name').value = name;
     document.getElementById('qty').value = qty;
   }
