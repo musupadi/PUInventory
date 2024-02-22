@@ -9,8 +9,6 @@
       </ol>
     </section>
 
-    
-
     <!-- Main content -->
     <section class="content">
       <div class="row">
@@ -83,8 +81,8 @@
                       <div class="box-body">
                         <div class="form-group">
                           <label for="text">Quantity</label>
-                            <input type="text" class="form-control" name="id_item" id="id">
-                            <input type="text" class="form-control" name="id_warehouse" id="id_warehouse">
+                            <input type="hidden" class="form-control" name="id_item" id="id">
+                            <input type="hidden" class="form-control" name="id_warehouse" id="id_warehouse">
                             <input type="number" class="form-control" name="qty" placeholder="Quantity" required>
                           <p class="text-red"><?php echo form_error('name')?></p>
                         </div>

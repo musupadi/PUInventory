@@ -30,6 +30,8 @@
                   <th>Type</th>
                   <th>Asset No</th>
                   <th>Description</th>
+                  <th>Vendor</th>
+                  <th>Brand</th>
                   <th>Warranty</th>
                   <th>Serial Number</th>
                   <th style="width: 40px;">Action</th>
@@ -48,6 +50,8 @@
                   <td><?php echo $data->type?></td>
                   <td><?php echo $data->asset_no?></td>
                   <td><?php echo $data->description?></td>
+                  <td><?php echo $data->vendor?></td>
+                  <td><?php echo $data->brand?></td>
                   <td><?php echo $data->warranty?></td>
                   <td><?php echo $data->serial_number?></td>
                   <td style="text-align: center;">
@@ -71,6 +75,8 @@
                   <th>Type</th>
                   <th>Asset No</th> 
                   <th>Description</th>
+                  <th>Vendor</th>
+                  <th>Brand</th>
                   <th>Warranty</th>
                   <th>Serial Number</th>
                   <th style="width: 40px;">Action</th>
@@ -116,6 +122,22 @@
                           <input type="text" class="form-control" name="description" placeholder="description" required>
                         <p class="text-red"><?php echo form_error('description')?></p>
                       </div>
+                      <div class="form-group">
+                          <label for="text">Select Vendor</label>
+                          <select class="form-control" name="id_vendor">
+                            <?php foreach ($vendor as $data){ ?>
+                                <option value="<?php echo $data->id?>"><?php echo $data->label ?></option>
+                            <?php }?>
+                          </select>
+                      </div>
+                      <div class="form-group">
+                          <label for="text">Select Brand</label>
+                          <select class="form-control" name="id_type">
+                            <?php foreach ($brand as $data){ ?>
+                                <option value="<?php echo $data->id?>"><?php echo $data->label ?></option>
+                            <?php }?>
+                          </select>
+                        </div>
                       <div class="form-group">
                         <label for="text">Warranty</label>
                           <input type="text" class="form-control" name="warranty" placeholder="Warranty" required>

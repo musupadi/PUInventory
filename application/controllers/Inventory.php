@@ -117,6 +117,8 @@ class Inventory extends CI_Controller {
         $data['item'] = $this->Models->AllItem();
         $data['warehouse'] = $this->Models->AllWarehouse();
         $data['type'] = $this->Models->getAll('m_type');
+        $data['vendor'] = $this->Models->getAll('m_vendor');
+        $data['brand'] = $this->Models->getAll('m_brand');
         $data['title'] = 'Item';
         $this->load->view('dashboard/header',$data);
         $this->load->view('Inventory/Item/side',$data);
@@ -153,6 +155,8 @@ class Inventory extends CI_Controller {
                 $insert['id_type'] = $this->input->post('id_type');
                 $insert['asset_no'] = $this->input->post('asset_no');
                 $insert['description'] = $this->input->post('description');
+                $insert['id_vendor'] = $this->input->post('vendor');
+                $insert['id_brand'] = $this->input->post('brand');
                 $insert['id_status'] = 1;
                 $insert['warranty'] = $this->input->post('warranty');
                 $insert['serial_number'] = $this->input->post('serial_number');
@@ -164,6 +168,8 @@ class Inventory extends CI_Controller {
                 $insert['id_type'] = $this->input->post('id_type');
                 $insert['asset_no'] = $this->input->post('asset_no');
                 $insert['description'] = $this->input->post('description');
+                $insert['id_vendor'] = $this->input->post('vendor');
+                $insert['id_brand'] = $this->input->post('brand');
                 $insert['id_status'] = 1;
                 $insert['warranty'] = $this->input->post('warranty');
                 $insert['serial_number'] = $this->input->post('serial_number');
