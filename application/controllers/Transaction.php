@@ -125,11 +125,8 @@ class Transaction extends CI_Controller {
     }
 
     public function requestTransaction(){
-        $this->form_validation->set_rules($this->rulesItem());
+        $this->form_validation->set_rules($this->rulesTransaction2());
         $ID = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
-        $data['item'] = $this->Models->AllItem();
-        $data['type'] = $this->Models->getAll('m_type');
-        $data['title'] = 'Item';
         if(empty($this->input->post())){
             $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
             $data['transaction'] = $this->Models->AllItem();
@@ -153,7 +150,7 @@ class Transaction extends CI_Controller {
             $insert['updated_by'] = $ID[0]->id;
             $this->Models->insert('tr_item',$insert);
             $this->session->set_flashdata('pesan','<script>alert("Data berhasil disimpan")</script>');
-            redirect(base_url('Inventory/Item'));
+            redirect(base_url('Transaction/userTransaction'));
         }
     }
 
