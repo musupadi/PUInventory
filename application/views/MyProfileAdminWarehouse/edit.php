@@ -19,8 +19,8 @@
                 <?php foreach ($users as $data) {
 
                 ?>
-                <?php echo form_open_multipart('Home/EditProfileUser/'.$data->id)?>
-                <form role="form" action="<?php echo base_url('User/EditProfileUser/'.$data->id)?>" method="post" >
+                <?php echo form_open_multipart('Home/EditProfileAdminWarehouse/'.$data->id)?>
+                <form role="form" action="<?php echo base_url('User/EditProfileAdminWarehouse/'.$data->id)?>" method="post" >
                   <div class="box-body">
                 
                         <div class="form-group">
@@ -47,7 +47,7 @@
                         <label>Role Name</label>
                         <select class="form-control muted" name="id_role" >
                         <?php foreach ( $role as $datas ) : ?>
-                          <?php if ( $datas->id == 4 ) { ?>
+                          <?php if ( $datas->id == 3 ) { ?>
                         <option value="<?php echo $datas->id?>"><?php echo $datas->label ?></option>
                         <?php }?>
                         <?php endforeach ; ?>
@@ -64,7 +64,7 @@
 
                   <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Edit Data</button>
-                    <a href="<?php echo base_url('Home/MyProfileUser')?>">Batal</a>
+                    <a href="<?php echo base_url('Home/MyProfileAdminWarehouse')?>">Batal</a>
                   </div>
                 </form>
               </div>

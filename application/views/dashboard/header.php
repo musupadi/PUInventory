@@ -115,11 +115,13 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                <?php if ($data->id_role == 3 || $data->id_role == 4) { ?>
-                  <a href="<?php echo base_url('Home/MyProfileUser') ?>" class="btn btn-default btn-flat">My Profile</a>
-                <?php } else { ?>
-                  <a href="<?php echo base_url('Home/MyProfile') ?>" class="btn btn-default btn-flat">My Profile</a>
-                <?php } ?>
+                <?php if ($data->id_role == 3 ) { ?>
+                  <a href="<?php echo base_url('Home/MyProfileAdminWarehouse') ?>" class="btn btn-default btn-flat">My Profile</a>
+                  <?php } else if ($data->id_role == 4 ) { ?>
+                    <a href="<?php echo base_url('Home/MyProfileUser') ?>" class="btn btn-default btn-flat">My Profile</a>
+                  <?php } else { ?>
+                    <a href="<?php echo base_url('Home/MyProfile') ?>" class="btn btn-default btn-flat">My Profile</a>
+                  <?php } ?>
                 </div>
                 <div class="pull-right">
                   <a href="<?php echo base_url("Login/logout")?>" class="btn btn-default btn-flat" onclick="return confirm('are you going to logout?');">Sign out</a>
@@ -127,7 +129,7 @@
               </li>
             </ul>
           </li>
-                <?php } ?>
+        <?php } ?>
        
         </ul>
       </div>
