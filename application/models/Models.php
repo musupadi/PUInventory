@@ -198,6 +198,16 @@ class Models extends CI_Model {
         $data = $this->db->get()->result();
         return $data;
     }
+
+    public function AllHistoryTransaction(){
+        $this->db->select('a.id,a.id_item,b.name as item_name ,c.name as warehouse,a.id_warehouse,a.description,a.qty1 a,qty2 ,a.created_at,a.created_by,a.update_at,a.update_by ');
+        $this->db->from('m_log as a');
+        $this->db->join('m_item as b', 'a.id_item = b.id', 'left');
+        $this->db->join('m_warehouse as c', 'a.id_warehouse = c.id', 'left'); // Corrected join condition
+        $data = $this->db->get()->result();
+        return $data;
+    }
+
     // Model Lama
     public function BeritaLimit($limit){
         $query = "SELECT a.id_berita,a.judul_berita,a.berita,b.kategori,a.gambar FROM berita a JOIN kategori_berita b ON a.id_kategori=b.id_kategori ORDER BY a.id_berita DESC LIMIT $limit";

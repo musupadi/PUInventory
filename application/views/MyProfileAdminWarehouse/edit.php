@@ -1,10 +1,10 @@
 <section class="content-header">
       <h1>
-        Input User
+        Edit User
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-newspaper-o"></i>User</a></li>
-        <li class="active">Input User</li>
+        <li><a href="#"><i class="fa fa-newspaper-o"></i>Edit</a></li>
+        <li class="active">Edit User</li>
       </ol>
     </section>
 
@@ -16,17 +16,21 @@
               <div class="box box-primary">
                 <!-- /.box-header -->
                 <!-- form start -->
-                <?php echo form_open_multipart('User/Postuser/')?>
-                <form role="form" action="<?php echo base_url('User/Postuser/')?>" method="post" >
+                <?php foreach ($users as $data) {
+
+                ?>
+                <?php echo form_open_multipart('Home/EditProfileAdminWarehouse/'.$data->id)?>
+                <form role="form" action="<?php echo base_url('User/EditProfileAdminWarehouse/'.$data->id)?>" method="post" >
                   <div class="box-body">
-                    <div class="form-group">
-                      <label for="text">Nama</label>
-                      <input type="text" class="form-control" name="name" placeholder="Nama">
+                
+                        <div class="form-group">
+                      <label for="text">Name</label>
+                      <input type="text" class="form-control" name="name" placeholder="Nama" value = "<?php echo $data->name?>">
                       <p class="text-red"><?php echo form_error('name')?></p>
                     </div>
                     <div class="form-group">
                       <label for="text">Username</label>
-                      <input type="text" class="form-control" name="username" placeholder="Username">
+                      <input type="text" class="form-control" name="username" placeholder="Username" value = "<?php echo $data->username?>">
                       <p class="text-red"><?php echo form_error('username')?></p>
                     </div>
                     <div class="form-group">
@@ -36,16 +40,19 @@
                     </div>
                     <div class="form-group">
                       <label for="text">Email</label>
-                      <input type="text" class="form-control" name="email" placeholder="Email">
+                      <input type="text" class="form-control" name="email" placeholder="Email" value = "<?php echo $data->email?>">
                       <p class="text-red"><?php echo form_error('email')?></p>
                     </div>
                     <div class="form-group">
-                        <label>Pilih Role</label>
-                        <select class="form-control" name="id_role">
-                          <?php foreach ($role as $data){ ?>
-                              <option value="<?php echo $data->id?>"><?php echo $data->label ?></option>
-                          <?php }?>
+                        <label>Role Name</label>
+                        <select class="form-control muted" name="id_role" >
+                        <?php foreach ( $role as $datas ) : ?>
+                          <?php if ( $datas->id == 3 ) { ?>
+                        <option value="<?php echo $datas->id?>"><?php echo $datas->label ?></option>
+                        <?php }?>
+                        <?php endforeach ; ?>
                         </select>
+                        <?php } ?>
                     </div>
                     <div class="form-group">
                       <label for="text">Gambar</label>
@@ -56,8 +63,8 @@
                   <!-- /.box-body -->
 
                   <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Tambah Data</button>
-                    <a href="<?php echo base_url('User')?>">Batal</a>
+                    <button type="submit" class="btn btn-primary">Edit Data</button>
+                    <a href="<?php echo base_url('Home/MyProfileAdminWarehouse')?>">Batal</a>
                   </div>
                 </form>
               </div>

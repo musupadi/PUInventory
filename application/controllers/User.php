@@ -21,6 +21,7 @@ class User extends CI_Controller {
         return [
             ['field' => 'name','label' => 'Name','rules' => 'required'],
             ['field' => 'username','label' => 'Username ','rules' => 'required'],
+            ['field' => 'password','label' => 'Password ','rules' => 'required'],
             ['field' => 'id_role','label' => 'Id_role','rules' => 'required'],
             ['field' => 'email','label' => 'email','rules' => 'required'],
         ];
@@ -110,7 +111,7 @@ class User extends CI_Controller {
             if ($this->upload->do_upload('gambar')) {
                 $data['name'] = $this->input->post('name');
                 $data['username'] = $this->input->post('username');
-                // $data['password'] = MD5($this->input->post('password'));
+                $data['password'] = MD5($this->input->post('password'));
                 $data['email'] = $this->input->post('email');
                 $data['id_role '] = $this->input->post('id_role');
                 $data['photo'] = $this->upload->data("file_name");
@@ -119,7 +120,7 @@ class User extends CI_Controller {
             }else{
                 $data['name'] = $this->input->post('name');
                 $data['username'] = $this->input->post('username');
-                // $data['password'] = MD5($this->input->post('password')); 
+                $data['password'] = MD5($this->input->post('password')); 
                 $data['email'] = $this->input->post('email');
                 $data['id_role '] = $this->input->post('id_role');
                 $data['photo'] = "logo.jpg";

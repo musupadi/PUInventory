@@ -62,6 +62,7 @@ class Transaction extends CI_Controller {
                     $data2['updated_at'] = $this->Models->GetTimestamp();
                     $this->Models->edit('m_stock','id',$qty[0]->id,$data2);
                     
+    
                     $this->session->set_flashdata('pesan', '<script>alert("Data berhasil diubah")</script>');
                     redirect(base_url('Transaction'));
                 }

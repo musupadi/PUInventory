@@ -40,16 +40,6 @@
                   <td><img class="profile-user-img img-responsive" src="<?php echo base_url()?>img/profile/<?php echo $data->photo?>" alt="User profile picture"></td>
                   <td style="vertical-align: middle;"><?php echo $data->name?></td>
                   <td style="vertical-align: middle;"><?php echo $data->username?></td>
-                  <?php if ( $data->id_role == 1 ) { ?>
-                    <td style="vertical-align: middle;">
-                      Super Admin
-                    </td>
-                  <?php } ?>
-                  <?php if ( $data->id_role == 2 ) { ?>
-                    <td style="vertical-align: middle;">
-                      Admin
-                    </td>
-                  <?php } ?>
                   <?php if ( $data->id_role == 3 ) { ?>
                     <td style="vertical-align: middle;">
                       Admin Warehouse
@@ -61,9 +51,10 @@
                     </td>
                   <?php } ?>
                   <td style="text-align: center; vertical-align: middle;">
-                    <a href="<?php echo base_url('User/Edit/'.$data->id);?>" class="btn btn-primary">
+                    <a href="<?= base_url('Home/EditProfileUser/' . $data->id); ?>" class="btn btn-primary">
                       <i class="fa fa-fw fa-pencil"></i> Edit
                     </a> 
+  
                     </div>
                     </div>
                   </td>
