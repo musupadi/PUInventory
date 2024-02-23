@@ -25,7 +25,7 @@
           <li class=""><a href="<?php echo base_url("Home")?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
           <li class=""><a href="<?php echo base_url("Transaction")?>"><i class="fa fa-exchange"></i> <span>Transaction</span></a></li>
           <li class=""><a href="<?php echo base_url("Stock")?>"><i class="fa fa-list-alt"></i> <span>Stock</span></a></li>
-          <li class="treeview">
+          <li class="treeview active">
           <a href="#">
             <i class="fa fa-newspaper-o"></i> <span>News</span>
             <span class="pull-right-container">
@@ -33,7 +33,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class=""><a href="<?php echo base_url("News")?>"><i class="fa fa-newspaper-o"></i> <span>News</span></a></li>
+            <li class="active"><a href="<?php echo base_url("News")?>"><i class="fa fa-newspaper-o"></i> <span>News</span></a></li>
             <li class=""><a href="<?php echo base_url("News/category")?>"><i class="fa fa-reorder"></i> <span>Category</span></a></li>
           </ul>
         <li class="treeview">
@@ -49,7 +49,7 @@
             <li><a href="<?php echo base_url('Inventory/Type')?>"><i class="fa fa-list"></i>Type</a></li>
           </ul>
         </li>
-        <li class="treeview active">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-briefcase"></i> <span>Vendor</span>
             <span class="pull-right-container">
@@ -59,7 +59,7 @@
           <ul class="treeview-menu active">
             <li><a href="<?php echo base_url('Vendor/List')?>"><i class="fa fa-briefcase"></i>Vendor</a></li>
             <li><a href="<?php echo base_url('Vendor/Origin')?>"><i class="fa fa-archive"></i>Origin</a></li>
-            <li class="active"><a href="<?php echo base_url('Vendor/Brand')?>"><i class="fa fa-industry"></i>Brand</a></li>
+            <li><a href="<?php echo base_url('Vendor/Brand')?>"><i class="fa fa-industry"></i>Brand</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -81,7 +81,7 @@
 
         <!-- Admin Warehouse -->
         <?php if ($data->id_role == 3) : ?>
-          <li class="active"><a href="<?php echo base_url("Home/AdminWarehouse")?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+          <li class="active"><a href="<?php echo base_url("Home")?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
           <li class=""><a href="<?php echo base_url("Transaction/trAdminWarehouse")?>"><i class="fa fa-exchange"></i> <span>Transaction</span></a></li>
           <li class=""><a href="<?php echo base_url("Stock/stockAdminWarehouse")?>"><i class="fa fa-list-alt"></i> <span>Stock</span></a></li>
           <li><a href="<?php echo base_url("Login/logout")?>"onclick="return confirm('are you going to logout?');"><i class="fa fa-user-times"></i> <span>Sign Out</span></a></li>
@@ -89,8 +89,8 @@
 
         <!-- User -->
         <?php if ($data->id_role == 4) : ?>
-          <li class="active"><a href="<?php echo base_url("Home/AdminWarehouse")?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-          <li class=""><a href="<?php echo base_url("Transaction/trAdminWarehouse")?>"><i class="fa fa-exchange"></i> <span>Transaction</span></a></li>
+          <li class="active"><a href="<?php echo base_url("Home")?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+          <li class=""><a href="<?php echo base_url("Transaction/userTransaction")?>"><i class="fa fa-exchange"></i> <span>Transaction</span></a></li>
           <li><a href="<?php echo base_url("Login/logout")?>"onclick="return confirm('are you going to logout?');"><i class="fa fa-user-times"></i> <span>Sign Out</span></a></li>
         <?php endif ?>
       </ul>

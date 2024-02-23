@@ -78,7 +78,7 @@
                   </td> -->
                   <td style="text-align: center; vertical-align: middle;" >
                     <?php if ($data->status==0): ?>
-                    <a data-toggle="modal" data-target="#modal-accept" onclick=accept_data("<?=$data->id?>","<?=$data->qty?>","<?=$data->id_item?>","<?=$data->id_warehouse?>")>
+                    <a data-toggle="modal" data-target="#modal-accept" onclick='accept_data("<?=$data->id?>","<?=$data->qty?>","<?=$data->id_item?>","<?=$data->id_warehouse?>")'>
                       <button type="button" class="btn btn-block btn-success">Accept</button>
                     </a>
                     <br> 
@@ -133,7 +133,10 @@
                         <h4 class="modal-title">Delivery Date</h4>
                     </div>
                     <div class="modal-body">
-                      <input type="hidden" id='id_edit' name='id' value="" style="color: black;">
+                      <input type="hidden" id='id_item' name='id_item' value="" style="color: black;">
+                      <input type="hidden" id='id_warehouse' name='id_warehouse' value="" style="color: black;">
+                      <input type="hidden" id='qty' name='qty' value="" style="color: black;">
+                      <input type="hidden" id='id_edit' name='id_edit' value="" style="color: black;">
                       <div class="box-body">
                         <div class="form-group">
                             <label for="datepicker">Delivery Date : </label>

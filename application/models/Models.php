@@ -111,6 +111,22 @@ class Models extends CI_Model {
         return $data;
     }
 
+    public function AllNews(){
+        $this->db->select('a.id, a.title, b.label as category, a.description');
+        $this->db->from('m_news as a');
+        $this->db->join('m_category_news as b', 'a.id_category = b.id', 'left');
+        $this->db->where('a.id_status = 1');
+        $data = $this->db->get()->result();
+        return $data;
+    }
+
+    public function AllNewsCategory(){
+        $this->db->select('id, label as category, created_at, created_by, updated_at, updated_by');
+        $this->db->from('m_category_news');
+        $data = $this->db->get()->result();
+        return $data;
+    }
+
     public function AllWarehouse(){
         $this->db->select('id, name, description, created_at, created_by, updated_at, updated_by');
         $this->db->from('m_warehouse');

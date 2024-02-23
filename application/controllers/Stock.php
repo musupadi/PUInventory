@@ -20,7 +20,7 @@ class Stock extends CI_Controller {
     private function rulesEditStock(){
         return [
             ['field' => 'qty','label' => 'qty','rules' => 'required'],
-            ['field' => 'id','label' => 'id_add','rules' => 'required']
+            ['field' => 'id','label' => 'id','rules' => 'required']
         ];
     }
     private function rulesStock(){
@@ -208,8 +208,12 @@ class Stock extends CI_Controller {
             $this->load->view('dashboard/footer');
             $this->session->set_flashdata('pesan', '<script>alert("Data gagal diubah")</script>');
         }else{
+            $qty1 = $this->input->post('qty');
+            $qty2 = $this->input->post('qty2');
+            $qty = $qty1+$qty2;
             $ID = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));   
-            $data['qty'] = $this->input->post('qty');   
+            $data['qty'] = $qty;  
+   
             $data['updated_by'] = $ID[0]->id;
             $data['updated_at'] = $this->Models->GetTimestamp();
             $this->Models->edit('m_stock','id',$this->input->post('id'),$data);

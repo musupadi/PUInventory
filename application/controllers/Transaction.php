@@ -13,8 +13,7 @@ class Transaction extends CI_Controller {
     }
     private function rulesTransaction(){
         return [
-            ['field' => 'handover_date','label' => 'Handover Date','rules' => 'required'],
-            ['field' => 'id','label' => 'Id','rules' => 'required'],
+            ['field' => 'handover_date','label' => 'Handover Date','rules' => 'required']
         ];
     }
     private function rulesTransaction2(){
@@ -56,14 +55,13 @@ class Transaction extends CI_Controller {
                     $data['status'] = 1;
                     $data['updated_by'] = $ID[0]->id;
                     $data['updated_at'] = $this->Models->GetTimestamp();
-                    $this->Models->edit('tr_item','id',$this->input->post('id'),$data);
-    
+                    $this->Models->edit('tr_item','id',$this->input->post('id_edit'),$data);
+
                     $data2['qty'] = $qty[0]->qty-$this->input->post('qty');   
                     $data2['updated_by'] = $ID[0]->id;
                     $data2['updated_at'] = $this->Models->GetTimestamp();
                     $this->Models->edit('m_stock','id',$qty[0]->id,$data2);
                     
-    
                     $this->session->set_flashdata('pesan', '<script>alert("Data berhasil diubah")</script>');
                     redirect(base_url('Transaction'));
                 }

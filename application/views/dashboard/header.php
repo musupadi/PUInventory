@@ -40,6 +40,7 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
   <style>
     .example-modal .modal {
       position: relative;
@@ -53,6 +54,18 @@
 
     .example-modal .modal {
       background: transparent !important;
+    }
+
+    .note-editor .dropdown-toggle::after {
+      all: unset;
+    }
+
+    .note-editor .note-dropdown-menu {
+      box-sizing: content-box;
+    }
+
+    .note-editor .note-modal-footer {
+      box-sizing: content-box;
     }
   </style>
 </head>
