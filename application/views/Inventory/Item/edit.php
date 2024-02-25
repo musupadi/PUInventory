@@ -46,6 +46,22 @@
                      <p class="text-red"><?php echo form_error('description')?></p>
                     </div>
                     <div class="form-group">
+                      <label for="text">Vendor</label>
+                      <select class="form-control" name="id_vendor">
+                        <?php foreach ($vendor as $dataVendor){ ?>
+                            <option value="<?php echo $dataVendor->id?>"><?php echo $dataVendor->label ?></option>
+                          <?php }?>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="text">Brand</label>
+                      <select class="form-control" name="id_brand">
+                        <?php foreach ($brand as $dataBrand){ ?>
+                            <option value="<?php echo $dataBrand->id?>"><?php echo $dataBrand->label ?></option>
+                          <?php }?>
+                      </select>
+                    </div>
+                    <div class="form-group">
                       <label for="text">Warranty</label>
                         <input type="text" class="form-control" name="warranty" placeholder="Warranty" value="<?php echo $data->warranty ?>">
                      <p class="text-red"><?php echo form_error('warranty')?></p>

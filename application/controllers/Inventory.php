@@ -131,6 +131,8 @@ class Inventory extends CI_Controller {
         $ID = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         $data['item'] = $this->Models->AllItem();
         $data['type'] = $this->Models->getAll('m_type');
+        $data['vendor'] = $this->Models->getAll('m_vendor');
+        $data['brand'] = $this->Models->getAll('m_brand');
         $data['title'] = 'Item';
         if(empty($this->input->post())){
             $data['user'] =$this->Models->getID('m_user','username',$this->session->userdata('nama'));
@@ -168,8 +170,8 @@ class Inventory extends CI_Controller {
                 $insert['id_type'] = $this->input->post('id_type');
                 $insert['asset_no'] = $this->input->post('asset_no');
                 $insert['description'] = $this->input->post('description');
-                $insert['id_vendor'] = $this->input->post('vendor');
-                $insert['id_brand'] = $this->input->post('brand');
+                $insert['id_vendor'] = $this->input->post('id_vendor');
+                $insert['id_brand'] = $this->input->post('id_brand');
                 $insert['id_status'] = 1;
                 $insert['warranty'] = $this->input->post('warranty');
                 $insert['serial_number'] = $this->input->post('serial_number');
@@ -192,6 +194,8 @@ class Inventory extends CI_Controller {
             );
             $data['item'] = $this->Models->getWhere2("m_item",$where);
             $data['type'] = $this->Models->getAll('m_type');
+            $data['vendor'] = $this->Models->getAll('m_vendor');
+            $data['brand'] = $this->Models->getAll('m_brand');
             $data['title'] = "Edit Item";
             $this->load->view('dashboard/header',$data);
             $this->load->view('Inventory/Item/side',$data);
@@ -216,6 +220,8 @@ class Inventory extends CI_Controller {
                 $data['asset_no'] = $this->input->post('asset_no');
                 $data['qty'] = $this->input->post('qty');
                 $data['description'] = $this->input->post('description');
+                $data['id_vendor'] = $this->input->post('id_vendor');
+                $data['id_brand'] = $this->input->post('id_brand');
                 $data['warranty'] = $this->input->post('warranty');
                 $data['serial_number'] = $this->input->post('serial_number');
                 $data['photo'] = $this->upload->data("file_name");
@@ -227,6 +233,8 @@ class Inventory extends CI_Controller {
                 $data['asset_no'] = $this->input->post('asset_no');
                 $data['qty'] = $this->input->post('qty');
                 $data['description'] = $this->input->post('description');
+                $data['id_vendor'] = $this->input->post('id_vendor');
+                $data['id_brand'] = $this->input->post('id_brand');
                 $data['warranty'] = $this->input->post('warranty');
                 $data['serial_number'] = $this->input->post('serial_number');
                 $data['photo'] = "default.jpg";

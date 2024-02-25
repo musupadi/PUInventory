@@ -125,14 +125,14 @@
                       <div class="form-group">
                           <label for="text">Select Vendor</label>
                           <select class="form-control" name="id_vendor">
-                            <?php foreach ($vendor as $data){ ?>
-                                <option value="<?php echo $data->id?>"><?php echo $data->label ?></option>
+                            <?php foreach ($vendor as $datas){ ?>
+                                <option value="<?php echo $data->id?>"><?php echo $datas->label ?></option>
                             <?php }?>
                           </select>
                       </div>
                       <div class="form-group">
                           <label for="text">Select Brand</label>
-                          <select class="form-control" name="id_type">
+                          <select class="form-control" name="id_brand">
                             <?php foreach ($brand as $data){ ?>
                                 <option value="<?php echo $data->id?>"><?php echo $data->label ?></option>
                             <?php }?>

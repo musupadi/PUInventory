@@ -66,8 +66,8 @@ class Models extends CI_Model {
     }
 
     public function AllItem(){
-        $this->db->select('a.category,a.id, a.name, b.label as type, a.asset_no, a.description, a.id_status, c.label as brand, d.label as vendor, a.warranty, a.serial_number, a.photo');
-        $this->db->from('m_item as a');
+        $this->db->select('a.category,a.id, a.name, b.label as type, a.asset_no, a.description, a.id_status, c.label as brand, d.label as vendor,a.warranty, a.serial_number, a.photo');
+        $this->db->from('m_item as a'); 
         $this->db->join('m_type as b', 'a.id_type = b.id', 'left');
         $this->db->join('m_brand as c', 'a.id_brand = c.id', 'left'); // Corrected join condition
         $this->db->join('m_vendor as d', 'a.id_vendor = d.id', 'left');
@@ -115,7 +115,7 @@ class Models extends CI_Model {
         $this->db->select('a.id, a.title, b.label as category, a.description');
         $this->db->from('m_news as a');
         $this->db->join('m_category_news as b', 'a.id_category = b.id', 'left');
-        $this->db->where('a.id_status = 1');
+        // $this->db->where('a.id_status = 1');
         $data = $this->db->get()->result();
         return $data;
     }
