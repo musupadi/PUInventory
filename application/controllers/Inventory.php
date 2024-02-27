@@ -28,8 +28,7 @@ class Inventory extends CI_Controller {
         return [
             ['field' => 'name','label' => 'Name','rules' => 'required'],
             ['field' => 'id_category','label' => 'Id Category','rules' => 'required'],
-            ['field' => 'asset_no','label' => 'Asset No','rules' => 'required'],
-            ['field' => 'photo','label' => 'Photo','rules' => 'required'],
+            ['field' => 'asset_no','label' => 'Asset No','rules' => 'required']
         ];
     }
     private function rulesWarehouse(){
@@ -140,7 +139,7 @@ class Inventory extends CI_Controller {
         }else{
             $id = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));    
             $config['upload_path']          = './img/item/';
-            $config['allowed_categorys']        = 'gif|jpg|png|jpeg';
+            $config['allowed_types']        = 'gif|jpg|png|jpeg';
             $config['file_name']            = uniqid();
             // $config['overwrite']			= true;
             $config['max_size']             = 4096; // 1MB
@@ -202,7 +201,7 @@ class Inventory extends CI_Controller {
             $this->session->set_flashdata('pesan', '<script>alert("Data gagal diubah")</script>');
         }else{
             $config['upload_path']          = './img/item/';
-            $config['allowed_categorys']        = 'gif|jpg|png|jpeg';
+            $config['allowed_types']        = 'gif|jpg|png|jpeg';
             $config['file_name']            = uniqid();
             // $config['file_name']            = $this->id;
             // $config['overwrite']			= true;
