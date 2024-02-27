@@ -60,7 +60,7 @@
             <li class=""><a href="<?php echo base_url('Inventory/Category')?>"><i class="fa fa-list"></i>Category</a></li>
             <li class=""><a href="<?php echo base_url('Vendor/List')?>"><i class="fa fa-briefcase"></i>Vendor</a></li>
             <li class=""><a href="<?php echo base_url('Vendor/Origin')?>"><i class="fa fa-archive"></i>Origin</a></li>
-            <li class=""><a href="<?php echo base_url('Vendor/Brand')?>"><i class="fa fa-industry"></i>Brand</a></li>
+            <li class="active"><a href="<?php echo base_url('Vendor/Brand')?>"><i class="fa fa-industry"></i>Brand</a></li>
             <li class=""><a href="<?php echo base_url("Home/Location")?>"><i class="fa fa-map"></i> <span>Location</span></a></li>
 
           </ul>
@@ -83,8 +83,8 @@
 
         <!-- Admin Warehouse -->
         <?php if ($data->id_role == 3) : ?>
-          <li class=""><a href="<?php echo base_url("Home")?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-          <li class="active"><a href="<?php echo base_url("Transaction/trAdminWarehouse")?>"><i class="fa fa-exchange"></i> <span>Transaction</span></a></li>
+          <li class="active"><a href="<?php echo base_url("Home")?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+          <li class=""><a href="<?php echo base_url("Transaction/trAdminWarehouse")?>"><i class="fa fa-exchange"></i> <span>Transaction</span></a></li>
           <li class=""><a href="<?php echo base_url("Stock/stockAdminWarehouse")?>"><i class="fa fa-list-alt"></i> <span>Stock</span></a></li>
           <li><a href="<?php echo base_url("Login/logout")?>"onclick="return confirm('are you going to logout?');"><i class="fa fa-user-times"></i> <span>Sign Out</span></a></li>
         <?php endif ?>

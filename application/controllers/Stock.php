@@ -33,21 +33,21 @@ class Stock extends CI_Controller {
     {
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         $data['warehouse'] = $this->Models->AllWarehouse();
-        $data['type'] = $this->Models->getAll('m_type');
+        $data['type'] = $this->Models->getAll('m_category');
         $data['title'] = 'Warehouse';
         $this->load->view('dashboard/header',$data);
-        $this->load->view('Stock/side',$data);
-        $this->load->view('Stock/main',$data);
+        $this->load->view('dataInventory/Stock/side',$data);
+        $this->load->view('dataInventory/Stock/main',$data);
         $this->load->view('dashboard/footer');
     }
     public function StockData($id){
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         $data['warehouse'] = $this->Models->AllWarehouse();
-        $data['type'] = $this->Models->getAll('m_type');
+        $data['type'] = $this->Models->getAll('m_category');
         $data['title'] = 'Warehouse';
         $this->load->view('dashboard/header',$data);
-        $this->load->view('Stock/side',$data);
-        $this->load->view('Stock/main',$data);
+        $this->load->view('dataInventory/Stock/side',$data);
+        $this->load->view('dataInventory/Stock/main',$data);
         $this->load->view('dashboard/footer');
     }
     public function EditStatusAccept(){
@@ -103,11 +103,11 @@ class Stock extends CI_Controller {
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         $data['item'] = $this->Models->ItemWarehouse($id_warehouse);
         $data['id_warehouse'] = $id_warehouse;
-        $data['type'] = $this->Models->getAll('m_type');
+        $data['type'] = $this->Models->getAll('m_category');
         $data['title'] = "Stock Item";
         $this->load->view('dashboard/header',$data);
-        $this->load->view('Stock/side',$data);
-        $this->load->view('Stock/Stock-Item',$data);
+        $this->load->view('dataInventory/Stock/side',$data);
+        $this->load->view('dataInventory/Stock/Stock-Item',$data);
         $this->load->view('dashboard/footer');
     }
 
@@ -115,11 +115,11 @@ class Stock extends CI_Controller {
     {
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         $data['warehouse'] = $this->Models->AllWarehouse();
-        $data['type'] = $this->Models->getAll('m_type');
+        $data['type'] = $this->Models->getAll('m_category');
         $data['title'] = 'Stock';
         $this->load->view('dashboard/header',$data);
-        $this->load->view('Stock_Admin_Warehouse/side',$data);
-        $this->load->view('Stock_Admin_Warehouse/main',$data);
+        $this->load->view('dataInventory/Stock_Admin_Warehouse/side',$data);
+        $this->load->view('dataInventory/Stock_Admin_Warehouse/main',$data);
         $this->load->view('dashboard/footer');
     }
 
@@ -128,11 +128,11 @@ class Stock extends CI_Controller {
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         $data['item'] = $this->Models->AllItem();
         $data['warehouse'] = $this->Models->AllWarehouse();
-        $data['type'] = $this->Models->getAll('m_type');
+        $data['type'] = $this->Models->getAll('m_category');
         $data['title'] = 'Item';
         $this->load->view('dashboard/header',$data);
-        $this->load->view('Stock/side',$data);
-        $this->load->view('Stock/AddItem',$data);
+        $this->load->view('dataInventory/Stock/side',$data);
+        $this->load->view('dataInventory/Stock/AddItem',$data);
         $this->load->view('dashboard/footer');
     }
 
@@ -143,11 +143,11 @@ class Stock extends CI_Controller {
             $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
             $data['item'] = $this->Models->AllItem();
             $data['warehouse'] = $this->Models->AllWarehouse();
-            $data['type'] = $this->Models->getAll('m_type');
+            $data['type'] = $this->Models->getAll('m_category');
             $data['title'] = 'Item';
             $this->load->view('dashboard/header',$data);
-            $this->load->view('Stock/side',$data);
-            $this->load->view('Stock/AddItem',$data);
+            $this->load->view('dataInventory/Stock/side',$data);
+            $this->load->view('dataInventory/Stock/AddItem',$data);
             $this->load->view('dashboard/footer');
         }else{
             $Checker = $this->Models->GetQuantity($this->input->post('id'),$id_warehouse);
@@ -162,11 +162,11 @@ class Stock extends CI_Controller {
                 $data2['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
                 $data2['item'] = $this->Models->ItemWarehouse($id_warehouse);
                 $data2['id_warehouse'] = $id_warehouse;
-                $data2['type'] = $this->Models->getAll('m_type');
+                $data2['type'] = $this->Models->getAll('m_category');
                 $data2['title'] = "Stock Item";
                 $this->load->view('dashboard/header',$data2);
-                $this->load->view('Stock/side',$data2);
-                $this->load->view('Stock/Stock-Item',$data2);
+                $this->load->view('dataInventory/Stock/side',$data2);
+                $this->load->view('dataInventory/Stock/Stock-Item',$data2);
                 $this->load->view('dashboard/footer');
             }else{
                 $ID = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));   
@@ -182,11 +182,11 @@ class Stock extends CI_Controller {
                 $data2['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
                 $data2['item'] = $this->Models->ItemWarehouse($id_warehouse);
                 $data2['id_warehouse'] = $id_warehouse;
-                $data2['type'] = $this->Models->getAll('m_type');
+                $data2['type'] = $this->Models->getAll('m_category');
                 $data2['title'] = "Stock Item";
                 $this->load->view('dashboard/header',$data2);
-                $this->load->view('Stock/side',$data2);
-                $this->load->view('Stock/Stock-Item',$data2);
+                $this->load->view('dataInventory/Stock/side',$data2);
+                $this->load->view('dataInventory/Stock/Stock-Item',$data2);
                 $this->load->view('dashboard/footer');
             }
         }
@@ -200,11 +200,11 @@ class Stock extends CI_Controller {
             $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
             $data['item'] = $this->Models->ItemWarehouse($id_warehouse);
             $data['id_warehouse'] = $id_warehouse;
-            $data['type'] = $this->Models->getAll('m_type');
+            $data['type'] = $this->Models->getAll('m_category');
             $data['title'] = "Stock Item";
             $this->load->view('dashboard/header',$data);
-            $this->load->view('Stock/side',$data);
-            $this->load->view('Stock/Stock-Item',$data);
+            $this->load->view('dataInventory/Stock/side',$data);
+            $this->load->view('dataInventory/Stock/Stock-Item',$data);
             $this->load->view('dashboard/footer');
             $this->session->set_flashdata('pesan', '<script>alert("Data gagal diubah")</script>');
         }else{
@@ -222,11 +222,11 @@ class Stock extends CI_Controller {
             $data2['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
             $data2['item'] = $this->Models->ItemWarehouse($id_warehouse);
             $data2['id_warehouse'] = $id_warehouse;
-            $data2['type'] = $this->Models->getAll('m_type');
+            $data2['type'] = $this->Models->getAll('m_category');
             $data2['title'] = "Stock Item";
             $this->load->view('dashboard/header',$data2);
-            $this->load->view('Stock/side',$data2);
-            $this->load->view('Stock/Stock-Item',$data2);
+            $this->load->view('dataInventory/Stock/side',$data2);
+            $this->load->view('dataInventory/Stock/Stock-Item',$data2);
             $this->load->view('dashboard/footer');
             $this->session->set_flashdata('pesan', '<script>alert("Data berhasil diubah")</script>');
         }

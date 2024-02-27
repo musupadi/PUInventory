@@ -24,18 +24,18 @@
         <?php if ( $data->id_role == 1 || $data->id_role == 2) : ?>
           <li class=""><a href="<?php echo base_url("Home")?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
           <li class=""><a href="<?php echo base_url("Transaction")?>"><i class="fa fa-exchange"></i> <span>Transaction</span></a></li>
-          <li class=""><a href="<?php echo base_url("Stock")?>"><i class="fa fa-list-alt"></i> <span>Stock</span></a></li>
           <li class="treeview">
           <a href="#">
-            <i class="fa fa-newspaper-o"></i> <span>News</span>
+            <i class="fa fa-newspaper-o"></i> <span>Announcement</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class=""><a href="<?php echo base_url("News")?>"><i class="fa fa-newspaper-o"></i> <span>News</span></a></li>
+            <li class=""><a href="<?php echo base_url("News")?>"><i class="fa fa-newspaper-o"></i> <span>Announcement</span></a></li>
             <li class=""><a href="<?php echo base_url("News/category")?>"><i class="fa fa-reorder"></i> <span>Category</span></a></li>
           </ul>
+        </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-database"></i> <span>Data Inventory</span>
@@ -44,22 +44,25 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url('Inventory/item')?>"><i class="fa fa-cube"></i>Item</a></li>
-            <li><a href="<?php echo base_url('Inventory/Warehouse')?>"><i class="fa fa-home"></i>Warehouse</a></li>
-            <li><a href="<?php echo base_url('Inventory/Type')?>"><i class="fa fa-list"></i>Type</a></li>
+            <li class=""><a href="<?php echo base_url("Stock")?>"><i class="fa fa-list-alt"></i> <span>Stock</span></a></li>
           </ul>
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-briefcase"></i> <span>Vendor</span>
+            <i class="fa fa-briefcase"></i> <span>Master Data</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="<?php echo base_url('Vendor/List')?>"><i class="fa fa-briefcase"></i>Vendor</a></li>
-            <li><a href="<?php echo base_url('Vendor/Origin')?>"><i class="fa fa-archive"></i>Origin</a></li>
-            <li><a href="<?php echo base_url('Vendor/Brand')?>"><i class="fa fa-industry"></i>Brand</a></li>
+          <ul class="treeview-menu active">
+            <li class=""><a href="<?php echo base_url('Inventory/item')?>"><i class="fa fa-cube"></i>Item</a></li>
+            <li class=""><a href="<?php echo base_url('Inventory/Warehouse')?>"><i class="fa fa-home"></i>Warehouse</a></li>
+            <li class=""><a href="<?php echo base_url('Inventory/Category')?>"><i class="fa fa-list"></i>Category</a></li>
+            <li class=""><a href="<?php echo base_url('Vendor/List')?>"><i class="fa fa-briefcase"></i>Vendor</a></li>
+            <li class=""><a href="<?php echo base_url('Vendor/Origin')?>"><i class="fa fa-archive"></i>Origin</a></li>
+            <li class=""><a href="<?php echo base_url('Vendor/Brand')?>"><i class="fa fa-industry"></i>Brand</a></li>
+            <li class=""><a href="<?php echo base_url("Home/Location")?>"><i class="fa fa-map"></i> <span>Location</span></a></li>
+
           </ul>
         </li>
         <li class="treeview">
@@ -71,17 +74,16 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url('User/Role')?>"><i class="fa fa-unlock-alt"></i>Role</a></li>
-            <li><a href="<?php echo base_url('User')?>"><i class="fa fa-user"></i>User</a></li>
+            <li class=""><a href="<?php echo base_url('User')?>"><i class="fa fa-user"></i>User</a></li>
           </ul>
         </li>
-        <li><a href="<?php echo base_url("Home/Location")?>"><i class="fa fa-map"></i> <span>Location</span></a></li>
         <li class="active"><a href="<?php echo base_url("Home/HistoryTransaction")?>"><i class="fa fa-history"></i> <span>History Transaction</span></a></li>
         <li><a href="<?php echo base_url("Login/logout")?>"onclick="return confirm('are you going to logout?');"><i class="fa fa-user-times"></i> <span>Sign Out</span></a></li>
         <?php endif ?>
 
         <!-- Admin Warehouse -->
         <?php if ($data->id_role == 3) : ?>
-          <li class="active"><a href="<?php echo base_url("Home/AdminWarehouse")?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+          <li class="active"><a href="<?php echo base_url("Home")?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
           <li class=""><a href="<?php echo base_url("Transaction/trAdminWarehouse")?>"><i class="fa fa-exchange"></i> <span>Transaction</span></a></li>
           <li class=""><a href="<?php echo base_url("Stock/stockAdminWarehouse")?>"><i class="fa fa-list-alt"></i> <span>Stock</span></a></li>
           <li><a href="<?php echo base_url("Login/logout")?>"onclick="return confirm('are you going to logout?');"><i class="fa fa-user-times"></i> <span>Sign Out</span></a></li>
@@ -89,8 +91,8 @@
 
         <!-- User -->
         <?php if ($data->id_role == 4) : ?>
-          <li class="active"><a href="<?php echo base_url("Home/AdminWarehouse")?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-          <li class=""><a href="<?php echo base_url("Transaction/trAdminWarehouse")?>"><i class="fa fa-exchange"></i> <span>Transaction</span></a></li>
+          <li class="active"><a href="<?php echo base_url("Home")?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+          <li class=""><a href="<?php echo base_url("Transaction/userTransaction")?>"><i class="fa fa-exchange"></i> <span>Transaction</span></a></li>
           <li><a href="<?php echo base_url("Login/logout")?>"onclick="return confirm('are you going to logout?');"><i class="fa fa-user-times"></i> <span>Sign Out</span></a></li>
         <?php endif ?>
       </ul>

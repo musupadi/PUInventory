@@ -272,8 +272,8 @@ class Home extends CI_Controller {
         $data['location'] = $this->Models->getAll('m_location');
         $data['title'] = 'Location';
         $this->load->view('dashboard/header',$data);
-        $this->load->view('Location/side',$data);
-        $this->load->view('Location/main',$data);
+        $this->load->view('masterData/location/side',$data);
+        $this->load->view('masterData/location/main',$data);
         $this->load->view('dashboard/footer');
     }
 
@@ -283,8 +283,8 @@ class Home extends CI_Controller {
         if($this->form_validation->run() === FALSE){
             $data['user'] =$this->Models->getID('m_user','username',$this->session->userdata('nama'));
             $this->load->view('dashboard/header',$data);
-            $this->load->view('Location/side',$data);
-            $this->load->view('Location/main',$data);
+            $this->load->view('masterData/Location/side',$data);
+            $this->load->view('masterData/Location/main',$data);
             $this->load->view('dashboard/footer');
         }else{
             $id = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));            
@@ -308,7 +308,7 @@ class Home extends CI_Controller {
             $data['location'] = $this->Models->getWhere2("m_location",$where);
             $this->load->view('dashboard/header',$data);
             $this->load->view('User/Role/side',$data);
-            $this->load->view('Location/edit',$data);
+            $this->load->view('masterData/Location/edit',$data);
             $this->load->view('dashboard/footer');  
             $this->session->set_flashdata('pesan', '<script>alert("Data gagal diubah")</script>');
         }else{

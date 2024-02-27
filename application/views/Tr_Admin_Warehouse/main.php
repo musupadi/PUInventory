@@ -27,7 +27,7 @@
                 <th style="width: 10px;">#</th>
                   <th>Photo</th>
                   <th>Name</th>
-                  <th>Type</th>
+                  <th>Description</th>
                   <th>Asset No</th>
                   <th>Description</th>
                   <th>Category</th>
@@ -46,7 +46,7 @@
                   <td><?php echo $id++?></td>
                   <td style="height: 50px; vertical-align: middle;"><img class="profile-user-img img-responsive" src="<?php echo base_url()?>img/item/<?php echo $data->photo?>" alt="Image Item"></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->item_name?></td>
-                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->type?></td>
+                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->category?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->asset_no?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->description?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->category?></td>
@@ -105,7 +105,7 @@
                   <th style="width: 10px;">#</th>
                   <th>Photo</th>
                   <th>Name</th>
-                  <th>Type</th>
+                  <th>Description</th>
                   <th>Asset No</th>
                   <th>Description</th>
                   <th>Category</th>

@@ -27,13 +27,13 @@
           <li class=""><a href="<?php echo base_url("Stock")?>"><i class="fa fa-list-alt"></i> <span>Stock</span></a></li>
           <li class="treeview">
           <a href="#">
-            <i class="fa fa-newspaper-o"></i> <span>News</span>
+            <i class="fa fa-newspaper-o"></i> <span>Announcement</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class=""><a href="<?php echo base_url("News")?>"><i class="fa fa-newspaper-o"></i> <span>News</span></a></li>
+            <li class=""><a href="<?php echo base_url("News")?>"><i class="fa fa-newspaper-o"></i> <span>Announcement</span></a></li>
             <li class=""><a href="<?php echo base_url("News/category")?>"><i class="fa fa-reorder"></i> <span>Category</span></a></li>
           </ul>
         <li class="treeview">

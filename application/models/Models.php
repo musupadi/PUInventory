@@ -66,9 +66,9 @@ class Models extends CI_Model {
     }
 
     public function AllItem(){
-        $this->db->select('a.category,a.id, a.name, b.label as type, a.asset_no, a.description, a.id_status, c.label as brand, d.label as vendor,a.warranty, a.serial_number, a.photo');
+        $this->db->select('a.id, a.name, b.label as category, a.asset_no, a.description, a.id_status, c.label as brand, d.label as vendor,a.warranty, a.serial_number, a.photo');
         $this->db->from('m_item as a'); 
-        $this->db->join('m_type as b', 'a.id_type = b.id', 'left');
+        $this->db->join('m_category as b', 'a.id_category = b.id', 'left');
         $this->db->join('m_brand as c', 'a.id_brand = c.id', 'left'); // Corrected join condition
         $this->db->join('m_vendor as d', 'a.id_vendor = d.id', 'left');
         $this->db->where('id_status = 1');
@@ -79,7 +79,7 @@ class Models extends CI_Model {
     public function ItemWarehouse($id_warehouse){
         $this->db->select('e.id,a.id as ItemName, a.name, b.label as type, a.asset_no, a.description, a.id_status, c.label as brand, d.label as vendor, a.warranty, a.serial_number, a.photo,e.qty,f.name as warehouse');
         $this->db->from('m_item as a');
-        $this->db->join('m_type as b', 'a.id_type = b.id', 'left');
+        $this->db->join('m_category as b', 'a.id_category = b.id', 'left');
         $this->db->join('m_brand as c', 'a.id_brand = c.id', 'left'); // Corrected join condition
         $this->db->join('m_vendor as d', 'a.id_vendor = d.id', 'left');
         $this->db->join('m_stock as e', 'a.id = e.id_item', 'left');
@@ -93,7 +93,7 @@ class Models extends CI_Model {
     public function ItemWarehouseSearch($id_item){
         $this->db->select('e.id,a.id as ItemName, a.name, b.label as type, a.asset_no, a.description, a.id_status, c.label as brand, d.label as vendor, a.warranty, a.serial_number, a.photo,e.qty, f.id as id_warehouse ,f.name as warehouse,f.description as warehouse_description');
         $this->db->from('m_item as a');
-        $this->db->join('m_type as b', 'a.id_type = b.id');
+        $this->db->join('m_category as b', 'a.id_category = b.id');
         $this->db->join('m_brand as c', 'a.id_brand = c.id'); // Corrected join condition
         $this->db->join('m_vendor as d', 'a.id_vendor = d.id');
         $this->db->join('m_stock as e', 'a.id = e.id_item');
@@ -136,7 +136,7 @@ class Models extends CI_Model {
 
     public function AllType(){
         $this->db->select('id, label, created_at, created_by, updated_at, updated_by');
-        $this->db->from('m_type');
+        $this->db->from('m_category');
         $data = $this->db->get()->result();
         return $data;
     }
@@ -185,14 +185,14 @@ class Models extends CI_Model {
     }
     public function AllTransaction(){
         $this->db->select('e.id as id_warehouse,c.id as id_item,b.id as id_user,b.name,c.name as item_name,
-        d.label as type,c.asset_no,c.description,c.category,c.warranty,
+        d.label as category,c.asset_no,c.description,c.warranty,
         c.serial_number,c.photo,a.status_handover,a.handover_date,a.image,
         a.status,a.created_at,a.created_by,a.updated_at,a.updated_by,a.qty,a.id,a.handover_date,
         e.name as warehouse_name');
         $this->db->from('tr_item as a');
         $this->db->join('m_user as b', 'a.id_user = b.id', 'left');
         $this->db->join('m_item as c', 'a.id_item = c.id', 'left');
-        $this->db->join('m_type as d', 'c.id_type = d.id', 'left');
+        $this->db->join('m_category as d', 'c.id_category = d.id', 'left');
         $this->db->join('m_warehouse as e', 'a.id_warehouse = e.id', 'left');
        
         $data = $this->db->get()->result();

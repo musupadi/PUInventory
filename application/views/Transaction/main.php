@@ -18,8 +18,6 @@
               <h3 class="box-title">Transaction</h3>
             </div>
             <!-- /.box-header -->
-            <a data-toggle="modal" data-target="#modal-success" class="btn btn-success btn-sm" style="width: 100px; margin-left: 10px"><i class="fa fa-fw fa-plus"></i>Add Item</a>
-            <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
@@ -27,10 +25,9 @@
                 <th style="width: 10px;">#</th>
                   <th>Photo</th>
                   <th>Name</th>
-                  <th>Type</th>
+                  <th>Category</th>
                   <th>Asset No</th>
                   <th>Description</th>
-                  <th>Category</th>
                   <th>Warehouse</th>
                   <th>Qty</th>
                   <th>Handover Date</th>
@@ -47,10 +44,9 @@
                   <td><?php echo $id++?></td>
                   <td style="height: 50px; vertical-align: middle;"><img class="profile-user-img img-responsive" src="<?php echo base_url()?>img/item/<?php echo $data->photo?>" alt="Image Item"></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->item_name?></td>
-                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->type?></td>
+                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->category?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->asset_no?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->description?></td>
-                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->category?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->warehouse_name?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->qty?></td>  
                   <td style="height: 50px; vertical-align: middle;">
@@ -106,10 +102,9 @@
                   <th style="width: 10px;">#</th>
                   <th>Photo</th>
                   <th>Name</th>
-                  <th>Type</th>
+                  <th>Category</th>
                   <th>Asset No</th>
                   <th>Description</th>
-                  <th>Category</th>
                   <th>Warehouse</th>
                   <th>Qty</th>
                   <th>Handover Date</th>

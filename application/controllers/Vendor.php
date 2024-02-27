@@ -140,8 +140,8 @@ class Vendor extends CI_Controller {
         $data['origin'] = $this->Models->getAll('m_origin');
         $data['title'] = 'Origin';
         $this->load->view('dashboard/header',$data);
-        $this->load->view('Vendor/Origin/side',$data);
-        $this->load->view('Vendor/Origin/main',$data);
+        $this->load->view('masterData/Origin/side',$data);
+        $this->load->view('masterData/Origin/main',$data);
         $this->load->view('dashboard/footer');
     }
     public function List(){
@@ -149,8 +149,8 @@ class Vendor extends CI_Controller {
         $data['vendor'] = $this->Models->getAll('m_vendor');
         $data['title'] = 'Vendor';
         $this->load->view('dashboard/header',$data);
-        $this->load->view('Vendor/List/side',$data);
-        $this->load->view('Vendor/List/main',$data);
+        $this->load->view('masterData/List/side',$data);
+        $this->load->view('masterData/List/main',$data);
         $this->load->view('dashboard/footer');
     }
 
@@ -160,8 +160,8 @@ class Vendor extends CI_Controller {
         $data['origin'] = $this->Models->AllOrigin('m_origin');
         $data['title'] = 'Brand';
         $this->load->view('dashboard/header',$data);
-        $this->load->view('Vendor/Brand/side',$data);
-        $this->load->view('Vendor/Brand/main',$data);
+        $this->load->view('masterData/Brand/side',$data);
+        $this->load->view('masterData/Brand/main',$data);
         $this->load->view('dashboard/footer');
     }
 
@@ -171,8 +171,8 @@ class Vendor extends CI_Controller {
         if($this->form_validation->run() === FALSE){
             $data['user'] =$this->Models->getID('m_user','username',$this->session->userdata('nama'));
             $this->load->view('dashboard/header',$data);
-            $this->load->view('Vendor/Origin/side',$data);
-            $this->load->view('Vendor/Origin/main',$data);
+            $this->load->view('masterData/Origin/side',$data);
+            $this->load->view('masterData/Origin/main',$data);
             $this->load->view('dashboard/footer');
         }else{
             $id = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));            
@@ -191,8 +191,8 @@ class Vendor extends CI_Controller {
         if($this->form_validation->run() === FALSE){
             $data['user'] =$this->Models->getID('m_user','username',$this->session->userdata('nama'));
             $this->load->view('dashboard/header',$data);
-            $this->load->view('Vendor/List/side',$data);
-            $this->load->view('Vendor/List/main',$data);
+            $this->load->view('masterData/List/side',$data);
+            $this->load->view('masterData/List/main',$data);
             $this->load->view('dashboard/footer');
         }else{
             $id = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));            
@@ -211,8 +211,8 @@ class Vendor extends CI_Controller {
         if($this->form_validation->run() === FALSE){
             $data['user'] =$this->Models->getID('m_user','username',$this->session->userdata('nama'));
             $this->load->view('dashboard/header',$data);
-            $this->load->view('Vendor/Brand/side',$data);
-            $this->load->view('Vendor/Brand/main',$data);
+            $this->load->view('masterData/Brand/side',$data);
+            $this->load->view('masterData/Brand/main',$data);
             $this->load->view('dashboard/footer');
         }else{
             $id = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));            
@@ -236,8 +236,8 @@ class Vendor extends CI_Controller {
             $data['origin'] = $this->Models->getWhere2("m_origin",$where);
             $data['title'] = 'Edit Origin';
             $this->load->view('dashboard/header',$data);
-            $this->load->view('Vendor/Origin/side',$data);
-            $this->load->view('Vendor/Origin/edit',$data);
+            $this->load->view('masterData/Origin/side',$data);
+            $this->load->view('masterData/Origin/edit',$data);
             $this->load->view('dashboard/footer');  
             $this->session->set_flashdata('Pesan', '<script>alert("Data gagal diubah")</script>');
         }else{
@@ -260,8 +260,8 @@ class Vendor extends CI_Controller {
             $data['vendor'] = $this->Models->getWhere2("m_vendor",$where);
             $data['title'] = 'Edit Vendor';
             $this->load->view('dashboard/header',$data);
-            $this->load->view('Vendor/List/side',$data);
-            $this->load->view('Vendor/List/edit',$data);
+            $this->load->view('masterData/List/side',$data);
+            $this->load->view('masterData/List/edit',$data);
             $this->load->view('dashboard/footer');  
             $this->session->set_flashdata('Pesan', '<script>alert("Data gagal diubah")</script>');
         }else{
@@ -286,8 +286,8 @@ class Vendor extends CI_Controller {
             $data['title'] = 'Edit Brand';
             $data['origin'] =$this->Models->getAll('m_origin');
             $this->load->view('dashboard/header',$data);
-            $this->load->view('Vendor/Brand/side',$data);
-            $this->load->view('Vendor/Brand/edit',$data);
+            $this->load->view('masterData/Brand/side',$data);
+            $this->load->view('masterData/Brand/edit',$data);
             $this->load->view('dashboard/footer');  
             $this->session->set_flashdata('Pesan', '<script>alert("Data gagal diubah")</script>');
         }else{

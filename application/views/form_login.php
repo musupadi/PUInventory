@@ -61,8 +61,10 @@
         </div>
         <p><?php echo $this->session->flashdata('pesan'); ?></p>
       </form>
-      <a href="<?= base_url('Login/register')?>">Create an Account</a>
-    </div>
+      <div class="register" style="text-align: center">
+        <a href="<?= base_url('Login/register')?>">Create an Account</a>
+      </div>
+      </div>
     <p class="text-light-blue text-center">Copyright @ 2020 All Right Reserved</p>
 
 
