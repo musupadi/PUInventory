@@ -41,7 +41,7 @@
 
                 ?>
                 <tr>
-                  <td><?php echo $id++?></td>
+                  <td  style="height: 50px; vertical-align: middle;"><?php echo $id++?></td>
                   <td style="height: 50px; vertical-align: middle;"><img class="profile-user-img img-responsive" src="<?php echo base_url()?>img/item/<?php echo $data->photo?>" alt="Image Item"></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->item_name?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->category?></td>

@@ -44,17 +44,17 @@
 
                 ?>
                 <tr>
-                  <td><?php echo $id++?></td>
+                  <td style="height: 50px; vertical-align: middle;"><?php echo $id++?></td>
                   <td><img class="profile-user-img img-responsive" src="<?php echo base_url()?>img/item/<?php echo $data->photo?>" alt="Image Item"></td>
-                  <td><?php echo $data->name?></td>
-                  <td><?php echo $data->category?></td>
-                  <td><?php echo $data->asset_no?></td>
-                  <td><?php echo $data->description?></td>
-                  <td><?php echo $data->vendor?></td>
-                  <td><?php echo $data->brand?></td>
-                  <td><?php echo $data->warranty?></td>
-                  <td><?php echo $data->serial_number?></td>
-                  <td style="text-align: center;">
+                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->name?></td>
+                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->category?></td>
+                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->asset_no?></td>
+                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->description?></td>
+                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->vendor?></td>
+                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->brand?></td>
+                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->warranty?></td>
+                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->serial_number?></td>
+                  <td style="height: 50px; vertical-align: middle;">
                     <a href="<?php echo base_url('Inventory/Itemedit/'.$data->id);?>">
                       <i class="fa fa-fw fa-pencil"></i>
                     </a> 

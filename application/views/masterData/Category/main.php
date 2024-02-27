@@ -31,11 +31,11 @@
                 </thead>
                 <tbody>
                 <?php
+                $i = 1;
                 foreach ($category as $data){
-
                 ?>
                 <tr>
-                  <td><?php echo $data->id?></td>
+                  <td><?= $i++ ?></td>
                   <td><?php echo $data->label?></td>
                   <td style="text-align: center;">
                     <a href="<?php echo base_url('Inventory/Categoryedit/'.$data->id);?>">

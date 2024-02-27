@@ -67,6 +67,7 @@
     .note-editor .note-modal-footer {
       box-sizing: content-box;
     }
+
   </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
