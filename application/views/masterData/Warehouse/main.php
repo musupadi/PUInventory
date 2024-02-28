@@ -82,7 +82,7 @@
                     <div class="modal-body">
                       <div class="box-body">
                         <div class="form-group">
-                          <label for="text">Name</label>
+                          <label for="text"><span style="color: red; margin-right: 3px">*</span>Name</label>
                             <input type="text" class="form-control" name="name" placeholder="Name" required>
                           <p class="text-red"><?php echo form_error('name')?></p>
                         </div>

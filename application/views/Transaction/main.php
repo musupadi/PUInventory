@@ -24,7 +24,7 @@
                 <tr>
                 <th style="width: 10px;">#</th>
                   <th>Photo</th>
-                  <th>Name</th>
+                  <th>Item Name</th>
                   <th>Category</th>
                   <th>Asset No</th>
                   <th>Description</th>
@@ -101,7 +101,7 @@
                 <tr>
                   <th style="width: 10px;">#</th>
                   <th>Photo</th>
-                  <th>Name</th>
+                  <th>Item Name</th>
                   <th>Category</th>
                   <th>Asset No</th>
                   <th>Description</th>
@@ -119,7 +119,6 @@
             <!-- INPUT -->
             <div class="modal modal-success fade" id="modal-accept">
             <?php echo form_open_multipart('Transaction/EditStatusAccept/')?>
-                <form role="form" action="<?php echo base_url('Transaction/EditStatusAccept/')?>" method="post" >
                 <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">

@@ -24,27 +24,27 @@
                   <div class="box-body">
                 
                         <div class="form-group">
-                      <label for="text">Name</label>
+                      <label for="text"><span style="color: red; margin-right: 3px">*</span>Name</label>
                       <input type="text" class="form-control" name="name" placeholder="Nama" value = "<?php echo $data->name?>">
                       <p class="text-red"><?php echo form_error('name')?></p>
                     </div>
                     <div class="form-group">
-                      <label for="text">Username</label>
-                      <input type="text" class="form-control" name="username" placeholder="Username" value = "<?php echo $data->username?>">
+                      <label for="text"><span style="color: red; margin-right: 3px">*</span>Username</label>
+                      <input type="text" class="form-control" name="username" placeholder="Username" value = "<?php echo $data->username?>" disabled>
                       <p class="text-red"><?php echo form_error('username')?></p>
                     </div>
                     <div class="form-group">
-                      <label for="text">Password</label>
+                      <label for="text"><span style="color: red; margin-right: 3px">*</span>Password</label>
                       <input type="password" class="form-control" name="password" placeholder="Password">
                       <p class="text-red"><?php echo form_error('password')?></p>
                     </div>
                     <div class="form-group">
-                      <label for="text">Email</label>
+                      <label for="text"><span style="color: red; margin-right: 3px">*</span>Email</label>
                       <input type="text" class="form-control" name="email" placeholder="Email" value = "<?php echo $data->email?>">
                       <p class="text-red"><?php echo form_error('email')?></p>
                     </div>
                     <div class="form-group">
-                        <label>Role Name</label>
+                        <label><span style="color: red; margin-right: 3px">*</span>Role Name</label>
                         <select class="form-control muted" name="id_role" >
                         <?php foreach ( $role as $datas ) : ?>
                           <?php if ( $datas->id == 3 ) { ?>

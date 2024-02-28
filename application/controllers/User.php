@@ -110,7 +110,7 @@ class User extends CI_Controller {
             $ID = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));
             if ($this->upload->do_upload('gambar')) {
                 $old_image = $data['m_user']['photo'];
-                if ( $old_image != "default.jpg" ){
+                if ( $old_image != "logo.jpg" ){
                     unlink(FCPATH . 'img/profile/' . $old_image);
                 }
 
@@ -122,7 +122,6 @@ class User extends CI_Controller {
                 $data['password'] = MD5($this->input->post('password')); 
                 $data['email'] = $this->input->post('email');
                 $data['id_role '] = $this->input->post('id_role');
-                $data['photo'] = "logo.jpg";
                 $data['updated_by'] = $ID[0]->id;
                 $data['updated_at'] = $this->Models->GetTimestamp();
             }

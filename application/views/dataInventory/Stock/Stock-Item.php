@@ -30,7 +30,7 @@
                 <tr>
                 <th style="width: 10px;">#</th>
                   <th>Photo</th>
-                  <th>Name</th>
+                  <th>Item Name</th>
                   <th>Category</th>
                   <th>Asset No</th>
                   <th>Description</th>
@@ -64,7 +64,7 @@
                 <tr>
                   <th style="width: 10px;">#</th>
                   <th>Photo</th>
-                  <th>Name</th>
+                  <th>Item Name</th>
                   <th>Category</th>
                   <th>Asset No</th>
                   <th>Description</th>
@@ -92,12 +92,12 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                          <label for="text">Name Item</label>
+                          <label for="text">Item Name</label>
                             <input type="text" id="name" class="form-control" name="name" placeholder="Name" disabled>
                             <p class="text-red"><?php echo form_error('name')?></p>
                         </div>
                         <div class="form-group">
-                          <label for="text">Qty</label>
+                          <label for="text"><span style="color: red; margin-right: 3px">*</span>Qty</label>
                             <input type="hidden" id="qty" class="form-control" name="qty" required>
                             <input type="number" id="qty2" class="form-control" name="qty2" placeholder="Qty" required>
                             <input type="hidden" id="id" name="id" value="" style="color:black">

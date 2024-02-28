@@ -111,18 +111,18 @@ class Models extends CI_Model {
         return $data;
     }
 
-    public function AllNews(){
+    public function AllAnnouncement(){
         $this->db->select('a.id, a.title, b.label as category, a.description');
-        $this->db->from('m_news as a');
-        $this->db->join('m_category_news as b', 'a.id_category = b.id', 'left');
-        // $this->db->where('a.id_status = 1');
+        $this->db->from('m_announcement as a');
+        $this->db->join('m_category_announcement as b', 'a.id_category = b.id', 'left');
+        $this->db->where('a.id_status = 1');
         $data = $this->db->get()->result();
         return $data;
     }
 
-    public function AllNewsCategory(){
+    public function AllAnnouncementCategory(){
         $this->db->select('id, label as category, created_at, created_by, updated_at, updated_by');
-        $this->db->from('m_category_news');
+        $this->db->from('m_category_announcement');
         $data = $this->db->get()->result();
         return $data;
     }

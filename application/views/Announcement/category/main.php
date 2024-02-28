@@ -1,12 +1,11 @@
 
-<section class="content-header">
+    <section class="content-header">
       <h1>
         Announcement
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-newspaper-o"></i>Announcement
-</a></li>
-        <li class="active">Announcement</li>
+        <li><a href="#"><i class="fa fa-map"></i>Announcement</a></li>
+        <li class="active">Category</li>
       </ol>
     </section>
 
@@ -19,35 +18,33 @@
               <h3 class="box-title">Announcement</h3>
             </div>
             <!-- /.box-header -->
-            <a href="<?= base_url('Announcement/addAnnouncement') ?>" class="btn btn-success btn-sm" style="margin-left: 10px"><i class="fa fa-fw fa-plus"></i>Add Announcement</a>
+            <a data-toggle="modal" data-target="#modal-success" class="btn btn-success btn-sm" style="width: 100px; margin-left: 10px"><i class="fa fa-fw fa-plus"></i>Add Category</a>
+
+            <?= $this->session->flashdata('Pesan') ?>
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Title</th>
                   <th>Category</th>
-                  <th>Description</th>
                   <th style="width: 40px;">Action</th>
                 </tr>
                 </thead>
                 <tbody>
+                  <?php $i = 1; ?>
                 <?php
-                $id = 1;
-                foreach ($announcement as $data) {
+                foreach ($category as $data){
 
                 ?>
                 <tr>
-                  <td><?php echo $id++?></td>
-                  <td><?php echo $data->title?></td>
+                  <td><?= $i++; ?></td>
                   <td><?php echo $data->category?></td>
-                  <td><?php echo $data->description?></td>
                   <td style="text-align: center;">
-                    <a href="<?= base_url('Announcement/updateAnnouncement/' . $data->id) ?>">
+                    <a href="<?php echo base_url('Announcement/updateCategory/'.$data->id);?>">
                       <i class="fa fa-fw fa-pencil"></i>
                     </a> 
-                    <a href="<?= base_url('Announcement/deleteAnnouncement/' . $data->id) ?>" onclick="return confirm('Data akan dihapus')">
+                    <a href="<?php echo base_url('Announcement/deleteCategory/'.$data->id);?>" onclick="return confirm('yakin?');">
                       <i class="fa fa-fw fa-trash"></i>
                     </a>
                     </div>
@@ -59,9 +56,7 @@
                 <tfoot>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Title</th>
                   <th>Category</th>
-                  <th>Description</th>
                   <th style="width: 40px;">Action</th>
                 </tr>
                 </tfoot>
@@ -69,24 +64,25 @@
             </div>
             <?php echo $this->session->flashdata('pesan');?>
             <!-- /.box-body -->
-
             <!-- INPUT -->
             <div class="modal modal-success fade" id="modal-success">
-            <?php echo form_open_multipart('Inventory/TambahItem/')?>
+            <?php echo form_open_multipart('Announcement/addAnnouncementCategory/')?>
                 <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Input Item</h4>
+                        <h4 class="modal-title">Input Category</h4>
                     </div>
                     <div class="modal-body">
-                      <div class="box-body">
-                        <div class="form-group">
-                          <label for="text">Name</label>
-                            <input type="text" class="form-control" name="name" placeholder="Name" required>
-                            <p class="text-red"><?php echo form_error('name')?></p>
+                        <div class="box-body">
+                            <div class="form-group">
+                              <label for="text"><span style="color: red; margin-right: 3px">*</span>Category Name</label>
+                              <input type="text" class="form-control" name="label" placeholder="Category Name" required>
+                              <p class="text-red"><?php echo form_error('label')?></p>
+                            </div>
                         </div>
+                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-outline">Save changes</button>
@@ -99,6 +95,4 @@
       <!-- /.row -->
     </section>
     <!-- /.content -->
-
-
 

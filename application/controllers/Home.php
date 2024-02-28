@@ -154,7 +154,7 @@ class Home extends CI_Controller {
         $data['title'] = 'My Profile';
         $this->load->view('dashboard/header',$data);
         $this->load->view('dashboard/side',$data);
-        $this->load->view('MyProfileUser/main',$data);
+        $this->load->view('Profile/MyProfileUser/main',$data);
         $this->load->view('dashboard/footer');
     }
     public function MyProfileAdminWarehouse()
@@ -164,7 +164,7 @@ class Home extends CI_Controller {
         $data['title'] = 'My Profile';
         $this->load->view('dashboard/header',$data);
         $this->load->view('dashboard/side',$data);
-        $this->load->view('MyProfileAdminWarehouse/main',$data);
+        $this->load->view('Profile/MyProfileAdminWarehouse/main',$data);
         $this->load->view('dashboard/footer');
     }
 
@@ -178,7 +178,7 @@ class Home extends CI_Controller {
             $data['title'] = 'Edit';
             $this->load->view('dashboard/header',$data);
             $this->load->view('dashboard/side',$data);
-            $this->load->view('MyProfileUser/edit',$data);
+            $this->load->view('Profile/MyProfileUser/edit',$data);
             $this->load->view('dashboard/footer');
         }else{
             $config['upload_path']          = './img/profile/';
@@ -227,7 +227,7 @@ class Home extends CI_Controller {
             $data['title'] = 'Edit';
             $this->load->view('dashboard/header',$data);
             $this->load->view('dashboard/side',$data);
-            $this->load->view('MyProfileAdminWarehouse/edit',$data);
+            $this->load->view('Profile/MyProfileAdminWarehouse/edit',$data);
             $this->load->view('dashboard/footer');
         }else{
             $config['upload_path']          = './img/profile/';

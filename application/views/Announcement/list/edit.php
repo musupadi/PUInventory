@@ -1,11 +1,10 @@
-
 <section class="content-header">
       <h1>
-        News
+        Announcement
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-newspaper-o"></i>News</a></li>
-        <li class="active">news</li>
+        <li><a href="#"><i class="fa fa-newspaper-o"></i>Announcement</a></li>
+        <li class="active">announcement</li>
       </ol>
     </section>
 
@@ -15,11 +14,11 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">News</h3>
+              <h3 class="box-title">Announcement</h3>
             </div>
             <div class="box-body">
-            <?php foreach($news as $data) : ?>
-            <?php echo form_open_multipart('News/updateNews/' . $data->id)?>
+            <?php foreach($announcement as $data) : ?>
+            <?php echo form_open_multipart('Announcement/updateAnnouncement/' . $data->id)?>
               <div class="form-group mb-5">
                 <label for="title" class="form-label">Title</label>
                 <input type="text" class="form-control" name="title" id="title" placeholder="Title" value="<?= $data->title ?>">
@@ -27,7 +26,7 @@
               <div class="form-group mb-5">
                 <label for="text">Select Category</label>
                   <select class="form-control" name="category">
-                    <?php foreach($newsCategory as $data2) : ?>
+                    <?php foreach($announcementCategory as $data2) : ?>
                       <option value="<?= $data2->id ?>"><?= $data2->category ?></option>
                     <?php endforeach ?>    
                   </select>
@@ -38,7 +37,7 @@
               </div>
           </div>
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Update News</button>
+                <button type="submit" class="btn btn-primary">Update Announcement</button>
               </div>
         <?php endforeach ?>
         </form>
