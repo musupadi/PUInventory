@@ -106,13 +106,13 @@
                     <div class="modal-body">
                         <div class="box-body">
                             <div class="form-group">
-                              <label for="text">Nama Role</label>
-                              <input type="text" class="form-control" name="label" placeholder="Nama Role" required>
+                              <label for="text"><span style="color: red; margin-right: 3px">*</span>Role Name</label>
+                              <input type="text" class="form-control" name="label" placeholder="Role Name" required>
                               <p class="text-red"><?php echo form_error('label')?></p>
                             </div>
                             <div class="form-group">
-                              <label for="text">Level Role</label>
-                              <input type="number" class="form-control" name="level" placeholder="Level" required>
+                              <label for="text"><span style="color: red; margin-right: 3px">*</span>Role Level</label>
+                              <input type="number" class="form-control" name="level" placeholder="Role Level" required>
                               <p class="text-red"><?php echo form_error('level')?></p>
                             </div>
                     </div>

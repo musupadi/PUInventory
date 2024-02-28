@@ -20,27 +20,27 @@
                 <form role="form" action="<?php echo base_url('User/Postuser/')?>" method="post" >
                   <div class="box-body">
                     <div class="form-group">
-                      <label for="text">Nama</label>
+                      <label for="text"><span style="color: red; margin-right: 3px">*</span>Nama</label>
                       <input type="text" class="form-control" name="name" placeholder="Nama">
                       <p class="text-red"><?php echo form_error('name')?></p>
                     </div>
                     <div class="form-group">
-                      <label for="text">Username</label>
+                      <label for="text"><span style="color: red; margin-right: 3px">*</span>Username</label>
                       <input type="text" class="form-control" name="username" placeholder="Username">
                       <p class="text-red"><?php echo form_error('username')?></p>
                     </div>
                     <div class="form-group">
-                      <label for="text">Password</label>
+                      <label for="text"><span style="color: red; margin-right: 3px">*</span>Password</label>
                       <input type="password" class="form-control" name="password" placeholder="Password">
                       <p class="text-red"><?php echo form_error('password')?></p>
                     </div>
                     <div class="form-group">
-                      <label for="text">Email</label>
+                      <label for="text"><span style="color: red; margin-right: 3px">*</span>Email</label>
                       <input type="text" class="form-control" name="email" placeholder="Email">
                       <p class="text-red"><?php echo form_error('email')?></p>
                     </div>
                     <div class="form-group">
-                        <label>Pilih Role</label>
+                        <label><span style="color: red; margin-right: 3px">*</span>Pilih Role</label>
                         <select class="form-control" name="id_role">
                           <?php foreach ($role as $data){ ?>
                               <option value="<?php echo $data->id?>"><?php echo $data->label ?></option>

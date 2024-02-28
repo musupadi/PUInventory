@@ -33,8 +33,7 @@ class Inventory extends CI_Controller {
     }
     private function rulesWarehouse(){
         return [
-            ['field' => 'name','label' => 'Name','rules' => 'required'],
-            ['field' => 'description','label' => 'Description','rules' => 'required']
+            ['field' => 'name','label' => 'Name','rules' => 'required']
         ];
     }
 

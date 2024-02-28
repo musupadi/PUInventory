@@ -27,7 +27,7 @@
                 <thead>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Label</th>
+                  <th>Name</th>
                   <th>Floor </th>
                   <th style="width: 40px;">Action</th>
                 </tr>
@@ -85,7 +85,7 @@
                 <tfoot>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Label</th>
+                  <th>Name</th>
                   <th>Floor</th>
                   <th style="width: 40px;">Action</th>
                 </tr>
@@ -108,12 +108,12 @@
                     <div class="modal-body">
                         <div class="box-body">
                             <div class="form-group">
-                              <label for="text">Location Name</label>
+                              <label for="text"><span style="color: red; margin-right: 3px">*</span>Location Name</label>
                               <input type="text" class="form-control" name="label" placeholder="Location Name" required>
                               <p class="text-red"><?php echo form_error('label')?></p>
                             </div>
                           <div class="form-group">
-                          <label for="text">Floor</label>
+                          <label for="text"><span style="color: red; margin-right: 3px">*</span>Floor</label>
                             <input type="text" class="form-control" name="floor" placeholder="Floor" required>
                           <p class="text-red"><?php echo form_error('floor')?></p>
                         </div>

@@ -26,7 +26,7 @@
                 <tr>
                 <th style="width: 10px;">#</th>
                   <th>Photo</th>
-                  <th>Name</th>
+                  <th>Item Name</th>
                   <th>Category</th>
                   <th>Asset No</th>
                   <th>Description</th>
@@ -56,7 +56,7 @@
                 <tr>
                   <th style="width: 10px;">#</th>
                   <th>Photo</th>
-                  <th>Name</th>
+                  <th>Item Name</th>
                   <th>Category</th>
                   <th>Asset No</th>
                   <th>Description</th>

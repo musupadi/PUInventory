@@ -47,34 +47,6 @@
                     </div>  
                   </td>
                 </tr>
-                <?php echo form_open_multipart('User/EditRole/')?>
-                <form role="form" action="<?php echo base_url('User/EditRole/'.$data->id)?>" method="post" >
-                    <div class="modal modal-info fade" id="modal-info">
-                        <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title"><b><?php echo $data->kategori?></b></h4>
-                            </div>
-                            <div class="modal-body">
-                            <div class="box-body">
-                                <div class="form-group">
-                                <label for="text">Edit Data</label>
-                                <input type="text" class="form-control" name="beli" placeholder="Kategori" value="<?php echo $data->kategori ?>">
-                                <p class="text-red"><?php echo form_error('nama')?></p>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                            <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Batal</button>
-                            <button type="submit" class="btn btn-outline">Beli</button>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                        </div>
-                    <!-- /.modal-dialog -->
-                </form>
-              
                 <?php  endforeach; ?>
                 </tbody>
 
@@ -103,7 +75,7 @@
                     <div class="modal-body">
                         <div class="box-body">
                             <div class="form-group">
-                              <label for="text">Vendor Name</label>
+                              <label for="text"><span style="color: red; margin-right: 3px">*</span>Vendor Name</label>
                               <input type="text" class="form-control" name="label" placeholder="Vendor Name" required>
                               <p class="text-red"><?php echo form_error('label')?></p>
                             </div>

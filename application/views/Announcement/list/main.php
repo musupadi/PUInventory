@@ -1,11 +1,12 @@
 
 <section class="content-header">
       <h1>
-        News
+        Announcement
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-newspaper-o"></i>News</a></li>
-        <li class="active">News</li>
+        <li><a href="#"><i class="fa fa-newspaper-o"></i>Announcement
+</a></li>
+        <li class="active">Announcement</li>
       </ol>
     </section>
 
@@ -15,10 +16,10 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">News</h3>
+              <h3 class="box-title">Announcement</h3>
             </div>
             <!-- /.box-header -->
-            <a href="<?= base_url('News/addNews') ?>" class="btn btn-success btn-sm" style="width: 100px; margin-left: 10px"><i class="fa fa-fw fa-plus"></i>Add News</a>
+            <a href="<?= base_url('Announcement/addAnnouncement') ?>" class="btn btn-success btn-sm" style="margin-left: 10px"><i class="fa fa-fw fa-plus"></i>Add Announcement</a>
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
@@ -34,7 +35,7 @@
                 <tbody>
                 <?php
                 $id = 1;
-                foreach ($news as $data) {
+                foreach ($announcement as $data) {
 
                 ?>
                 <tr>
@@ -43,10 +44,10 @@
                   <td><?php echo $data->category?></td>
                   <td><?php echo $data->description?></td>
                   <td style="text-align: center;">
-                    <a href="<?= base_url('news/updateNews/' . $data->id) ?>">
+                    <a href="<?= base_url('Announcement/updateAnnouncement/' . $data->id) ?>">
                       <i class="fa fa-fw fa-pencil"></i>
                     </a> 
-                    <a href="<?= base_url('news/deleteNews/' . $data->id) ?>" onclick="return confirm('Data akan dihapus')">
+                    <a href="<?= base_url('Announcement/deleteAnnouncement/' . $data->id) ?>" onclick="return confirm('Data akan dihapus')">
                       <i class="fa fa-fw fa-trash"></i>
                     </a>
                     </div>

@@ -27,7 +27,7 @@
                 <thead>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Label</th>
+                  <th>Name</th>
                   <th>Origin</th>
                   <th style="width: 40px;">Action</th>
                 </tr>
@@ -85,7 +85,7 @@
                 <tfoot>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Label</th>
+                  <th>Name</th>
                   <th>Origin</th>
                   <th style="width: 40px;">Action</th>
                 </tr>
@@ -108,12 +108,12 @@
                     <div class="modal-body">
                         <div class="box-body">
                             <div class="form-group">
-                              <label for="text">Brand Name</label>
+                              <label for="text"><span style="color: red; margin-right: 3px">*</span>Brand Name</label>
                               <input type="text" class="form-control" name="label" placeholder="Nama Brand" required>
                               <p class="text-red"><?php echo form_error('label')?></p>
                             </div>
                             <div class="form-group">
-                          <label for="text">Select Origin</label>
+                          <label for="text"><span style="color: red; margin-right: 3px">*</span>Select Origin</label>
                           <select class="form-control" name="id_origin">
                             <?php foreach ($origin as $data){ ?>
                                 <option value="<?php echo $data->id?>"><?php echo $data->label ?></option>

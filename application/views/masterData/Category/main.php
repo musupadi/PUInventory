@@ -25,7 +25,7 @@
                 <thead>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Nama</th>
+                  <th>Name</th>
                   <th style="width: 40px;">Action</th>
                 </tr>
                 </thead>
@@ -80,7 +80,7 @@
                 <tfoot>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Nama</th>
+                  <th>Name</th>
                   <th style="width: 40px;">Action</th>
                 </tr>
                 </tfoot>
@@ -102,8 +102,8 @@
                     <div class="modal-body">
                         <div class="box-body">
                             <div class="form-group">
-                              <label for="text">Name Category</label>
-                              <input type="text" class="form-control" name="label" placeholder="Nama Type" required>
+                              <label for="text"><span style="color: red; margin-right: 3px">*</span>Name Category</label>
+                              <input type="text" class="form-control" name="label" placeholder="Name Category" required>
                               <p class="text-red"><?php echo form_error('label')?></p>
                             </div>
                     </div>

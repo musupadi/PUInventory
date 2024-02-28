@@ -32,8 +32,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class=""><a href="<?php echo base_url("News")?>"><i class="fa fa-newspaper-o"></i> <span>Announcement</span></a></li>
-            <li class=""><a href="<?php echo base_url("News/category")?>"><i class="fa fa-reorder"></i> <span>Category</span></a></li>
+            <li class=""><a href="<?php echo base_url("Announcement")?>"><i class="fa fa-newspaper-o"></i> <span>Announcement</span></a></li>
+            <li class=""><a href="<?php echo base_url("Announcement/category")?>"><i class="fa fa-reorder"></i> <span>Category</span></a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -56,12 +56,12 @@
           </a>
           <ul class="treeview-menu active">
             <li class="active"><a href="<?php echo base_url('Inventory/item')?>"><i class="fa fa-cube"></i>Item</a></li>
-            <li><a href="<?php echo base_url('Inventory/Warehouse')?>"><i class="fa fa-home"></i>Warehouse</a></li>
-            <li><a href="<?php echo base_url('Inventory/Category')?>"><i class="fa fa-list"></i>Category</a></li>
-            <li><a href="<?php echo base_url('Vendor/List')?>"><i class="fa fa-briefcase"></i>Vendor</a></li>
-            <li><a href="<?php echo base_url('Vendor/Origin')?>"><i class="fa fa-archive"></i>Origin</a></li>
-            <li><a href="<?php echo base_url('Vendor/Brand')?>"><i class="fa fa-industry"></i>Brand</a></li>
-            <li><a href="<?php echo base_url("Home/Location")?>"><i class="fa fa-map"></i> <span>Location</span></a></li>
+            <li class=""><a href="<?php echo base_url('Inventory/Warehouse')?>"><i class="fa fa-home"></i>Warehouse</a></li>
+            <li class=""><a href="<?php echo base_url('Inventory/Category')?>"><i class="fa fa-list"></i>Category</a></li>
+            <li class=""><a href="<?php echo base_url('Vendor/List')?>"><i class="fa fa-briefcase"></i>Vendor</a></li>
+            <li class=""><a href="<?php echo base_url('Vendor/Origin')?>"><i class="fa fa-archive"></i>Origin</a></li>
+            <li class=""><a href="<?php echo base_url('Vendor/Brand')?>"><i class="fa fa-industry"></i>Brand</a></li>
+            <li class=""><a href="<?php echo base_url("Home/Location")?>"><i class="fa fa-map"></i> <span>Location</span></a></li>
 
           </ul>
         </li>
