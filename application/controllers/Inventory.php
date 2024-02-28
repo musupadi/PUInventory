@@ -287,6 +287,8 @@ class Inventory extends CI_Controller {
                 'id' => $id
             );
             $data['warehouse'] = $this->Models->getWhere2("m_warehouse",$where);
+            $data['title'] = 'Edit Warehouse';
+            $data['location'] = $this->Models->getAll('m_location');
             $this->load->view('dashboard/header',$data);
             $this->load->view('masterData/Warehouse/side',$data);
             $this->load->view('masterData/Warehouse/edit',$data);
@@ -296,6 +298,7 @@ class Inventory extends CI_Controller {
             $ID = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));     
             $data['name'] = $this->input->post('name');
             $data['description'] = $this->input->post('description');
+            $data['id_location'] = $this->input->post('id_location');
             $data['updated_by'] = $ID[0]->id;
             $data['updated_at'] = $this->Models->GetTimestamp();
             $this->Models->edit('m_warehouse','id',$id,$data);

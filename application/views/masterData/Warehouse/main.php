@@ -27,6 +27,7 @@
                   <th style="width: 10px;">#</th>
                   <th>Name</th>
                   <th>Description</th>
+                  <th>Location</th>
                   <th style="width: 40px;">Action</th>
                 </tr>
                 </thead>
@@ -40,6 +41,7 @@
                   <td><?php echo $id++?></td>
                   <td><?php echo $data->name?></td>
                   <td><?php echo $data->description?></td>
+                  <td><?php echo $data->location?></td>
                   <td style="text-align: center;">
                     <a href="<?php echo base_url('Inventory/WarehouseEdit/'.$data->id);?>">
                       <i class="fa fa-fw fa-pencil"></i>
@@ -58,6 +60,7 @@
                   <th style="width: 10px;">#</th>
                   <th>Name</th>
                   <th>Description</th>
+                  <th>Location</th>
                   <th style="width: 40px;">Action</th>
                 </tr>
                 </tfoot>

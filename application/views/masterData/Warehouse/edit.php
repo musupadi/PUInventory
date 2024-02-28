@@ -32,6 +32,16 @@
                         <input type="text" class="form-control" name="description" placeholder="Description" value="<?php echo $data->description ?>">
                      <p class="text-red"><?php echo form_error('description')?></p>
                     </div>
+                    <div class="form-group">
+                        <label>Floor</label>
+                        <select class="form-control" name="id_location">
+                        <?php foreach ($location as $datas){
+
+                        ?>
+                            <option value="<?php echo $datas->id?>"><?php echo $datas->label ?></option>
+                        <?php }?>
+                        </select>
+                    </div>
                   </div>
                   <!-- /.box-body -->
 
