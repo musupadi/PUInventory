@@ -213,19 +213,14 @@ class Inventory extends CI_Controller {
             $ID = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));
             
             if ($this->upload->do_upload('photo')) {
-                $data['photo'] = $this->upload->data("file_name");
-                $data['name'] = $this->input->post('name');
-                $data['id_category'] = $this->input->post('id_category');
-                $data['asset_no'] = $this->input->post('asset_no');
-                $data['description'] = $this->input->post('description');
-                $data['id_vendor'] = $this->input->post('id_vendor');
-                $data['id_brand'] = $this->input->post('id_brand');
-                $data['warranty'] = $this->input->post('warranty');
-                $data['serial_number'] = $this->input->post('serial_number');
-                $data['updated_by'] = $ID[0]->id;
-                $data['updated_at'] = $this->Models->GetTimestamp();
+                $old_image = $data['m_item']['photo'];
+                if ( $old_image != "default.jpg" ){
+                    unlink(FCPATH . 'img/item/' . $old_image);
+                }
+
+                $new_image = $this->upload->data('file_name');
+                $this->db->set('photo', $new_image);
             }else{
-                $data['photo'] = "default.jpg";
                 $data['name'] = $this->input->post('name');
                 $data['id_category'] = $this->input->post('id_category');
                 $data['asset_no'] = $this->input->post('asset_no');

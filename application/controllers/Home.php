@@ -143,7 +143,7 @@ class Home extends CI_Controller {
         $data['title'] = 'My Profile';
         $this->load->view('dashboard/header',$data);
         $this->load->view('dashboard/side',$data);
-        $this->load->view('MyProfile/main',$data);
+        $this->load->view('Profile/MyProfile/main',$data);
         $this->load->view('dashboard/footer');
     }
 

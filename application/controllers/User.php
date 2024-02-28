@@ -109,14 +109,13 @@ class User extends CI_Controller {
             $this->load->library('upload', $config);
             $ID = $this->Models->getID('m_user', 'username', $this->session->userdata('nama'));
             if ($this->upload->do_upload('gambar')) {
-                $data['name'] = $this->input->post('name');
-                $data['username'] = $this->input->post('username');
-                $data['password'] = MD5($this->input->post('password'));
-                $data['email'] = $this->input->post('email');
-                $data['id_role '] = $this->input->post('id_role');
-                $data['photo'] = $this->upload->data("file_name");
-                $data['updated_by'] = $ID[0]->id;
-                $data['updated_at'] = $this->Models->GetTimestamp();
+                $old_image = $data['m_user']['photo'];
+                if ( $old_image != "default.jpg" ){
+                    unlink(FCPATH . 'img/profile/' . $old_image);
+                }
+
+                $new_image = $this->upload->data('file_name');
+                $this->db->set('photo', $new_image);
             }else{
                 $data['name'] = $this->input->post('name');
                 $data['username'] = $this->input->post('username');

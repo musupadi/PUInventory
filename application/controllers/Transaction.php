@@ -94,7 +94,7 @@ class Transaction extends CI_Controller {
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         $data['transaction'] = $this->Models->AllItem();
         $data['warehouse'] = $this->Models->AllWarehouse();
-        $data['type'] = $this->Models->getAll('m_type');
+        $data['category'] = $this->Models->getAll('m_category');
         $data['title'] = 'Transaction';
         $this->load->view('dashboard/header',$data);
         $this->load->view('User_Transaction/side',$data);
@@ -130,7 +130,7 @@ class Transaction extends CI_Controller {
             $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
             $data['transaction'] = $this->Models->AllItem();
             $data['warehouse'] = $this->Models->AllWarehouse();
-            $data['type'] = $this->Models->getAll('m_type');
+            $data['category'] = $this->Models->getAll('m_category');
             $data['title'] = 'Transaction';
             $this->load->view('dashboard/header',$data);
             $this->load->view('User_Transaction/side',$data);

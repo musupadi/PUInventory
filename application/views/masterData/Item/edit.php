@@ -72,7 +72,7 @@
                     </div>
                     <div class="form-group">
                       <label for="text">Photo</label>
-                        <input type="file" name="photo" size="20" />
+                        <input type="file" name="photo" size="20" value="<?= $data->photo ?>">
                       <p class="text-red"><?php echo form_error('photo')?></p>
                     </div>
                   </div>
