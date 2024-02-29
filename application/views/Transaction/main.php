@@ -51,13 +51,13 @@
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->qty?></td>  
                   <td style="height: 50px; vertical-align: middle;">
                     <?php if ($data->status==0): ?>
-                      <button type="button" class="btn btn-block btn-warning">Requested</button>
+                      <button type="button" class="btn btn-block btn-warning" style="cursor: text">Requested</button>
                     <?php endif ?>
                     <?php if ($data->status==1): ?>
                       <?php echo $data->handover_date?>
                     <?php endif ?>
                     <?php if ($data->status==2): ?>
-                      <button type="button" class="btn btn-block btn-danger">Rejected</button>
+                      <button type="button" class="btn btn-block btn-danger" style="cursor: text">Rejected</button>
                     <?php endif ?>
                    
                   </td>  

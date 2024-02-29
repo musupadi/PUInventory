@@ -25,8 +25,8 @@
                 <thead>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Name</th>
-                  <th>Level</th>
+                  <th>Role Name</th>
+                  <th>Role Level</th>
                   <th style="width: 40px;">Action</th>
                 </tr>
                 </thead>
@@ -83,8 +83,8 @@
                 <tfoot>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Name</th>
-                  <th>Level</th>
+                  <th>Role Name</th>
+                  <th>Role Level</th>
                   <th style="width: 40px;">Action</th>
                 </tr>
                 </tfoot>

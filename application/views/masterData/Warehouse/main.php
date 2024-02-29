@@ -25,7 +25,7 @@
                 <thead>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Name</th>
+                  <th>Warehouse Name</th>
                   <th>Description</th>
                   <th style="width: 40px;">Action</th>
                 </tr>
@@ -56,7 +56,7 @@
                 <tfoot>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Name</th>
+                  <th>Warehouse Name</th>
                   <th>Description</th>
                   <th style="width: 40px;">Action</th>
                 </tr>
@@ -79,14 +79,14 @@
                     <div class="modal-body">
                       <div class="box-body">
                         <div class="form-group">
-                          <label for="text"><span style="color: red; margin-right: 3px">*</span>Name</label>
-                            <input type="text" class="form-control" name="name" placeholder="Name" required>
+                          <label for="text"><span style="color: red; margin-right: 3px">*</span>Warehouse Name</label>
+                            <input type="text" class="form-control" name="name" placeholder="Warehouse Name" required>
                           <p class="text-red"><?php echo form_error('name')?></p>
                         </div>
                         <div class="form-group">
                           <label for="text">Description</label>
-                            <input type="text" class="form-control" name="description" placeholder="Description" required>
-                          <p class="text-red"><?php echo form_error('description')?></p>
+                            <textarea class="form-control" id="description" rows="2" name="description" placeholder="Type a description"></textarea>
+                            <p style="text-align: right; margin-top: 5px"><span id="result"></span></p>
                         </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
@@ -100,4 +100,24 @@
       <!-- /.row -->
     </section>
     <!-- /.content -->
+
+    <script>
+      let description = document.getElementById('description');
+      let result = document.getElementById('result');
+      let limit = 255;
+      result.textContent = 0 + "/" + limit;
+ 
+      description.addEventListener('input', function(){
+        var textLength = description.value.length;
+        result.textContent = textLength + '/' + limit;
+
+        if ( textLength > limit ){
+          result.style.color = 'red';
+        } else {
+          result.style.color = 'white';
+        }
+
+      })
+
+    </script>
 

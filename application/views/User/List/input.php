@@ -20,8 +20,8 @@
                 <form role="form" action="<?php echo base_url('User/Postuser/')?>" method="post" >
                   <div class="box-body">
                     <div class="form-group">
-                      <label for="text"><span style="color: red; margin-right: 3px">*</span>Nama</label>
-                      <input type="text" class="form-control" name="name" placeholder="Nama">
+                      <label for="text"><span style="color: red; margin-right: 3px">*</span>Name</label>
+                      <input type="text" class="form-control" name="name" placeholder="Name">
                       <p class="text-red"><?php echo form_error('name')?></p>
                     </div>
                     <div class="form-group">
@@ -40,7 +40,7 @@
                       <p class="text-red"><?php echo form_error('email')?></p>
                     </div>
                     <div class="form-group">
-                        <label><span style="color: red; margin-right: 3px">*</span>Pilih Role</label>
+                        <label><span style="color: red; margin-right: 3px">*</span>Select Role</label>
                         <select class="form-control" name="id_role">
                           <?php foreach ($role as $data){ ?>
                               <option value="<?php echo $data->id?>"><?php echo $data->label ?></option>
@@ -48,7 +48,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                      <label for="text">Gambar</label>
+                      <label for="text">Photo</label>
                       <input type="file" name="gambar" size="20" />
                       <p class="text-red"><?php echo form_error('nama')?></p>
                     </div>

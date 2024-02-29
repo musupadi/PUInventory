@@ -119,7 +119,7 @@
                         </div>
                       <div class="form-group">
                         <label for="description"></span>Description</label>
-                          <textarea class="form-control" id="description" rows="2" name="description"></textarea>
+                          <textarea class="form-control" id="description" rows="2" name="description" placeholder="Type a description"></textarea>
                           <p style="text-align: right; margin-top: 5px"><span id="result"></span></p>
                       </div>
                       <div class="form-group" style="margin-top: -30px">
@@ -149,7 +149,7 @@
                         <p class="text-red"><?php echo form_error('serial_number')?></p>
                       </div>
                       <div class="form-group">
-                        <label for="text">Gambar</label>
+                        <label for="text">Photo</label>
                         <input type="file" name="photo" size="20" />
                         <p class="text-red"><?php echo form_error('photo')?></p>
                       </div> 

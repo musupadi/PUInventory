@@ -26,7 +26,7 @@
                 <thead>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Name</th>
+                  <th>Vendor Name</th>
                   <th style="width: 40px;">Action</th>
                 </tr>
                 </thead>
@@ -53,7 +53,7 @@
                 <tfoot>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Name</th>
+                  <th>Vendor Name</th>
                   <th style="width: 40px;">Action</th>
                 </tr>
                 </tfoot>

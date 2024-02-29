@@ -27,7 +27,7 @@
                 <thead>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Name</th>
+                  <th>Location Name</th>
                   <th>Floor </th>
                   <th style="width: 40px;">Action</th>
                 </tr>
@@ -85,7 +85,7 @@
                 <tfoot>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Name</th>
+                  <th>Location Name</th>
                   <th>Floor</th>
                   <th style="width: 40px;">Action</th>
                 </tr>

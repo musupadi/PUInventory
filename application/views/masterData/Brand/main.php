@@ -27,8 +27,8 @@
                 <thead>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Name</th>
-                  <th>Origin</th>
+                  <th>Brand Name</th>
+                  <th>Origin Name</th>
                   <th style="width: 40px;">Action</th>
                 </tr>
                 </thead>
@@ -85,8 +85,8 @@
                 <tfoot>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Name</th>
-                  <th>Origin</th>
+                  <th>Brand Name</th>
+                  <th>Origin Name</th>
                   <th style="width: 40px;">Action</th>
                 </tr>
                 </tfoot>

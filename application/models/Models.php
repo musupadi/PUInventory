@@ -76,7 +76,7 @@ class Models extends CI_Model {
         return $data;
     }
     
-    public function ItemWarehouse($id_warehouse){
+    public function ItemWarehouse($id_warehouse, $name_warehouse){
         $this->db->select('e.id,a.id as ItemName, a.name, b.label as type, a.asset_no, a.description, a.id_status, c.label as brand, d.label as vendor, a.warranty, a.serial_number, a.photo,e.qty,f.name as warehouse');
         $this->db->from('m_item as a');
         $this->db->join('m_category as b', 'a.id_category = b.id', 'left');

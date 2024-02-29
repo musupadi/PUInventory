@@ -20,7 +20,7 @@
             <div class="box-header">
               <h3 class="box-title">Stock Item Main Warehouse</h3>
             </div>
-            <a href="<?php echo base_url();?>Stock/AddItemStock/<?php echo $id_warehouse ?>" class="btn btn-success btn-sm" style="width: 130px; margin-left: 10px"><i class="fa fa-fw fa-plus"></i>Add Item</a>
+            <a href="<?php echo base_url();?>Stock/AddItemStock/<?= $id_warehouse ?>" class="btn btn-success btn-sm" style="width: 130px; margin-left: 10px"><i class="fa fa-fw fa-plus"></i>Add Item</a>
             <!-- /.box-header -->
            
             <!-- /.box-header -->
