@@ -24,7 +24,7 @@
                 <thead>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Name</th>
+                  <th>Warehouse Name</th>
                   <th>Description</th>
                   <th style="width: 40px;">Action</th>
                 </tr>
@@ -40,7 +40,7 @@
                   <td><?php echo $data->name?></td>
                   <td><?php echo $data->description?></td>
                   <td style="text-align: center;">
-                      <a href="<?= base_url('Stock/StockItem/' . $data->id); ?>" class="btn btn-info btn-sm" style="width: 130px; margin-left: 10px">Stock</a>
+                      <a href="<?= base_url('Stock/StockItem/' . $data->id . '/' . $data->name); ?>" class="btn btn-info btn-sm" style="width: 130px; margin-left: 10px">Stock</a>
                     </div>
                     </div>
                   </td>
@@ -50,7 +50,7 @@
                 <tfoot>
                 <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Name</th>
+                  <th>Warehouse Name</th>
                   <th>Description</th>
                   <th style="width: 40px;">Action</th>
                 </tr>

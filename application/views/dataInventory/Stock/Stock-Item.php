@@ -8,7 +8,7 @@
         </div>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-newspaper-o"></i>Stock</a></li>
-        <li class="active">Stock Item Main Warehouse</li>
+        <li class="active">Stock Item in <strong><?= preg_replace('/%20/', ' ', $warehouse_name) ?></strong></li>
       </ol>
     </section>
 
@@ -18,9 +18,9 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Stock Item Main Warehouse</h3>
+              <h3 class="box-title">Stock Item in <strong><?= preg_replace('/%20/', ' ', $warehouse_name) ?></strong></h3>
             </div>
-            <a href="<?php echo base_url();?>Stock/AddItemStock/<?= $id_warehouse ?>" class="btn btn-success btn-sm" style="width: 130px; margin-left: 10px"><i class="fa fa-fw fa-plus"></i>Add Item</a>
+            <a href="<?php echo base_url();?>Stock/AddItemStock/<?php echo $id_warehouse ?>" class="btn btn-success btn-sm" style="width: 130px; margin-left: 10px"><i class="fa fa-fw fa-plus"></i>Add Item</a>
             <!-- /.box-header -->
            
             <!-- /.box-header -->
@@ -34,8 +34,8 @@
                   <th>Category</th>
                   <th>Asset No</th>
                   <th>Description</th>
-                  <th>Category</th>
-                  <th>Warehouse</th>
+                  <th>Warranty</th>
+                  <th>Serial Number</th>
                   <th>Qty</th>
                   <th>Action</th>
                 </tr>
@@ -68,8 +68,8 @@
                   <th>Category</th>
                   <th>Asset No</th>
                   <th>Description</th>
-                  <th>Category</th>
-                  <th>Warehouse</th>
+                  <th>Warranty</th>
+                  <th>Serial Number</th>
                   <th>Qty</th>
                   <th>Action</th>
                 </tr>
