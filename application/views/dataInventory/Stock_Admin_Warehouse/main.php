@@ -41,7 +41,11 @@
                   <td><?php echo $data->name?></td>
                   <td><?php echo $data->description?></td>
                   <td style="text-align: center;">
+<<<<<<< HEAD
+                      <a href="<?= base_url('Stock/StockItem/' . $data->id); ?>" class="btn btn-info btn-sm" style="width: 130px; margin-left: 10px">Stock</a>
+=======
                       <a href="<?= base_url('Stock/StockItem/' . $data->id) ?>" class="btn btn-info btn-sm" style="width: 130px; margin-left: 10px">Stock</a>
+>>>>>>> 27666f7bd5b55df8cf4ca7d2fbf1cead503ada85
                     </div>
                     </div>
                   </td>

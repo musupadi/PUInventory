@@ -128,8 +128,9 @@ class Models extends CI_Model {
     }
 
     public function AllWarehouse(){
-        $this->db->select('id, name, description, created_at, created_by, updated_at, updated_by');
-        $this->db->from('m_warehouse');
+        $this->db->select('a.id, a.name, a.description, b.label as location, a.created_at, a.created_by, a.updated_at, a.updated_by');
+        $this->db->from('m_warehouse as a');
+        $this->db->join('m_location as b', 'a.id_location = b.id', 'left');
         $data = $this->db->get()->result();
         return $data;
     }
