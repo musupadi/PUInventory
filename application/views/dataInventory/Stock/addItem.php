@@ -6,6 +6,7 @@
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-newspaper-o"></i>Inventory</a></li>
         <li class="active">Item</li>
+        
       </ol>
     </section>
 
@@ -77,8 +78,7 @@
 
             <!-- INPUT -->
             <div class="modal modal-success fade" id="modal-success">
-            <?php echo form_open_multipart('Stock/AddEditItemStock/'.$id_warehouse)?>
-                <form role="form" action="<?php echo base_url('Stock/AddEditItemStock/'.$id_warehouse)?>" method="post" >
+            <?php echo form_open_multipart('Stock/AddEditItemStock/'.$id_warehouse . '/' . $warehouse_name)?>
                 <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">

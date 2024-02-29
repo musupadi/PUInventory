@@ -57,14 +57,16 @@ class Transaction extends CI_Controller {
                     $data['updated_at'] = $this->Models->GetTimestamp();
                     $this->Models->edit('tr_item','id',$this->input->post('id_edit'),$data);
 
-                    $data2['qty'] = $qty[0]->qty - $this->input->post('qty');   
+                    $data2['qty'] = $qty[0]->qty - $this->input->post('qty');
                     $data2['updated_by'] = $ID[0]->id;
                     $data2['updated_at'] = $this->Models->GetTimestamp();
                     $this->Models->edit('m_stock','id',$qty[0]->id,$data2);
                     
                     $data3['id_item'] = $this->input->post('id_item');   
                     $data3['id_warehouse'] = $this->input->post('id_warehouse');   
-                    $data3['description'] = 0;   
+                    $data3['description'] = 0;
+                    $data3['qty1'] = $qty[0]->qty;
+                    $data3['qty2'] = $qty[0]->qty - $this->input->post('qty');
                     $data3['update_by'] = $ID[0]->id;
                     $data3['update_at'] = $this->Models->GetTimestamp();
                     $this->Models->insert('m_log',$data3);

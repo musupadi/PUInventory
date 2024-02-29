@@ -20,7 +20,7 @@
             <div class="box-header">
               <h3 class="box-title">Stock Item in <strong><?= preg_replace('/%20/', ' ', $warehouse_name) ?></strong></h3>
             </div>
-            <a href="<?php echo base_url();?>Stock/AddItemStock/<?php echo $id_warehouse ?>" class="btn btn-success btn-sm" style="width: 130px; margin-left: 10px"><i class="fa fa-fw fa-plus"></i>Add Item</a>
+            <a href="<?php echo base_url();?>Stock/AddItemStock/<?=$id_warehouse ?>/<?= $warehouse_name ?>" class="btn btn-success btn-sm" style="width: 130px; margin-left: 10px"><i class="fa fa-fw fa-plus"></i>Add Item</a>
             <!-- /.box-header -->
            
             <!-- /.box-header -->
@@ -81,8 +81,7 @@
 
              <!-- INPUT -->
              <div class="modal modal-success fade" id="modal-stock">
-            <?php echo form_open_multipart('Stock/AddStockItem/' . $id_warehouse)?>
-                <form role="form" action="<?php echo base_url('Stock/AddStockItem/')?>" method="post" >
+            <?php echo form_open_multipart('Stock/AddStockItem/' . $id_warehouse . '/' . $warehouse_name)?>
                 <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">

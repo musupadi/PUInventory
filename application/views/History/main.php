@@ -37,7 +37,7 @@
                   <td><?php echo $id++?></td>
                   <td><?php echo $data->item_name?></td>
                   <td><?php echo $data->warehouse?></td>
-                  <td>-</td>
+                  <td><?php echo $data->qty1 ?></td>
                   <td><?php echo $data->qty2?></td>
                   <td class ="btn btn-success" style="margin:0 45%;">
                     <?php if ( $data->description == 1 ) : ?>

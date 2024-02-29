@@ -48,7 +48,7 @@
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->asset_no?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->description?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->warehouse_name?></td>
-                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->qty?></td>  
+                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->qty?></td>
                   <td style="height: 50px; vertical-align: middle;">
                     <?php if ($data->status==0): ?>
                       <button type="button" class="btn btn-block btn-warning" style="cursor: text">Requested</button>

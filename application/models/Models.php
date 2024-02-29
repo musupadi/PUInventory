@@ -195,13 +195,12 @@ class Models extends CI_Model {
         $this->db->join('m_item as c', 'a.id_item = c.id', 'left');
         $this->db->join('m_category as d', 'c.id_category = d.id', 'left');
         $this->db->join('m_warehouse as e', 'a.id_warehouse = e.id', 'left');
-       
         $data = $this->db->get()->result();
         return $data;
     }
 
     public function AllHistoryTransaction(){
-        $this->db->select('a.id,a.id_item,b.name as item_name ,c.name as warehouse,a.id_warehouse,a.description,a.qty1 a,qty2 ,a.created_at,a.created_by,a.update_at,a.update_by ');
+        $this->db->select('a.id,a.id_item,b.name as item_name ,c.name as warehouse,a.id_warehouse,a.description,a.qty1, a.qty2 ,a.created_at,a.created_by,a.update_at,a.update_by ');
         $this->db->from('m_log as a');
         $this->db->join('m_item as b', 'a.id_item = b.id', 'left');
         $this->db->join('m_warehouse as c', 'a.id_warehouse = c.id', 'left'); // Corrected join condition
