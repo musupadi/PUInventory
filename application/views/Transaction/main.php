@@ -54,7 +54,7 @@
                       <button type="button" class="btn btn-block btn-warning" style="cursor: text">Requested</button>
                     <?php endif ?>
                     <?php if ($data->status==1): ?>
-                      <?php echo $data->handover_date?>
+                      <?= date_format(date_create($data->handover_date),"d M Y") ?>
                     <?php endif ?>
                     <?php if ($data->status==2): ?>
                       <button type="button" class="btn btn-block btn-danger" style="cursor: text">Rejected</button>
