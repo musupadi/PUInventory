@@ -30,7 +30,7 @@
                     </div>
                     <div class="form-group">
                       <label for="text"><span style="color: red; margin-right: 3px">*</span>Username</label>
-                      <input type="text" class="form-control" name="username" placeholder="Username" value = "<?php echo $data->username?>" disabled>
+                      <input type="text" class="form-control" name="username" placeholder="Username" value = "<?php echo $data->username?>" readonly>
                       <p class="text-red"><?php echo form_error('username')?></p>
                     </div>
                     <div class="form-group">
