@@ -27,10 +27,9 @@
                 <th style="width: 10px;">#</th>
                   <th>Photo</th>
                   <th>Name</th>
-                  <th>Description</th>
+                  <th>Type</th>
                   <th>Asset No</th>
                   <th>Description</th>
-                  <th>Category</th>
                   <th>Warehouse</th>
                   <th>Qty</th>
                   <th style="width: 40px;">Action</th>
@@ -49,7 +48,6 @@
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->category?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->asset_no?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->description?></td>
-                  <td style="height: 50px; vertical-align: middle;"><?php echo $data->category?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->warehouse_name?></td>
                   <td style="height: 50px; vertical-align: middle;"><?php echo $data->qty?></td>  
                   <!-- <td style="height: 50px; vertical-align: middle;">
@@ -105,10 +103,9 @@
                   <th style="width: 10px;">#</th>
                   <th>Photo</th>
                   <th>Name</th>
-                  <th>Description</th>
+                  <th>Type</th>
                   <th>Asset No</th>
                   <th>Description</th>
-                  <th>Category</th>
                   <th>Warehouse</th>
                   <th>Qty</th>
                   <th style="width: 40px;">Action</th>

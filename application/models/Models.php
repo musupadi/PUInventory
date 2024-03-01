@@ -135,6 +135,14 @@ class Models extends CI_Model {
         return $data;
     }
 
+    public function RoleWarehouse(){
+        $this->db->select('a.id, a.id_user, b.name, a.created_at, a.created_by, a.updated_at, a.updated_by');
+        $this->db->from('role_warehouse as a');
+        $this->db->join('m_warehouse as b', 'a.id_warehouse = b.id', 'left');
+        $data = $this->db->get()->result();
+        return $data;
+    }
+
     public function AllType(){
         $this->db->select('id, label, created_at, created_by, updated_at, updated_by');
         $this->db->from('m_category');

@@ -115,7 +115,7 @@ class Stock extends CI_Controller {
     public function stockAdminWarehouse()
     {
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
-        $data['warehouse'] = $this->Models->AllWarehouse();
+        $data['role_warehouse'] = $this->Models->roleWarehouse();
         $data['type'] = $this->Models->getAll('m_category');
         $data['title'] = 'Stock';
         $this->load->view('dashboard/header',$data);

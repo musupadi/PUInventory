@@ -24,13 +24,14 @@
                   <div class="box-body">
                 
                         <div class="form-group">
+                        <input type="hidden" value="<?= $data->id ?>" name="id_user">
                       <label for="text"><span style="color: red; margin-right: 3px">*</span>Nama</label>
                       <input type="text" class="form-control" name="name" placeholder="Nama" value = "<?php echo $data->name?>">
                       <p class="text-red"><?php echo form_error('name')?></p>
                     </div>
-                    <div class="form-group">
-                      <label for="text"><span style="color: red; margin-right: 3px">*</span>Username</label>
-                      <input type="text" class="form-control" name="username" placeholder="Username" value = "<?php echo $data->username?>" disabled>
+                    <div class="form-group ">
+                      <label for="text"><span style="color: red; margin-right: 3px;">*</span>Username</label>
+                      <input type="text" class="form-control" name="username" placeholder="Username" value = "<?php echo $data->username?>" readonly>
                       <p class="text-red"><?php echo form_error('username')?></p>
                     </div>
                     <div class="form-group">
@@ -45,16 +46,19 @@
                     </div>
                     <div class="form-group">
                         <label><span style="color: red; margin-right: 3px">*</span>Pilih Role</label>
-                        <select class="form-control" name="id_role">
-                        <?php foreach ($role as $datas){
-
-                        ?>
-                            <option value="<?php echo $datas->id?>"><?php echo $datas->label ?></option>
-                        <?php }?>
+                        <select class="form-control" name="id_role" onchange="pilihlevel(this)">
+                        <?php foreach ($role as $datas) :?>
+                            <option name="option" value="<?php echo $datas->id?>"><?php echo $datas->label ?></option>
+                        <?php endforeach ?>
                         </select>
                     </div>
                     <?php }?>
-                    
+                    <div class="form-group" id="listwr" style="display: none">
+                      <label id="labelWarehouse" ><span style="color: red; margin-right: 3px">*</span>Pilih Warehouse</label>
+                      <select id="selectWarehouse" class="js-example-basic-multiple form-control" name="states[]" multiple="multiple">
+                        <option value="AL">Alabama</option>
+                      </select>
+                    </div>
                     <div class="form-group">
                       <label for="text">Gambar</label>
                       <input type="file" name="gambar" size="20" />
@@ -74,4 +78,21 @@
             <!--/.col (right) -->
           </div>
           <!-- /.row -->
-        </section>  
+        </section>
+
+<script>
+
+ let select = document.getElementById('listwr');
+
+ function pilihlevel(obj)
+{
+  var idlevel = obj.value;
+
+  if (idlevel == 3){
+    select.style.display = 'block';
+  } else {
+    select.style.display = 'none';
+  }
+}
+
+</script>

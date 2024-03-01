@@ -90,6 +90,7 @@ class User extends CI_Controller {
         if($this->form_validation->run() === FALSE){
             $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
             $data['role'] =$this->Models->getAll('m_role');
+            $data['warehouse'] =$this->Models->AllWarehouse();
             $data['users'] =$this->Models->getID('m_user','id',$id);
             $data['title'] = 'Edit';
             $this->load->view('dashboard/header',$data);
@@ -99,7 +100,6 @@ class User extends CI_Controller {
         }else{
             $config['upload_path']          = './img/profile/';
             $config['allowed_types']        = 'gif|jpg|png|jpeg';
-            $config[''];
             // $config['file_name']            = $this->id;
             // $config['overwrite']			= true;
             $config['max_size']             = 4096; // 1MB
@@ -124,8 +124,14 @@ class User extends CI_Controller {
                 $data['id_role '] = $this->input->post('id_role');
                 $data['updated_by'] = $ID[0]->id;
                 $data['updated_at'] = $this->Models->GetTimestamp();
+                $this->Models->edit('m_user','id',$id,$data);
+
+                $data2['id_user'] = $this->input->post('id_user');
+                $data2['id_warehouse'] = $this->input->post('id_warehouse');
+                $data2['created_by'] = $ID[0]->id;
+                $data2['created_at'] = $this->Models->GetTimestamp();
+                $this->Models->insert('role_warehouse', $data2);
             }
-            $this->Models->edit('m_user','id',$id,$data);
             $this->session->set_flashdata('pesan','<script>alert("Data berhasil disimpan")</script>');
             redirect(base_url('User'));
         }

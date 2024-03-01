@@ -33,13 +33,13 @@
                 <tbody>
                 <?php
                 $id = 1;
-                foreach ($warehouse as $data) {
+                foreach ($role_warehouse as $data) {
 
                 ?>
                 <tr>
                   <td><?php echo $id++?></td>
                   <td><?php echo $data->name?></td>
-                  <td><?php echo $data->description?></td>
+                  <td><?php echo $data->name?></td>
                   <td style="text-align: center;">
                       <a href="<?= base_url('Stock/StockItem/' . $data->id . '/' . $data->name); ?>" class="btn btn-info btn-sm" style="width: 130px; margin-left: 10px">Stock</a>
                     </div>
