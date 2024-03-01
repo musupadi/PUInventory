@@ -29,9 +29,9 @@
                       <input type="text" class="form-control" name="name" placeholder="Nama" value = "<?php echo $data->name?>">
                       <p class="text-red"><?php echo form_error('name')?></p>
                     </div>
-                    <div class="form-group ">
-                      <label for="text"><span style="color: red; margin-right: 3px;">*</span>Username</label>
-                      <input type="text" class="form-control" name="username" placeholder="Username" value = "<?php echo $data->username?>" readonly>
+                    <div class="form-group">
+                      <label for="text"><span style="color: red; margin-right: 3px">*</span>Username</label>
+                      <input type="text" class="form-control" name="username" placeholder="Username" value = "<?php echo $data->username?>" disabled>
                       <p class="text-red"><?php echo form_error('username')?></p>
                     </div>
                     <div class="form-group">
@@ -77,7 +77,6 @@
             </div>
             <!--/.col (right) -->
           </div>
-          <!-- /.row -->
         </section>
 
 <script>
