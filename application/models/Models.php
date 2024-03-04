@@ -57,13 +57,6 @@ class Models extends CI_Model {
         return $data;
     }
 
-    public function getLastIdUser(){
-        $this->db->select('last_insert_id(id) as id');
-        $this->db->from('m_user');
-        $data = $this->db->get()->result();
-        return $data;
-    }
-
     public function AllBrand(){
         $this->db->select('a.id, a.label as brand, b.label as origin, a.created_at, a.created_by, a.updated_at, a.updated_by');
         $this->db->from('m_brand as a');

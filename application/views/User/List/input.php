@@ -20,9 +20,7 @@
                   <div class="box-body">
                     <div class="form-group">
                       <label for="text"><span style="color: red; margin-right: 3px">*</span>Name</label>
-                          <?php $data_id = count($id_user) - 1 ?>
-                          <input type="hidden" value="<?= $id_user[$data_id]->id ?>" name="id_user" id="id_user" disabled>
-                      <input type="text" class="form-control" name="name" placeholder="Name">
+                        <input type="text" class="form-control" name="name" placeholder="Name">
                       <p class="text-red"><?php echo form_error('name')?></p>
                     </div>
                     <div class="form-group">

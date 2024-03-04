@@ -46,7 +46,6 @@ class User extends CI_Controller {
             $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
             $data['role'] = $this->Models->getAll('m_role');
             $data['warehouse'] =$this->Models->AllWarehouse();
-            $data['id_user'] = $this->Models->getLastIdUser();
             $data['title'] = 'New User';
             $this->load->view('dashboard/header',$data);
             $this->load->view('User/List/side',$data);
@@ -83,10 +82,10 @@ class User extends CI_Controller {
                 $data['updated_by'] = $id[0]->id;
             }
             $this->Models->insert('m_user',$data);
+            $id_user = $this->db->insert_id();
 
             if ( !empty($this->input->post('id_warehouse')) ){
-                // $data2['id_user'] = $this->input->post('id_user') + 1;
-                $data2['id_user'] = '';
+                $data2['id_user'] = $id_user;
                 $data2['id_warehouse'] = $this->input->post('id_warehouse');
                 $data2['created_by'] = $id[0]->id;
                 $data2['updated_by'] = $id[0]->id;
@@ -140,11 +139,26 @@ class User extends CI_Controller {
                 $this->Models->edit('m_user','id',$id,$data);
 
                 if ( !empty($this->input->post('id_user')) ){
-                    $data2['id_user'] = $this->input->post('id_user');
-                    $data2['id_warehouse'] = $this->input->post('id_warehouse');
-                    $data2['updated_by'] = $ID[0]->id;
-                    $data2['updated_at'] = $this->Models->GetTimestamp();
-                    $this->Models->edit('role_warehouse','id_user' , $this->input->post('id_user'), $data2);
+
+                    $this->db->where('id_user', $id);
+                    $query = $this->db->get('role_warehouse');
+
+                    if ($query->num_rows() > 0) {
+                            $data2['id_user'] = $this->input->post('id_user');
+                            $data2['id_warehouse'] = $this->input->post('id_warehouse');
+                            $data2['updated_by'] = $ID[0]->id;
+                            $data2['updated_at'] = $this->Models->GetTimestamp();
+                            $this->Models->edit('role_warehouse','id_user' , $this->input->post('id_user'), $data2);
+                        // foreach ($query->result() as $row) {
+                        //     // Process the retrieved data
+                        // }
+                    } else {
+                        $data2['id_user'] = $this->input->post('id_user');
+                        $data2['id_warehouse'] = $this->input->post('id_warehouse');
+                        $data2['updated_by'] = $ID[0]->id;
+                        $data2['updated_at'] = $this->Models->GetTimestamp();
+                        $this->Models->insert('role_warehouse', $data2);
+                    }
 
                 } else if (empty($this->input->post('id_user'))) {
                     $this->Models->delete('role_warehouse','id_user', $id);
