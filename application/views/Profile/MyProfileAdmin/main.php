@@ -29,15 +29,15 @@
                         <hr class="divider">
                             <i class="glyphicon glyphicon-envelope"></i> <?= $data->email ?>
                             <hr class="divider">
-                            <?php if ( $data->id_role == 3 ) : ?>
-                            <i class="fa fa-user"></i> Admin Warehouse
+                            <?php if ( $data->id_role == 2 ) : ?>
+                            <i class="fa fa-user"></i> Admin
                             <?php endif ;?>
                             <hr class="divider">
                           </h4>
                           <h5> Register Since <?=  date_format(date_create($data->created_at), 'd F Y') ?> </h5>
                         <!-- Split button -->
                         <div class="btn-group">
-                        <a href="<?= base_url('Home/EditProfileAdminWarehouse/' . $data->id); ?>" class="btn btn-primary">
+                        <a href="<?= base_url('User/EditAdmin/' . $data->id); ?>" class="btn btn-primary">
                           <i class="fa fa-fw fa-pencil"></i> Edit
                         </a> 
                         </div>

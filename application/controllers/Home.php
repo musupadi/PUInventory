@@ -146,6 +146,16 @@ class Home extends CI_Controller {
         $this->load->view('Profile/MyProfile/main',$data);
         $this->load->view('dashboard/footer');
     }
+    public function MyProfileAdmin()
+    {
+        $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
+        $data['Data'] = $this->Models->AllUser();
+        $data['title'] = 'My Profile';
+        $this->load->view('dashboard/header',$data);
+        $this->load->view('dashboard/side',$data);
+        $this->load->view('Profile/MyProfileAdmin/main',$data);
+        $this->load->view('dashboard/footer');
+    }
 
     public function MyProfileUser()
     {

@@ -62,15 +62,19 @@
             <li><a href="<?php echo base_url('Vendor/Brand')?>"><i class="fa fa-industry"></i>Brand</a></li>
           </ul>
         </li>
-        <li class="treeview active">
+        <li class="treeview">
+          <?php if ( $data->id_role == 1) : ?>
           <a href="#">
             <i class="fa fa-users"></i> <span>User Management</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
+          <?php endif ;?>
+         <?php if ( $data->id_role == 2 ) : ?>
+          <?php endif ;?>
           <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo base_url('User/Role')?>"><i class="fa fa-unlock-alt"></i>Role</a></li>
+            <li><a href="<?php echo base_url('User/Role')?>"><i class="fa fa-unlock-alt"></i>Role</a></li>
             <li><a href="<?php echo base_url('User')?>"><i class="fa fa-user"></i>User</a></li>
           </ul>
         </li>

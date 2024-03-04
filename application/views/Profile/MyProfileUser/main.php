@@ -18,7 +18,7 @@
                 <div class="row">
                   <?php foreach ( $user as $data ) : ?>
                     <div class="col-sm-6 col-md-4">
-                        <img src="<?= base_url(); ?>img/profile/<?= $data->photo ?>" alt="" class="img-rounded img-responsive" />
+                        <img src="<?= base_url(); ?>img/profile/<?= $data->photo ?>" alt="" class="img-rounded img-responsive img-bordered" />
                     </div>
                     <div class="col-sm-6 col-md-8"> 
                         <h4>
@@ -26,16 +26,18 @@
                         <!-- <small><cite title="San Francisco, USA">San Francisco, USA <i class="glyphicon glyphicon-map-marker">
                         </i></cite></small> -->
                         <h4>
+                        <hr class="divider">
                             <i class="glyphicon glyphicon-envelope"></i> <?= $data->email ?>
-                            <br />
+                            <hr class="divider">
                             <?php if ( $data->id_role == 4 ) : ?>
                             <i class="fa fa-user"></i> User
                             <?php endif ;?>
-                            <br />
-                            <i class="glyphicon glyphicon-gift"></i> <?= date('Y F d');  $data->created_at ?></h4>
+                            <hr class="divider">
+                          </h4>
+                          <h5> Register Since <?=  date_format(date_create($data->created_at), 'd F Y') ?> </h5>
                         <!-- Split button -->
                         <div class="btn-group">
-                        <a href="<?= base_url('Home/EditProfileUser/' . $data->id); ?>" class="btn btn-primary">
+                        <a href="<?= base_url('User/EditAdmin/' . $data->id); ?>" class="btn btn-primary">
                           <i class="fa fa-fw fa-pencil"></i> Edit
                         </a> 
                         </div>

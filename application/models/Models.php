@@ -200,7 +200,7 @@ class Models extends CI_Model {
     }
 
     public function AllHistoryTransaction(){
-        $this->db->select('a.id,a.id_item,b.name as item_name ,c.name as warehouse,a.id_warehouse,a.description,a.qty1, a.qty2 ,a.created_at,a.created_by,a.update_at,a.update_by ');
+        $this->db->select('a.id,a.id_item,b.name as item_name ,c.name as warehouse,a.id_warehouse,a.description,a.qty1, a.qty2 ,a.created_at,a.created_by,a.updated_at,a.updated_by ');
         $this->db->from('m_log as a');
         $this->db->join('m_item as b', 'a.id_item = b.id', 'left');
         $this->db->join('m_warehouse as c', 'a.id_warehouse = c.id', 'left'); // Corrected join condition
