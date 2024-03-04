@@ -24,6 +24,7 @@
                   <div class="box-body">
                 
                         <div class="form-group">
+                        <input type="hidden" value="<?= $data->id ?>" name="id_user" id="id_user" disabled>
                       <label for="text"><span style="color: red; margin-right: 3px">*</span>Nama</label>
                       <input type="text" class="form-control" name="name" placeholder="Nama" value = "<?php echo $data->name?>">
                       <p class="text-red"><?php echo form_error('name')?></p>
@@ -45,16 +46,21 @@
                     </div>
                     <div class="form-group">
                         <label><span style="color: red; margin-right: 3px">*</span>Pilih Role</label>
-                        <select class="form-control" name="id_role">
-                        <?php foreach ($role as $datas){
-
-                        ?>
-                            <option value="<?php echo $datas->id?>"><?php echo $datas->label ?></option>
-                        <?php }?>
+                        <select class="form-control" name="id_role" onchange="pilihlevel(this)">
+                        <?php foreach ($role as $datas) :?>
+                            <option name="option" value="<?php echo $datas->id?>"><?php echo $datas->label ?></option>
+                        <?php endforeach ?>
                         </select>
                     </div>
                     <?php }?>
-                    
+                    <div class="form-group" id="listwr" style="display: none">
+                        <label><span style="color: red; margin-right: 3px">*</span>Pilih Warehouse</label>
+                          <select class="form-control" name="id_warehouse" id="id_warehouse" disabled>
+                            <?php foreach ($warehouse as $dataWarehouse) :?>
+                                <option name="option" value="<?php echo $dataWarehouse->id?>"><?php echo $dataWarehouse->name ?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
                     <div class="form-group">
                       <label for="text">Gambar</label>
                       <input type="file" name="gambar" size="20" />
@@ -73,5 +79,27 @@
             </div>
             <!--/.col (right) -->
           </div>
-          <!-- /.row -->
-        </section>  
+        </section>
+
+<script>
+
+ let divSelect = document.getElementById('listwr');
+ let select = document.getElementById('id_warehouse');
+ let id_user = document.getElementById('id_user');
+
+ function pilihlevel(obj)
+{
+  var idlevel = obj.value;
+
+  if (idlevel == 3){
+    divSelect.style.display = 'block';
+    select.removeAttribute('disabled');
+    id_user.removeAttribute('disabled');
+  } else {
+    divSelect.style.display = 'none';
+    select.setAttribute('disabled', '')
+    id_user.setAttribute('disabled', '')
+  }
+}
+
+</script>

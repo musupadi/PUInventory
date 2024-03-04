@@ -89,7 +89,7 @@
         <?php if ($data->id_role == 3) : ?>
           <li class="active"><a href="<?php echo base_url("Home")?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
           <li class=""><a href="<?php echo base_url("Transaction/trAdminWarehouse")?>"><i class="fa fa-exchange"></i> <span>Transaction</span></a></li>
-          <li class=""><a href="<?php echo base_url("Stock/stockAdminWarehouse")?>"><i class="fa fa-list-alt"></i> <span>Stock</span></a></li>
+          <li class=""><a href="<?php echo base_url("Stock/stockAdminWarehouse/" . $data->id)?>"><i class="fa fa-list-alt"></i> <span>Stock</span></a></li>
           <li><a href="<?php echo base_url("Login/logout")?>"onclick="return confirm('are you going to logout?');"><i class="fa fa-user-times"></i> <span>Sign Out</span></a></li>
         <?php endif ?>
 
