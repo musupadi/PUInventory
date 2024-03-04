@@ -24,14 +24,14 @@
                   <div class="box-body">
                 
                         <div class="form-group">
-                        <input type="hidden" value="<?= $data->id ?>" name="id_user">
+                        <input type="hidden" value="<?= $data->id ?>" name="id_user" id="id_user" disabled>
                       <label for="text"><span style="color: red; margin-right: 3px">*</span>Nama</label>
                       <input type="text" class="form-control" name="name" placeholder="Nama" value = "<?php echo $data->name?>">
                       <p class="text-red"><?php echo form_error('name')?></p>
                     </div>
                     <div class="form-group">
                       <label for="text"><span style="color: red; margin-right: 3px">*</span>Username</label>
-                      <input type="text" class="form-control" name="username" placeholder="Username" value = "<?php echo $data->username?>" disabled>
+                      <input type="text" class="form-control" name="username" placeholder="Username" value = "<?php echo $data->username?>" readonly>
                       <p class="text-red"><?php echo form_error('username')?></p>
                     </div>
                     <div class="form-group">
@@ -54,10 +54,12 @@
                     </div>
                     <?php }?>
                     <div class="form-group" id="listwr" style="display: none">
-                      <label id="labelWarehouse" ><span style="color: red; margin-right: 3px">*</span>Pilih Warehouse</label>
-                      <select id="selectWarehouse" class="js-example-basic-multiple form-control" name="states[]" multiple="multiple">
-                        <option value="AL">Alabama</option>
-                      </select>
+                        <label><span style="color: red; margin-right: 3px">*</span>Pilih Warehouse</label>
+                          <select class="form-control" name="id_warehouse" id="id_warehouse" disabled>
+                            <?php foreach ($warehouse as $dataWarehouse) :?>
+                                <option name="option" value="<?php echo $dataWarehouse->id?>"><?php echo $dataWarehouse->name ?></option>
+                            <?php endforeach ?>
+                        </select>
                     </div>
                     <div class="form-group">
                       <label for="text">Gambar</label>
@@ -81,16 +83,22 @@
 
 <script>
 
- let select = document.getElementById('listwr');
+ let divSelect = document.getElementById('listwr');
+ let select = document.getElementById('id_warehouse');
+ let id_user = document.getElementById('id_user');
 
  function pilihlevel(obj)
 {
   var idlevel = obj.value;
 
   if (idlevel == 3){
-    select.style.display = 'block';
+    divSelect.style.display = 'block';
+    select.removeAttribute('disabled');
+    id_user.removeAttribute('disabled');
   } else {
-    select.style.display = 'none';
+    divSelect.style.display = 'none';
+    select.setAttribute('disabled', '')
+    id_user.setAttribute('disabled', '')
   }
 }
 

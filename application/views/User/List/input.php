@@ -7,7 +7,6 @@
         <li class="active">Input User</li>
       </ol>
     </section>
-
     <section class="content">
           <div class="row">
             <!-- left column -->
@@ -21,6 +20,8 @@
                   <div class="box-body">
                     <div class="form-group">
                       <label for="text"><span style="color: red; margin-right: 3px">*</span>Name</label>
+                          <?php $data_id = count($id_user) - 1 ?>
+                          <input type="hidden" value="<?= $id_user[$data_id]->id ?>" name="id_user" id="id_user" disabled>
                       <input type="text" class="form-control" name="name" placeholder="Name">
                       <p class="text-red"><?php echo form_error('name')?></p>
                     </div>
@@ -41,10 +42,18 @@
                     </div>
                     <div class="form-group">
                         <label><span style="color: red; margin-right: 3px">*</span>Select Role</label>
-                        <select class="form-control" name="id_role">
+                        <select class="form-control" name="id_role" onchange="pilihlevel(this)">
                           <?php foreach ($role as $data){ ?>
                               <option value="<?php echo $data->id?>"><?php echo $data->label ?></option>
                           <?php }?>
+                        </select>
+                    </div>
+                    <div class="form-group" id="listwr" style="display: none">
+                        <label><span style="color: red; margin-right: 3px">*</span>Pilih Warehouse</label>
+                          <select class="form-control" name="id_warehouse" id="id_warehouse" disabled>
+                            <?php foreach ($warehouse as $dataWarehouse) :?>
+                                <option name="option" value="<?php echo $dataWarehouse->id?>"><?php echo $dataWarehouse->name ?></option>
+                            <?php endforeach ?>
                         </select>
                     </div>
                     <div class="form-group">
@@ -66,4 +75,26 @@
             <!--/.col (right) -->
           </div>
           <!-- /.row -->
-        </section>  
+        </section>
+<script>
+
+let divSelect = document.getElementById('listwr');
+let select = document.getElementById('id_warehouse');
+let id_user = document.getElementById('id_user');
+
+function pilihlevel(obj)
+{
+ var idlevel = obj.value;
+
+ if (idlevel == 3){
+   divSelect.style.display = 'block';
+   select.removeAttribute('disabled');
+   id_user.removeAttribute('disabled');
+ } else {
+   divSelect.style.display = 'none';
+   select.setAttribute('disabled', '')
+   id_user.setAttribute('disabled', '')
+ }
+}
+
+</script>

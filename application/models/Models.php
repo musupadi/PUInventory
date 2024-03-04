@@ -57,6 +57,13 @@ class Models extends CI_Model {
         return $data;
     }
 
+    public function getLastIdUser(){
+        $this->db->select('last_insert_id(id) as id');
+        $this->db->from('m_user');
+        $data = $this->db->get()->result();
+        return $data;
+    }
+
     public function AllBrand(){
         $this->db->select('a.id, a.label as brand, b.label as origin, a.created_at, a.created_by, a.updated_at, a.updated_by');
         $this->db->from('m_brand as a');
@@ -135,10 +142,11 @@ class Models extends CI_Model {
         return $data;
     }
 
-    public function RoleWarehouse(){
+    public function RoleWarehouse($id_user){
         $this->db->select('a.id, a.id_user, b.name, a.created_at, a.created_by, a.updated_at, a.updated_by');
         $this->db->from('role_warehouse as a');
         $this->db->join('m_warehouse as b', 'a.id_warehouse = b.id', 'left');
+        $this->db->where('a.id_user', $id_user);
         $data = $this->db->get()->result();
         return $data;
     }
