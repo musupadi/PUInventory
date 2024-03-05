@@ -149,10 +149,10 @@
                         <p class="text-red"><?php echo form_error('serial_number')?></p>
                       </div>
                       <div class="form-group">
-                        <label for="text">Photo</label>
-                        <input type="file" name="photo" size="20" />
-                        <p class="text-red"><?php echo form_error('photo')?></p>
-                      </div> 
+                        <label for="file-upload" class="custom-file-upload">
+                          <i class="fa fa-cloud-upload"></i> Upload Photo</label>
+                        <input type="file" class="form-control" name="photo" size="20" id="file-upload">
+                      </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-outline">Save changes</button>

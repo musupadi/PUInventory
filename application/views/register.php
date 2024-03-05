@@ -25,38 +25,72 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <style>
+    .custom-file-upload {
+      border: 1px solid #ccc;
+      display: inline-block;
+      padding: 6px 12px;
+      cursor: pointer;
+      background-color: #f9f9f9;
+      color: #333;
+      border-radius: 4px;
+      font-family: Arial, sans-serif;
+    }
+
+    .custom-file-upload:hover {
+      background-color: #e9e9e9;
+    }
+
+    /* Hide the actual file input */
+    input[type="file"] {
+      display: none;
+    }
+  </style>
 </head>
 <body class="hold-transition register-page">
-<div class="register-box">
+<div class="register-box" style="margin-top: 40px">
   <div class="register-logo">
-    <a href="<?php echo base_url();?>asset/AdminLTE-2.4.18/index2.html"><b>New</b>Account</a>
+    <p><b>User</b> Registration</p>
   </div>
 
-  <div class="register-box-body">
-    <p class="login-box-msg">Register New Account</p>
+  <div class="register-box-body" style="border-radius: 7px; margin-bottom: 100px">
     <?php echo form_open_multipart('Login/register')?>
     <form action="<?php echo base_url('Login/register')?>" method="post">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" name = "username" placeholder="Username">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" name="name" placeholder="Name" id="name">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" name="password" placeholder="Password">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" name = "username" placeholder="Username" id="username">
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" placeholder="Password" id="password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" name="name" placeholder="Your Name">
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-      </div>
-      <div class="form-group has-feedback">
-        <input type="email" class="form-control" name = "email" placeholder="Email">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" name="email" placeholder="Email" id="email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
-      <div class="form-group">
-                      <label for="text">Photo Profile</label>
-                      <input type="file" name="gambar" size="20" />
-                      <p class="text-red"><?php echo form_error('nama')?></p>
-                    </div>
+      <div class="form-group has-feedback">
+        <label for="department">Department</label>
+        <input type="department" class="form-control" name="department" placeholder="Department" id="department">
+        <span class="glyphicon glyphicon-map-marker form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <label for="phone_number">Phone Number</label>
+        <input type="text" class="form-control" name="phone_number" placeholder="Phone Number" id="phone_number">
+        <span class="glyphicon glyphicon-earphone form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+          <label for="file-upload" class="custom-file-upload">
+            <i class="fa fa-cloud-upload"></i> Upload Photo Profile</label>
+          <input type="file" class="form-control" name="gambar" size="20" id="file-upload">
+      </div>
       <div class="row">
         <!-- /.col -->
         <div class="col-md-12">
@@ -65,11 +99,13 @@
         <!-- /.col -->
       </div>
     </form>
-
-    <a href="<?php echo base_url("login") ?>" class="text-center">Already have Account?</a>
+    <div class="login" style="text-align: center">
+      <a href="<?php echo base_url("login") ?>" class="text-center">Already have an Account?</a>
+    </div>
   </div>
   <!-- /.form-box -->
 </div>
+<div style="height: 15px"></div>
 <!-- /.register-box -->
 
 <!-- jQuery 3 -->

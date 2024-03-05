@@ -11,7 +11,6 @@ class Login extends CI_Controller {
         return [
             ['field' => 'username','label' => 'Username','rules' => 'required'],
             ['field' => 'password','label' => 'Password','rules' => 'required'],
-            ['field' => 'name','label' => 'Name','rules' => 'required'],
             ['field' => 'email','label' => 'Email','rules' => 'required'],
         ];
     }
@@ -43,7 +42,7 @@ class Login extends CI_Controller {
                 $this->session->set_userdata($data_session);
                     redirect('Home');
             }else{
-                $this->session->set_flashdata('pesan','<br>Email atau Password Salah');
+                $this->session->set_flashdata('pesan','Incorrect Email or Password');
                 redirect(base_url("Login"));
             }
         }
@@ -67,22 +66,34 @@ class Login extends CI_Controller {
 
             $this->load->library('upload', $config);
             if ($this->upload->do_upload('gambar')) {
+                $data['name'] = $this->input->post('name');
                 $data['username'] = $this->input->post('username');
                 $data['password'] = MD5($this->input->post('password'));
-                $data['name'] = $this->input->post('name');
                 $data['email'] = $this->input->post('email');
+                $data['department'] = $this->input->post('department');
+                $data['phone_number'] = $this->input->post('phone_number');
                 $data['id_role'] = 4;
                 $data['photo'] = $this->upload->data('file_name');
             }else{
+                $data['name'] = $this->input->post('name');
                 $data['username'] = $this->input->post('username');
                 $data['password'] = MD5($this->input->post('password'));
-                $data['name'] = $this->input->post('name');
                 $data['email'] = $this->input->post('email');
+                $data['department'] = $this->input->post('department');
+                $data['phone_number'] = $this->input->post('phone_number');
                 $data['id_role'] = 4;
                 $data['photo'] = 'logo.jpg';
             }
-            $this->Models->insert('m_user',$data);
-            $this->session->set_flashdata('pesan','<script>alert("Akun berhasil dibuat")</script>');
+
+            $this->db->where('username', $this->input->post('username'));
+            $query = $this->db->get('m_user');
+
+            if ($query->num_rows() > 0) {
+                $this->session->set_flashdata('pesan','<script>alert("Username already exists..")</script>');
+            } else {
+                $this->Models->insert('m_user',$data);
+                $this->session->set_flashdata('pesan','<script>alert("New user added successfully")</script>');
+            }
             redirect(base_url('Login'));
         }
     }

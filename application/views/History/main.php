@@ -25,6 +25,7 @@
                   <th>Qty Stock</th>
                   <th>Qty Now</th>
                   <th>Description</th>
+                  <th>Time</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -33,20 +34,19 @@
                 foreach ($history as $data) {
 
                 ?>
-                <tr>
-                  <td><?php echo $id++?></td>
-                  <td><?php echo $data->item_name?></td>
-                  <td><?php echo $data->warehouse?></td>
-                  <td><?php echo $data->qty1 ?></td>
-                  <td><?php echo $data->qty2?></td>
-                  <td class ="btn btn-success" style="margin:0 45%;">
+                <tr style="text-align: center">
+                  <td style="text-align: left"><?php echo $id++?></td>
+                  <td style="text-align: left"><?php echo $data->item_name?></td>
+                  <td style="text-align: left"><?php echo $data->warehouse?></td>
+                  <td style="text-align: left"><?php echo $data->qty1 ?></td>
+                  <td style="text-align: left"><?php echo $data->qty2?></td>
                     <?php if ( $data->description == 1 ) : ?>
-                    Masuk
+                      <td class="btn btn-success" style="font-size: 1.2rem; padding: 7px; margin-top: 3px; padding: 7px 11.5px">In</td>
                     <?php endif ;?>
                     <?php if ( $data->description == 0 ) : ?>
-                    Keluar
+                      <td class="btn btn-warning" style="font-size: 1.2rem; padding: 7px; margin-top: 3px">Out</td>
                     <?php endif ;?>
-                  </td>
+                    <td style="text-align: left"><?= date_format(date_create($data->created_at),"d M Y - H:i:s")?></td>
                 </tr>
                 <?php  } ?>
                 </tbody>
@@ -58,6 +58,7 @@
                   <th>Qty Stock</th>
                   <th>Qty Now</th>
                   <th>Description</th>
+                  <th>Time</th>
                 </tr>
                 </tfoot>
               </table>

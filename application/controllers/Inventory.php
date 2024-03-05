@@ -176,6 +176,10 @@ class Inventory extends CI_Controller {
             }
             
             $this->Models->insert('m_item',$insert);
+            // $id_item = $this->db->insert_id();
+
+            // $data['id_item']
+
             $this->session->set_flashdata('pesan','<script>alert("Data berhasil disimpan")</script>');
             redirect(base_url('Inventory/Item'));
         }

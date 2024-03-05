@@ -67,8 +67,8 @@ class Transaction extends CI_Controller {
                     $data3['description'] = 0;
                     $data3['qty1'] = $qty[0]->qty;
                     $data3['qty2'] = $qty[0]->qty - $this->input->post('qty');
-                    $data3['update_by'] = $ID[0]->id;
-                    $data3['update_at'] = $this->Models->GetTimestamp();
+                    $data3['updated_by'] = $ID[0]->id;
+                    $data3['updated_at'] = $this->Models->GetTimestamp();
                     $this->Models->insert('m_log',$data3);
     
                     $this->session->set_flashdata('pesan', '<script>alert("Data berhasil diubah")</script>');
@@ -148,8 +148,12 @@ class Transaction extends CI_Controller {
 
             $insert['id_user'] = $ID[0]->id;
             $insert['id_item'] = $this->input->post('id_item');
-            $insert['id_warehouse'] = $this->input->post('id_warehouse');;
-            $insert['status_handover'] = "0";
+            $insert['id_warehouse'] = $this->input->post('id_warehouse');
+            $insert['name'] = $this->input->post('name');
+            $insert['username'] = $this->input->post('username');
+            $insert['email'] = $this->input->post('email');
+            $insert['department'] = $this->input->post('department');
+            $insert['phone_number'] = $this->input->post('phone_number');
             $insert['image'] = "default.jpg";
             $insert['status'] = "0";
             $insert['qty'] = $this->input->post('qty');
@@ -159,6 +163,18 @@ class Transaction extends CI_Controller {
             $this->session->set_flashdata('pesan','<script>alert("Data berhasil disimpan")</script>');
             redirect(base_url('Transaction/userTransaction'));
         }
+    }
+
+    public function transactionDetail($username)
+    {
+        // $data['barang'] = $this->Models->getMyProduct($this->session->userdata('nama'));
+        $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
+        $data['detail'] = $this->Models->AllDetail($username);
+        $data['title'] = 'Transaction';
+        $this->load->view('dashboard/header',$data);
+        $this->load->view('Transaction/side',$data);
+        $this->load->view('Transaction/detail',$data);
+        $this->load->view('dashboard/footer');
     }
 
 }

@@ -75,12 +75,19 @@
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Input Warehouse</h4>
+                        <h4 class="modal-title">How much do you want to borrow?</h4>
                     </div>
                     <div class="modal-body">
                       <div class="box-body">
                         <div class="form-group">
                           <label for="text">Quantity</label>
+                            <?php foreach ($user as $data) : ?>
+                              <input type="hidden" class="form-control" name="name" value="<?= $data->name ?>">
+                              <input type="hidden" class="form-control" name="username" value="<?= $data->username ?>">
+                              <input type="hidden" class="form-control" name="email" value="<?= $data->email ?>">
+                              <input type="hidden" class="form-control" name="department" value="<?= $data->department ?>">
+                              <input type="hidden" class="form-control" name="phone_number" value="<?= $data->phone_number ?>">
+                            <?php endforeach ?>
                             <input type="hidden" class="form-control" name="id_item" id="id">
                             <input type="hidden" class="form-control" name="id_warehouse" id="id_warehouse">
                             <input type="number" class="form-control" name="qty" placeholder="Quantity" required>

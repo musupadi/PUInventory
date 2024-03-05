@@ -15,27 +15,37 @@
               <div class="box box-primary">
                 <!-- /.box-header -->
                 <!-- form start -->
-                <?php echo form_open_multipart('User/Postuser/')?>
-                <form role="form" action="<?php echo base_url('User/Postuser/')?>" method="post" >
+                <?php echo form_open_multipart('User/Postuser')?>
+                <form role="form" action="<?php echo base_url('User/Postuser')?>" method="post" >
                   <div class="box-body">
                     <div class="form-group">
-                      <label for="text"><span style="color: red; margin-right: 3px">*</span>Name</label>
-                        <input type="text" class="form-control" name="name" placeholder="Name">
+                      <label for="text"><span style="color: red; margin-right: 3px">*</span>Full Name</label>
+                        <input type="text" class="form-control" name="name" placeholder="Full Name" required>
                       <p class="text-red"><?php echo form_error('name')?></p>
                     </div>
                     <div class="form-group">
                       <label for="text"><span style="color: red; margin-right: 3px">*</span>Username</label>
-                      <input type="text" class="form-control" name="username" placeholder="Username">
+                      <input type="text" class="form-control" name="username" placeholder="Username" required>
                       <p class="text-red"><?php echo form_error('username')?></p>
                     </div>
                     <div class="form-group">
                       <label for="text"><span style="color: red; margin-right: 3px">*</span>Password</label>
-                      <input type="password" class="form-control" name="password" placeholder="Password">
+                      <input type="password" class="form-control" name="password" placeholder="Password" required>
                       <p class="text-red"><?php echo form_error('password')?></p>
                     </div>
                     <div class="form-group">
                       <label for="text"><span style="color: red; margin-right: 3px">*</span>Email</label>
-                      <input type="text" class="form-control" name="email" placeholder="Email">
+                      <input type="email" class="form-control" name="email" placeholder="Email" required>
+                      <p class="text-red"><?php echo form_error('email')?></p>
+                    </div>
+                    <div class="form-group">
+                      <label for="text"><span style="color: red; margin-right: 3px">*</span>Department</label>
+                      <input type="text" class="form-control" name="department" placeholder="Department" required>
+                      <p class="text-red"><?php echo form_error('department')?></p>
+                    </div>
+                    <div class="form-group">
+                      <label for="text"><span style="color: red; margin-right: 3px">*</span>Phone Number</label>
+                      <input type="number" class="form-control" name="phone_number" placeholder="Phone Number" required>
                       <p class="text-red"><?php echo form_error('email')?></p>
                     </div>
                     <div class="form-group">
@@ -55,9 +65,9 @@
                         </select>
                     </div>
                     <div class="form-group">
-                      <label for="text">Photo</label>
-                      <input type="file" name="gambar" size="20" />
-                      <p class="text-red"><?php echo form_error('nama')?></p>
+                        <label for="file-upload" class="custom-file-upload">
+                          <i class="fa fa-cloud-upload"></i> Upload Photo Profile</label>
+                        <input type="file" class="form-control" name="gambar" size="20" id="file-upload">
                     </div>
                   </div>
                   <!-- /.box-body -->

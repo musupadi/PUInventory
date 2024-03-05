@@ -43,6 +43,7 @@ class Models extends CI_Model {
     public function AllUser(){
         $this->db->select('a.id,a.name,a.username,a.email,b.label,a.photo,');
         $this->db->from('m_user as a');
+        $this->db->order_by('id', 'desc');
         $this->db->join('m_role as b','a.id_role = b.id','left');
         $data = $this->db->get()->result();
         return $data;
@@ -68,6 +69,7 @@ class Models extends CI_Model {
     public function AllItem(){
         $this->db->select('a.id, a.name, b.label as category, a.asset_no, a.description, a.id_status, c.label as brand, d.label as vendor,a.warranty, a.serial_number, a.photo');
         $this->db->from('m_item as a'); 
+        $this->db->order_by('id', 'desc');
         $this->db->join('m_category as b', 'a.id_category = b.id', 'left');
         $this->db->join('m_brand as c', 'a.id_brand = c.id', 'left'); // Corrected join condition
         $this->db->join('m_vendor as d', 'a.id_vendor = d.id', 'left');
@@ -112,17 +114,19 @@ class Models extends CI_Model {
     }
 
     public function AllAnnouncement(){
-        $this->db->select('a.id, a.title, b.label as category, a.description');
-        $this->db->from('m_announcement as a');
-        $this->db->join('m_category_announcement as b', 'a.id_category = b.id', 'left');
-        $this->db->where('a.id_status = 1');
+        $this->db->select('id, title, description, receiver, author, date, created_at');
+        $this->db->from('m_announcement');
+        $this->db->order_by('date', 'desc');
+        $this->db->where('id_status = 1');
         $data = $this->db->get()->result();
         return $data;
     }
 
-    public function AllAnnouncementCategory(){
-        $this->db->select('id, label as category, created_at, created_by, updated_at, updated_by');
-        $this->db->from('m_category_announcement');
+    public function moreInfoAnnouncement($id){
+        $this->db->select('id, title, description, receiver, author, date, created_at');
+        $this->db->from('m_announcement');
+        $this->db->where('id_status = 1');
+        $this->db->where('id', $id);
         $data = $this->db->get()->result();
         return $data;
     }
@@ -193,13 +197,23 @@ class Models extends CI_Model {
     function data_login($table,$where){
         return $this->db->get_where($table,$where);
     }
+    public function AllDetail($username){
+        $this->db->select('name, username, email, department, phone_number');
+        $this->db->from('tr_item');
+        $this->db->order_by('id', 'desc');
+        $this->db->where('username',$username);
+        $data = $this->db->get()->result();
+        return $data;
+    }
+
     public function AllTransaction(){
         $this->db->select('e.id as id_warehouse,c.id as id_item,b.id as id_user,b.name,c.name as item_name,
-        d.label as category,c.asset_no,c.description,c.warranty,
-        c.serial_number,c.photo,a.status_handover,a.handover_date,a.image,
+        d.label as category,c.asset_no,c.description,c.warranty,a.name,a.username,a.email,a.department,a.phone_number,
+        c.serial_number,c.photo,a.handover_date,a.image,
         a.status,a.created_at,a.created_by,a.updated_at,a.updated_by,a.qty,a.id,a.handover_date,
         e.name as warehouse_name');
         $this->db->from('tr_item as a');
+        $this->db->order_by('id', 'desc');
         $this->db->join('m_user as b', 'a.id_user = b.id', 'left');
         $this->db->join('m_item as c', 'a.id_item = c.id', 'left');
         $this->db->join('m_category as d', 'c.id_category = d.id', 'left');
@@ -211,6 +225,7 @@ class Models extends CI_Model {
     public function AllHistoryTransaction(){
         $this->db->select('a.id,a.id_item,b.name as item_name ,c.name as warehouse,a.id_warehouse,a.description,a.qty1, a.qty2 ,a.created_at,a.created_by,a.updated_at,a.updated_by ');
         $this->db->from('m_log as a');
+        $this->db->order_by('id', 'desc');
         $this->db->join('m_item as b', 'a.id_item = b.id', 'left');
         $this->db->join('m_warehouse as c', 'a.id_warehouse = c.id', 'left'); // Corrected join condition
         $data = $this->db->get()->result();

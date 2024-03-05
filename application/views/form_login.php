@@ -29,17 +29,18 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition login-page">
-  <div class="login-box">
+  <div class="login-box" style="margin-top: 100px">
+  <h1 style="text-align: center; margin-bottom: 25px"><b>Login</b> Account</h1>
+
   <!-- /.login-logo -->
-    <div class="login-box-body">
+    <div class="login-box-body" style="border-radius: 10px">
       <div class="box-header with-border">
-        <div class="login-logo">
-            <img class="profile-user-img img-responsive" src="<?php echo base_url()?>img/logo.jpg" alt="User profile picture">
+        <div>
+            <img class="img-responsive" src="<?php echo base_url()?>img/logo.jpg" alt="User profile picture" width="150px" style="margin: auto;">
         </div>
     </div>
     <div class="login-box-body">
       <div class="box-header with-border">
-      <p class="login-box-msg">Please Login</p>
       <form action="<?php echo base_url('Login/check_login')?>" method="post">
         <div class="form-group has-feedback">
           <input type="text" class="form-control" placeholder="Username" name="username">
@@ -59,7 +60,9 @@
           
           <!-- /.col -->
         </div>
-        <p><?php echo $this->session->flashdata('pesan'); ?></p>
+        <div class="center" style="text-align: center">
+          <p style="color: red; font-style: italic; margin-top: 10px"><?php echo $this->session->flashdata('pesan'); ?></p>
+        </div>
       </form>
       <div class="register" style="text-align: center">
         <a href="<?= base_url('Login/register')?>">Create an Account</a>

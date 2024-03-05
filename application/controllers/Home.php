@@ -41,6 +41,7 @@ class Home extends CI_Controller {
         $data['user'] = $this->Models->getID('m_user','username',$this->session->userdata('nama'));
         // $data['count_wallet'] = $this->Models->Count('wallet','status','Belum Diverifikasi');
         $data['title'] = 'Dashboard';
+        $data['announcement'] = $this->Models->allAnnouncement();
         $this->load->view('dashboard/header',$data);
         $this->load->view('dashboard/side',$data);
         $this->load->view('dashboard/main',$data);
@@ -346,6 +347,7 @@ class Home extends CI_Controller {
         $data['history'] = $this->Models->AllHistoryTransaction();
         $data['item'] = $this->Models->AllItem();
         $data['warehouse'] = $this->Models->AllWarehouse();
+        // $data['log'] = $this->Models->AllLog();
         $this->load->view('dashboard/header',$data);
         $this->load->view('History/side',$data);
         $this->load->view('History/main',$data);

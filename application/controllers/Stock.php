@@ -190,6 +190,12 @@ class Stock extends CI_Controller {
                 $this->load->view('dataInventory/Stock/side',$data2);
                 $this->load->view('dataInventory/Stock/Stock-Item',$data2);
                 $this->load->view('dashboard/footer');
+                $data3['id_item'] = $this->input->post('id');
+                $data3['id_warehouse'] = $id_warehouse;
+                $data3['qty1'] = $this->input->post('qty');
+                $data3['qty2'] = $this->input->post('qty');
+                $data3['description'] = 1;
+                $this->Models->insert('m_log',$data3);
             }
         }
         redirect(base_url('Stock/StockItem/'. $id_warehouse . '/' . $warehouse_name));

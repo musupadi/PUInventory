@@ -69,6 +69,85 @@
       box-sizing: content-box;
     }
 
+    /* Card Announcement */
+
+    .card-container{
+      border: 2px solid rgba(0,0,0,0.2);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    /* Upload File */
+    .custom-file-upload {
+      border: 1px solid #ccc;
+      display: inline-block;
+      padding: 6px 12px;
+      cursor: pointer;
+      background-color: #f9f9f9;
+      color: #333;
+      border-radius: 4px;
+      font-family: Arial, sans-serif;
+    }
+
+    .custom-file-upload:hover {
+      background-color: #e9e9e9;
+    }
+
+    /* Hide the actual file input */
+    input[type="file"] {
+      display: none;
+    }
+
+    /* Announcement Style */
+    .container-announcement{
+
+    }
+
+    .container-announcement .header{
+      text-align: center;
+    }
+
+    .container-announcement .header hr{
+      width: 12%;
+    }
+
+    .container-announcement main{
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .container-announcement main .card{
+      width: 20%;
+      text-align: center;
+      margin: 10px 15px;
+    }
+
+    .container-announcement main .card h3{
+      background-color: #D73841;
+      margin: 0;
+      padding: 15px 0;
+      color: white;
+      border-radius: 10px 10px 0 0;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2), -2px -2px 4px rgba(255, 255, 255, 0.2);
+    }
+
+    .container-announcement main .card .content-card{
+      border: 1px solid rgba(0,0,0,0.3);
+      border-radius: 0 0 10px 10px;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2), -2px -2px 4px rgba(255, 255, 255, 0.2);
+      padding: 0px 15px;
+      height: 200px;
+    }
+
+    .container-announcement main .card .content-card h4{
+      margin: 20px 0;
+    }
+
+    .container-announcement main .card .content-card a{
+      margin-bottom: 25px;
+    }
+
   </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">

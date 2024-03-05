@@ -73,6 +73,31 @@
         </div>
         <!-- ./col -->
       </div>
+
+
+      <div class="container-announcement">
+        <div class="header">
+          <h3>Announcement</h3>
+          <hr>
+        </div>
+        <main>
+
+        <?php foreach($announcement as $data) : ?>
+          <div class="card">
+            <h3><?= date_format(date_create($data->date),"d M Y")?></h3>
+            <div class="content-card">
+              <h4><?php echo $data->title?></h4>
+              <hr>
+              <a href="<?= base_url('Announcement/moreInfo/' . $data->id) ?>" class="btn btn-primary">More Info</a>
+            </div>
+          </div>
+        <?php endforeach ?>
+
+        </main>
+      </div>
+
+
+
       <!-- /.row -->
       <!-- Main row -->
      

@@ -20,7 +20,6 @@
 
                 ?>
                 <?php echo form_open_multipart('User/Edit/'.$data->id)?>
-                <form role="form" action="<?php echo base_url('User/Edit/'.$data->id)?>" method="post" >
                   <div class="box-body">
                 
                         <div class="form-group">
@@ -41,7 +40,17 @@
                     </div>
                     <div class="form-group">
                       <label for="text"><span style="color: red; margin-right: 3px">*</span>Email</label>
-                      <input type="text" class="form-control" name="email" placeholder="Email" value = "<?php echo $data->email?>">
+                      <input type="email" class="form-control" name="email" placeholder="Email" value="<?php echo $data->email?>" required>
+                      <p class="text-red"><?php echo form_error('email')?></p>
+                    </div>
+                    <div class="form-group">
+                      <label for="text"><span style="color: red; margin-right: 3px">*</span>Department</label>
+                      <input type="text" class="form-control" name="department" placeholder="Department" value="<?php echo $data->department?>" required>
+                      <p class="text-red"><?php echo form_error('department')?></p>
+                    </div>
+                    <div class="form-group">
+                      <label for="text"><span style="color: red; margin-right: 3px">*</span>Phone Number</label>
+                        <input type="number" class="form-control" name="phone_number" placeholder="Phone Number" value="<?php echo $data->phone_number?>" required>
                       <p class="text-red"><?php echo form_error('email')?></p>
                     </div>
                     <div class="form-group">
@@ -62,9 +71,9 @@
                         </select>
                     </div>
                     <div class="form-group">
-                      <label for="text">Gambar</label>
-                      <input type="file" name="gambar" size="20" />
-                      <p class="text-red"><?php echo form_error('nama')?></p>
+                        <label for="file-upload" class="custom-file-upload">
+                          <i class="fa fa-cloud-upload"></i> Change Profile Photo</label>
+                        <input type="file" class="form-control" name="photo" size="20" id="file-upload">
                     </div>
                   </div>
                   <!-- /.box-body -->

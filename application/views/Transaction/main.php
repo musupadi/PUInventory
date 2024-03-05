@@ -4,7 +4,7 @@
         Inventory
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-newspaper-o"></i>Inventory</a></li>
+        <li><a href="#"><i class="fa fa-newspaper-o"></i>Transaction</a></li>
         <li class="active">Transaction</li>
       </ol>
     </section>
@@ -32,6 +32,7 @@
                   <th>Qty</th>
                   <th>Handover Date</th>
                   <th style="width: 40px;">Action</th>
+                  <th>Borrower's details</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -59,8 +60,8 @@
                     <?php if ($data->status==2): ?>
                       <button type="button" class="btn btn-block btn-danger" style="cursor: text">Rejected</button>
                     <?php endif ?>
-                   
                   </td>  
+        
                   <!-- <td style="height: 50px; vertical-align: middle;">
                     <?php if ($data->status==0): ?>
                       <button type="button" class="btn btn-block btn-warning">Requested</button>
@@ -94,6 +95,7 @@
                     </div>
                     </div>
                   </td>
+                  <td style="text-align: center; vertical-align: middle;"><a href="<?= base_url('Transaction/transactionDetail/' . $data->username) ?>" class="btn btn-block btn-primary">Details</a></td>
                 </tr>
                 <?php  } ?>
                 </tbody>
@@ -109,6 +111,7 @@
                   <th>Qty</th>
                   <th>Handover Date</th>
                   <th style="width: 40px;">Action</th>
+                  <th>Borrower's details</th>
                 </tr>
                 </tfoot>
               </table>

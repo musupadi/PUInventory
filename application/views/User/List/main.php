@@ -37,7 +37,7 @@
 
                 ?>
                 <tr>
-                  <td><img class="profile-user-img img-responsive" src="<?php echo base_url()?>img/profile/<?php echo $data->photo?>" alt="User profile picture"></td>
+                  <td><img class="profile-user-img img-responsive" src="<?php echo base_url()?>img/profile/<?=$data->photo?>" alt="User profile picture"></td>
                   <td style="vertical-align: middle;"><?php echo $data->name?></td>
                   <td style="vertical-align: middle;"><?php echo $data->username?></td>
                   <td style="vertical-align: middle;"><?php echo $data->label?></td>
