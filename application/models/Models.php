@@ -40,6 +40,81 @@ class Models extends CI_Model {
         $query = "SELECT COUNT (*) AS c FROM $table";
         return $this->db->query($query)->result();
     }
+
+    public function itemOneMonth() {
+        // Define start and end dates for one month time limit
+        $startDate = date('Y-m-01'); // First day of current month
+        $endDate = date('Y-m-t'); // Last day of previous month
+        
+        // Construct SQL query using CodeIgniter Query Builder
+        $this->db->select('*');
+        $this->db->from('m_item'); // Replace 'your_table' with your table name
+        $this->db->where('created_at >=', $startDate);
+        $this->db->where('created_at <=', $endDate);
+        $query = $this->db->get();
+        
+        // Execute query and get result
+        $result = $query->result();
+        
+        return $result;
+    }
+
+    public function transactionInOut() {
+        // Define start and end dates for one month time limit
+        $startDate = date('Y-m-01'); // First day of current month
+        $endDate = date('Y-m-t'); // Last day of previous month
+        
+        // Construct SQL query using CodeIgniter Query Builder
+        $this->db->select('*');
+        $this->db->from('m_log'); // Replace 'your_table' with your table name
+        $this->db->where('created_at >=', $startDate);
+        $this->db->where('created_at <=', $endDate);
+        $query = $this->db->get();
+        
+        // Execute query and get result
+        $result = $query->result();
+        
+        return $result;
+    }
+
+    public function transactionIn() {
+        // Define start and end dates for one month time limit
+        $startDate = date('Y-m-01'); // First day of current month
+        $endDate = date('Y-m-t'); // Last day of previous month
+        
+        // Construct SQL query using CodeIgniter Query Builder
+        $this->db->select('*');
+        $this->db->from('m_log'); // Replace 'your_table' with your table name
+        $this->db->where('created_at >=', $startDate);
+        $this->db->where('created_at <=', $endDate);
+        $this->db->where('description', 1);
+        $query = $this->db->get();
+        
+        // Execute query and get result
+        $result = $query->result();
+        
+        return $result;
+    }
+
+    public function transactionOut() {
+        // Define start and end dates for one month time limit
+        $startDate = date('Y-m-01'); // First day of current month
+        $endDate = date('Y-m-t'); // Last day of previous month
+        
+        // Construct SQL query using CodeIgniter Query Builder
+        $this->db->select('*');
+        $this->db->from('m_log'); // Replace 'your_table' with your table name
+        $this->db->where('created_at >=', $startDate);
+        $this->db->where('created_at <=', $endDate);
+        $this->db->where('description', 0);
+        $query = $this->db->get();
+        
+        // Execute query and get result
+        $result = $query->result();
+        
+        return $result;
+    }
+    
     public function AllUser(){
         $this->db->select('a.id,a.name,a.username,a.email,b.label,a.photo,');
         $this->db->from('m_user as a');

@@ -145,7 +145,6 @@ class Transaction extends CI_Controller {
             $this->load->view('User_Transaction/main',$data);
             $this->load->view('dashboard/footer');
         }else{
-
             $insert['id_user'] = $ID[0]->id;
             $insert['id_item'] = $this->input->post('id_item');
             $insert['id_warehouse'] = $this->input->post('id_warehouse');

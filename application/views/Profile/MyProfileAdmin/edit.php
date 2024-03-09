@@ -44,6 +44,21 @@
                       <p class="text-red"><?php echo form_error('email')?></p>
                     </div>
                     <div class="form-group">
+                      <label for="text"><span style="color: red; margin-right: 3px">*</span>Email</label>
+                      <input type="text" class="form-control" name="email" placeholder="Email" value = "<?php echo $data->email?>">
+                      <p class="text-red"><?php echo form_error('email')?></p>
+                    </div>
+                    <div class="form-group">
+                      <label for="text"><span style="color: red; margin-right: 3px">*</span>Department</label>
+                      <input type="text" class="form-control" name="department" placeholder="Department" value = "<?php echo $data->department?>">
+                      <p class="text-red"><?php echo form_error('department')?></p>
+                    </div>
+                    <div class="form-group">
+                      <label for="text"><span style="color: red; margin-right: 3px">*</span>Phone Number</label>
+                      <input type="text" class="form-control" name="phone_number" placeholder="Phone Number" value = "<?php echo $data->phone_number?>">
+                      <p class="text-red"><?php echo form_error('phone_number')?></p>
+                    </div>
+                    <div class="form-group">
                         <label><span style="color: red; margin-right: 3px">*</span>Role Name</label>
                         <select class="form-control muted" name="id_role" >
                         <?php foreach ( $role as $datas ) : ?>
@@ -55,9 +70,9 @@
                         <?php } ?>
                     </div>
                     <div class="form-group">
-                      <label for="text">Gambar</label>
-                      <input type="file" name="gambar" size="20" />
-                      <p class="text-red"><?php echo form_error('nama')?></p>
+                        <label for="file-upload" class="custom-file-upload">
+                          <i class="fa fa-cloud-upload"></i> Update Profile Photo</label>
+                        <input type="file" class="form-control" name="photo" size="20" id="file-upload">
                     </div>
                   </div>
                   <!-- /.box-body -->

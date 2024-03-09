@@ -72,7 +72,7 @@
                     </div>
                     <div class="form-group">
                         <label for="file-upload" class="custom-file-upload">
-                          <i class="fa fa-cloud-upload"></i> Change Profile Photo</label>
+                          <i class="fa fa-cloud-upload"></i> Update Profile Photo</label>
                         <input type="file" class="form-control" name="photo" size="20" id="file-upload">
                     </div>
                   </div>

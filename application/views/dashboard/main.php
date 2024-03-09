@@ -7,7 +7,6 @@
         <li class="active">Dashboard</li>
       </ol>
     </section>
-
     <!-- Main content -->
     <section class="content">
       <!-- Small boxes (Stat box) -->
@@ -16,14 +15,18 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>150</h3>
+              <h3><?= count($item) ?></h3>
 
-              <p>New Orders</p>
+              <p>All Items</p>
             </div>
             <div class="icon">
-              <i class="ion ion-bag"></i>
+              <i class="ion ion-cube"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <?php if ( $user[0]->id_role == 1 || $user[0]->id_role == 2 ) { ?>
+              <a href="<?= base_url('inventory/item') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <?php } else { ?>
+              <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <?php } ?>
           </div>
         </div>
         <!-- ./col -->
@@ -31,14 +34,18 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
+              <h3><?= count($transactionInOut) ?></h3>
 
-              <p>Bounce Rate</p>
+              <p>Transaction In & Out</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <?php if ( $user[0]->id_role == 1 || $user[0]->id_role == 2 ) { ?>
+              <a href="<?= base_url('home/historyTransaction') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <?php } else { ?>
+              <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <?php } ?>
           </div>
         </div>
         <!-- ./col -->
@@ -46,14 +53,18 @@
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>44</h3>
+              <h3><?= count($transactionIn) ?></h3>
 
-              <p>User Registrations</p>
+              <p>Transaction In</p>
             </div>
             <div class="icon">
-              <i class="ion ion-person-add"></i>
+              <i class="fa fa-sign-in"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <?php if ( $user[0]->id_role == 1 || $user[0]->id_role == 2 ) { ?>
+              <a href="<?= base_url('home/historyTransaction') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <?php } else { ?>
+              <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <?php } ?>
           </div>
         </div>
         <!-- ./col -->
@@ -61,14 +72,18 @@
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
-              <h3>65</h3>
+              <h3><?= count($transactionOut) ?></h3>
 
-              <p>Unique Visitors</p>
+              <p>Transaction Out</p>
             </div>
             <div class="icon">
-              <i class="ion ion-pie-graph"></i>
+              <i class="fa fa-sign-out"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <?php if ( $user[0]->id_role == 1 || $user[0]->id_role == 2 ) { ?>
+              <a href="<?= base_url('home/historyTransaction') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <?php } else { ?>
+              <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <?php } ?>
           </div>
         </div>
         <!-- ./col -->
